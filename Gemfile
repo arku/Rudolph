@@ -2,11 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.2.0'
 
 gem 'mysql2'
-
-gem 'sass-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
 
@@ -32,6 +30,16 @@ gem 'factory_girl_rails', '~> 4.0'
 
 gem 'figaro'
 
+gem 'sass-rails', '~> 5.0.0'
+
+gem 'coffee-rails', '~> 4.0.1'
+
+gem 'compass-rails'
+
+gem 'foundation-rails'
+
 group :development do
   gem "letter_opener"
 end
+
+

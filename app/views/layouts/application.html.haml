@@ -2,11 +2,9 @@
 %html
   %head
     %title Rudolph
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Coustard"
 
-    %link{rel:"image_src", href:"assets/packpal_thumb.png"}
-    = csrf_meta_tags
+    %meta{charset: 'utf-8'}
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
     %meta{property: "og:type", content: "website"}
     %meta{property: "og:title", content: "Rudolph"}
     %meta{property: "og:description", content: ""}
@@ -18,10 +16,16 @@
     %meta{name: "description", content: ""}
     %meta{name: "keywords", content:""}
     %meta{name:"robots", content:"index"}
-    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
 
-%body
-  #contents
-    = yield
+    %link{rel:"image_src", href:"assets/packpal_thumb.png"}
 
-  = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Coustard"
+    = csrf_meta_tags
+
+  %body
+    #contents
+      = yield
+
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "vendor/modernizr"
