@@ -1,0 +1,10 @@
+= form_tag session_path(:person) do
+  = label_tag 'person[email]', 'Email'
+  = text_field_tag 'person[email]'
+  = label_tag 'person[password]', 'Password'
+  = password_field_tag 'person[password]'
+  .remember-me
+    = check_box_tag 'person[remember_me]'
+    = label_tag 'person[remember_me]', 'Remember me'
+  %button Sign in
+  = link_to "Forgot your password?", new_password_path(:person)

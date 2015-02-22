@@ -1,0 +1,23 @@
+#header-container.contain-to-grid
+  %nav#header.top-bar.medium-centered.large-centered{{data: {topbar: true}}, role: "navigation"}
+    %ul.title-area
+      %li.name
+        %h1= link_to 'Rudolph', root_path
+      %li.toggle-topbar.menu-icon= link_to 'Menu', '#'
+
+    %section.top-bar-section
+      %ul.right
+        %li= link_to 'About', '#'
+        - unless person_signed_in?
+          %li.has-dropdown
+            = link_to 'Login', '#'
+            %ul.dropdown
+              %li.regular-login= render 'shared/log_in_form'
+              %li.fb-login= image_tag 'fb-login.png'
+        - else
+          %li
+            .logged-user
+              .logged-user-pic= image_tag 'fife.jpg'
+              .logged-user-data
+                Flora Saramago
+                = link_to 'logout', destroy_person_session_path, class: 'logout'

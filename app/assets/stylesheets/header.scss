@@ -1,0 +1,114 @@
+#header-container, #header {
+  background-color: #00a39b;
+  background: -webkit-linear-gradient(#00a39b, #0f7d75);
+  background: -o-linear-gradient(#00a39b, #0f7d75);
+  background: -moz-linear-gradient(#00a39b, #0f7d75);
+  background: linear-gradient(#00a39b, #0f7d75);
+}
+
+.top-bar-section {
+  li {
+    min-width: 90px;
+  }
+
+  .dropdown {
+    background: rgba(68, 81, 81, 1);
+    opacity: 0.9;
+    padding: 0 20px 15px 20px;
+
+    .regular-login {
+      form {
+        margin:auto;
+
+        label {
+          background:transparent;
+          height: 17px;
+          margin: 10px 0 0 0;
+          padding: 0;
+        }
+
+        input[type=text], input[type=password] {
+          border-radius: 4px;
+          margin: -6px auto 20px auto;
+          width:163px;
+        }
+
+        .remember-me {
+          margin:auto;
+          vertical-align: top;
+          width:163px;
+
+          label {
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+          }
+
+          input[type=checkbox] {
+            margin: 0 !important;
+            top: -7px;
+            vertical-align: top;
+          }
+        }
+
+        button {
+          background: #00a39b;
+          border-radius: 4px;
+          float:right;
+        }
+
+        a {
+          float:right;
+          font-size: 11px;
+          line-height: 26px;
+          padding: 0;
+          vertical-align: top;
+        }
+      }
+    }
+
+    .fb-login {
+      margin-top:15px;
+    }
+  }
+
+  .logged-user {
+    .logged-user-pic {
+      border: 2px solid white;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 4px;
+      vertical-align: top;
+      width: 36px;
+
+      img {
+        vertical-align: middle;
+        width: 100%;
+      }
+    }
+
+    .logged-user-data {
+      color: white;
+      display: inline-block;
+      font-size:14px;
+      font-weight: bold;
+      height: 50px;
+      margin: 2px 0 0 4px;
+      vertical-align: top;
+
+      span {
+        vertical-align: top;
+      }
+
+      .logout {
+        color: #37D8D8;
+        display: block;
+        font-size:12px;
+        font-weight: normal;
+        line-height: 13px;
+        padding: 0;
+        text-decoration: underline;
+      }
+    }
+  }
+}
