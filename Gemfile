@@ -22,12 +22,6 @@ gem 'omniauth-facebook'
 
 gem 'haml'
 
-gem 'pry'
-
-gem 'rspec'
-
-gem 'factory_girl_rails', '~> 4.0'
-
 gem 'figaro'
 
 gem 'sass-rails', '~> 5.0.0'
@@ -42,4 +36,10 @@ group :development do
   gem "letter_opener"
 end
 
+group :development, :test do
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+end
 
+gem 'factory_girl_rails', :group => :test

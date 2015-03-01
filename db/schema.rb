@@ -13,37 +13,37 @@
 
 ActiveRecord::Schema.define(version: 20150219001045) do
 
-  create_table "exchanges", force: true do |t|
-    t.integer "group_id"
-    t.integer "giver_id"
-    t.integer "receiver_id"
+  create_table "exchanges", force: :cascade do |t|
+    t.integer "group_id",    limit: 4
+    t.integer "giver_id",    limit: 4
+    t.integer "receiver_id", limit: 4
   end
 
-  create_table "group_people", force: true do |t|
-    t.integer "group_id"
-    t.integer "person_id"
+  create_table "group_people", force: :cascade do |t|
+    t.integer "group_id",  limit: 4
+    t.integer "person_id", limit: 4
   end
 
-  create_table "groups", force: true do |t|
-    t.integer  "admin_id"
-    t.string   "name"
-    t.text     "description"
+  create_table "groups", force: :cascade do |t|
+    t.integer  "admin_id",    limit: 4
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
     t.datetime "date"
-    t.string   "location"
-    t.string   "price_range"
+    t.string   "location",    limit: 255
+    t.string   "price_range", limit: 255
   end
 
-  create_table "people", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "people", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
