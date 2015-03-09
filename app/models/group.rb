@@ -4,4 +4,6 @@ class Group < ActiveRecord::Base
   has_many :exchanges
 
   belongs_to :admin, class_name: 'Person', foreign_key: 'admin_id'
+
+  validates_presence_of :admin, :name
 end
