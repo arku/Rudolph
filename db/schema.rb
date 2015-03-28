@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219001045) do
+ActiveRecord::Schema.define(version: 20150315205504) do
 
   create_table "exchanges", force: :cascade do |t|
-    t.integer "group_id",    limit: 4
-    t.integer "giver_id",    limit: 4
-    t.integer "receiver_id", limit: 4
+    t.integer  "group_id",    limit: 4
+    t.integer  "giver_id",    limit: 4
+    t.integer  "receiver_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "group_people", force: :cascade do |t|
-    t.integer "group_id",  limit: 4
-    t.integer "person_id", limit: 4
+    t.integer  "group_id",   limit: 4
+    t.integer  "person_id",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -31,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150219001045) do
     t.datetime "date"
     t.string   "location",    limit: 255
     t.string   "price_range", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", force: :cascade do |t|
