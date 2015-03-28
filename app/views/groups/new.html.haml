@@ -1,0 +1,23 @@
+.row.full-width
+  %h1 New group
+  .box
+    = form_for @group do |f|
+      = hidden_field_tag 'group[admin_id]', current_person.id
+      .row.collapse
+        .large-8
+          = f.label :name, 'Name'
+          = f.text_field :name
+          = f.label :description, 'Description'
+          = f.text_area :description, rows: 5
+          = f.label :location, 'Location'
+          = f.text_field :location
+      .row
+        .large-12
+          .large-3.columns
+            = f.label :date, 'Date'
+            = f.text_field :date
+          .large-3.columns
+            = f.label :price_range, 'Price range'
+            = f.text_field :price_range
+          .large3.columns
+            = f.submit 'Criar'

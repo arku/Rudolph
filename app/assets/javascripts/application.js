@@ -17,3 +17,5 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$('#group_date').fdatepicker();
