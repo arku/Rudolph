@@ -13,11 +13,13 @@
             = link_to 'Login', '#'
             %ul.dropdown
               %li.regular-login= render 'shared/log_in_form'
-              %li.fb-login= image_tag 'fb-login.png'
+              %li.fb-login
+                = link_to '/people/auth/facebook' do
+                  = image_tag 'fb-login.png'
         - else
           %li
             .logged-user
-              .logged-user-pic= image_tag 'fife.jpg'
+              .logged-user-pic= image_tag current_person.image
               .logged-user-data
-                Flora Saramago
+                = current_person.name
                 = link_to 'logout', destroy_person_session_path, class: 'logout'

@@ -1,5 +1,5 @@
 Rudolph::Application.routes.draw do
-  devise_for :people
+  devise_for :people, controllers: { omniauth_callbacks: "omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,6 +7,9 @@ Rudolph::Application.routes.draw do
   root 'index#index'
 
   resources :groups
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

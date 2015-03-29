@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315205504) do
+ActiveRecord::Schema.define(version: 20150329182819) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 20150315205504) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "name",                   limit: 255
+    t.string   "image",                  limit: 255
+    t.string   "token",                  limit: 255
+    t.string   "expires_at",             limit: 255
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
