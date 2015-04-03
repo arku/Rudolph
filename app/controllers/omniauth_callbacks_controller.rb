@@ -2,6 +2,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
     user = Person.omniauth(request.env["omniauth.auth"])
+    
     if user.persisted?
       sign_in(:person, user)
       flash.notice = "Successfully signed in via #{request.env["omniauth.auth"].provider}!"
