@@ -22,4 +22,9 @@ describe Group do
     expect(group).to_not be_valid
   end
 
+  it 'always includes the admin in the group' do
+    group = Group.create(name: 'Group1', admin_id: 1)
+    expect(group.people).to include(Person.find(1))
+  end
+
 end
