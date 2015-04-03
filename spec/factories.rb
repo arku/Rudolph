@@ -108,82 +108,71 @@ FactoryGirl.define do
 
   # --------- GROUP PEOPLE --------- #
 
-  factory :group_person_1, class: GroupPerson do
-    id 1
-    group_id 1
-    person_id 1
-  end
 
   factory :group_person_2, class: GroupPerson do
-    id 2
+    id 3
     group_id 1
     person_id 2
   end
 
   factory :group_person_3, class: GroupPerson do
-    id 3
+    id 4
     group_id 1
     person_id 3
   end
 
   factory :group_person_4, class: GroupPerson do
-    id 4
+    id 5
     group_id 1
     person_id 4
   end
 
   factory :group_person_5, class: GroupPerson do
-    id 5
+    id 6
     group_id 1
     person_id 5
   end
 
   factory :group_person_6, class: GroupPerson do
-    id 6
+    id 7
     group_id 1
     person_id 6
   end
 
   factory :group_person_7, class: GroupPerson do
-    id 7
+    id 8
     group_id 1
     person_id 7
   end
 
   factory :group_person_8, class: GroupPerson do
-    id 8
+    id 9
     group_id 1
     person_id 8
   end
 
   factory :group_person_9, class: GroupPerson do
-    id 9
+    id 10
     group_id 1
     person_id 9
   end
 
   factory :group_person_10, class: GroupPerson do
-    id 10
+    id 11
     group_id 1
     person_id 10
   end
 
   factory :group_person_11, class: GroupPerson do
-    id 11
+    id 12
     group_id 1
     person_id 11
   end
 
   factory :group_person_12, class: GroupPerson do
-    id 12
+    id 13
     group_id 1
     person_id 12
-  end
-
-  factory :group_person_13, class: GroupPerson do
-    id 13
-    group_id 2
-    person_id 1
   end
 
   factory :group_person_14, class: GroupPerson do
