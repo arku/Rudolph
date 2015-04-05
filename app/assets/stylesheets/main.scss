@@ -1,5 +1,6 @@
 body {
-  background: #FFF image-url("halftone.png") repeat;
+  background: #FFF image-url("grain.png") repeat;
+  font-family: 'Avenir Next';
 
   li, a {
     background:transparent !important;
@@ -13,6 +14,7 @@ body {
   h1 {
     color: #fd284b;
     font-size: 22px;
+    font-family: 'Avenir Next';
   }
 
   #contents {
