@@ -1,1 +1,24 @@
-= @group.name
+.row.full-width
+  %h1= @group.name
+  .box.group-about
+    .info
+      .item 
+        .bold When
+        = @group.date
+      .item 
+        .bold Where
+        = @group.location
+      .item 
+        .bold Price range
+        = @group.price_range
+      .item 
+        .bold Description
+        = @group.description
+    .map
+      = image_tag 'fake_map.png'
+  %br
+  %h1 Members
+  - @group.people.each do |person|
+
+    = person.name
+    %br

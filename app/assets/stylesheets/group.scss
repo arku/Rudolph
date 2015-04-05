@@ -1,0 +1,23 @@
+.group-about {
+  overflow: hidden;
+
+  .info {
+    color: #8D8D8D;
+    display:inline-block;
+    float:left;
+    font-size: 17px;
+
+    .item {
+      margin-bottom:20px;
+
+      .bold {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .map {
+    display:inline-block;
+    float:right;
+  }
+}
