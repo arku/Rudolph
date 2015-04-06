@@ -1,19 +1,25 @@
-%h2= t('devise.invitations.edit.header')
+.row
+  %h1= t('devise.invitations.edit.header')
+  .box.large-5
+    = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
+      = devise_error_messages!
+      = f.hidden_field :invitation_token
 
-= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
-  = devise_error_messages!
-  = f.hidden_field :invitation_token
+      = f.label :name
+      = f.text_field :name
 
-  %p= f.label :password
-  %br
-  = f.password_field :password
+      = f.label :email
+      = f.text_field :email, {value: resource.email}
 
-  %p= f.label :password_confirmation
-  %br
-  = f.password_field :password_confirmation
+      = f.label :password
+      = f.password_field :password
 
-  %p= f.submit t("devise.invitations.edit.submit_button")
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
 
-.fb-login
-  = link_to '/people/auth/facebook' do
-    = image_tag 'fb-login.png'
+      = f.submit t("devise.invitations.edit.submit_button")
+
+  %h1 ...or
+  .fb-login
+    = link_to '/people/auth/facebook' do
+      = image_tag 'fb-login.png'
