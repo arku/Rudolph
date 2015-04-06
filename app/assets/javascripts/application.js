@@ -19,3 +19,9 @@
 $(function(){ $(document).foundation(); });
 
 $('#group_date').fdatepicker();
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('.alert-box').fadeOut();
+  }, 2000);
+});

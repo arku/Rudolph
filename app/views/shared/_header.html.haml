@@ -7,7 +7,6 @@
 
     %section.top-bar-section
       %ul.right
-        %li= link_to 'About', '#'
         - unless person_signed_in?
           %li.has-dropdown
             = link_to 'Login', '#'
