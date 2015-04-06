@@ -16,6 +16,8 @@ gem 'therubyracer'
 
 gem 'devise'
 
+gem 'devise_invitable'
+
 gem 'omniauth'
 
 gem 'omniauth-facebook'
@@ -31,6 +33,8 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'compass-rails'
 
 gem 'foundation-rails'
+
+gem "koala", "~> 1.11.0rc"
 
 group :development do
   gem "letter_opener"

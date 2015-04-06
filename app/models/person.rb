@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
@@ -21,4 +21,26 @@ class Person < ActiveRecord::Base
       user.save!
     end
   end
+
+  def apply_omniauth(auth)
+    dummy = Devise.friendly_token[0,20]
+
+    update_attributes(provider: auth.provider, 
+                      uid: auth.uid, 
+                      name: auth.info.name, 
+                      image: auth.info.image, 
+                      token: auth.credentials.token, 
+                      email: auth.info.email || email || "#{dummy}@rudolph.com",
+                      expires_at: Time.at(auth.credentials.expires_at),
+                      password: dummy)
+  end
+
+  def invited?
+    !invitation_token.nil? && invitation_accepted_at.nil?
+  end
+
+  def error_messages
+    errors.full_messages.join(' ,')
+  end
+
 end

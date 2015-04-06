@@ -1,16 +1,25 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
-    user = Person.omniauth(request.env["omniauth.auth"])
-    
-    if user.persisted?
-      sign_in(:person, user)
-      flash.notice = "Successfully signed in via #{request.env["omniauth.auth"].provider}!"
-      redirect_to root_path
+    auth = request.env["omniauth.auth"]
+
+    if session[:invitation_token]
+      person = Person.find_by_invitation_token(session[:invitation_token], true)
+      person.apply_omniauth(auth)
+      session[:invitation_token] = nil
     else
-      session["devise.user_attributes"] = user.attributes
-      redirect_to root_path
+      person = Person.omniauth(auth)
     end
+
+    if person.persisted?
+      person.accept_invitation! if person.invited? 
+      sign_in(:person, person)
+      flash.notice = "Successfully signed in via #{request.env["omniauth.auth"].provider}!"
+    else
+      session["devise.user_attributes"] = person.attributes  
+    end
+
+    redirect_to root_path
   end
 
   alias_method :facebook, :all

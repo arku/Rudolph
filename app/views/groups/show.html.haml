@@ -17,8 +17,27 @@
     .map
       = image_tag 'fake_map.png'
   %br
-  %h1 Members
-  - @group.people.each do |person|
+  .section-header
+    %h1 Members
+    .action
+      = link_to '+ Add members', 'javascript:;', onclick:"$('.invitation-box').slideToggle()"
+  .box.invitation-box
+    .success.hidden
+      .success-title The following invitations were sent successfully:
+      .success-list
+    .error.hidden
+      .error-title The following invitations could not be sent:
+      .error-list
+    = form_tag send_invitations_path, method: :post, remote: true do
+      = hidden_field_tag :group_id, @group.id
+      .invite-fields
+        .invite-friend
+          = label_tag 'friends[]', 'Email'
+          = text_field_tag 'friends[]'
+      .large3.columns
+        .add-more= link_to '+ Add more', 'javascript:;'
+        = submit_tag 'Send invitations'
 
-    = person.name
+  - @group.people.each do |person|
+    = person.name || person.email
     %br

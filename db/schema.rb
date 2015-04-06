@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329182819) do
+ActiveRecord::Schema.define(version: 20150403222802) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150329182819) do
 
   create_table "people", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: ""
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -58,9 +58,20 @@ ActiveRecord::Schema.define(version: 20150329182819) do
     t.string   "image",                  limit: 255
     t.string   "token",                  limit: 255
     t.string   "expires_at",             limit: 255
+    t.string   "invitation_token",       limit: 255
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit",       limit: 4
+    t.integer  "invited_by_id",          limit: 4
+    t.string   "invited_by_type",        limit: 255
+    t.integer  "invitations_count",      limit: 4,   default: 0
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
+  add_index "people", ["invitation_token"], name: "index_people_on_invitation_token", unique: true, using: :btree
+  add_index "people", ["invitations_count"], name: "index_people_on_invitations_count", using: :btree
+  add_index "people", ["invited_by_id"], name: "index_people_on_invited_by_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
 
 end

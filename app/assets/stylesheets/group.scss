@@ -21,3 +21,68 @@
     float:right;
   }
 }
+
+.section-header {
+  overflow: hidden;
+
+  h1 {
+    display:inline;
+    float:left;
+  }
+
+  .action {
+    color:#00a39b;
+    cursor: pointer;
+    display:inline;
+    float:right;
+    font-size: 15px;
+    line-height: 35px;
+    text-decoration: underline;
+  }
+}
+
+.invitation-box {
+  display:none;
+
+  .invite-friend {
+    float: left;
+    margin-right: 20px;
+    width: 220px;
+  }
+
+  .add-more {
+    display:inline;
+    float:left;
+  }
+
+  input[type=submit] {
+    display:inline;
+    float:right;
+  }
+
+  .error {
+    color:#ba4247;
+    margin-bottom: 25px;
+
+    .error-title {
+      font-weight: bold;
+    }
+
+    .error-list {
+      font-size: 14px;
+    }
+  }
+
+  .success {
+    color:#608b32;
+    margin-bottom: 25px;
+
+    .success-title {
+      font-weight: bold;
+    }
+
+    .success-list {
+      font-size: 14px;
+    }
+  }
+}

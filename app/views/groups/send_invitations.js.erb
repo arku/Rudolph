@@ -1,0 +1,14 @@
+<% if @errors.any? %>
+  <% @errors.each do |email, error| %>
+    $('.error-list').append("<span><%= email %>: <%= error %></span><br />");
+  <% end %>
+  $('.error').removeClass('hidden').fadeIn();
+<% end %>
+
+<% if @success.any? %>
+  <% @success.each do |email| %>
+    $('input').filter(function() { return this.value == "<%= email %>" }).parent('.invite-friend').remove();
+    $('.success-list').append("<span><%= email %></span><br />");
+  <% end %>
+  $('.success').removeClass('hidden').fadeIn();
+<% end %>
