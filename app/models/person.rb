@@ -39,6 +39,14 @@ class Person < ActiveRecord::Base
     !invitation_token.nil? && invitation_accepted_at.nil?
   end
 
+  def photo_by_size(size)
+    uid ? "http://graph.facebook.com/#{uid}/picture?type=#{size}" : 'http://profile.ak.fbcdn.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
+  end
+
+  def status
+    invited? ? 'pending' : 'active'
+  end
+
   def error_messages
     errors.full_messages.join(' ,')
   end

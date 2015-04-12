@@ -1,7 +1,7 @@
 body {
   background: #FFF image-url("grain.png") repeat;
   font-family: 'Avenir Next';
-  margin-bottom:100px;
+  margin-bottom:1000px;
 
   li, a {
     background:transparent !important;
@@ -10,6 +10,7 @@ body {
   .box {
     background-color: white;
     overflow: hidden;
+    margin-bottom: 25px;
     padding: 20px;
   }
 

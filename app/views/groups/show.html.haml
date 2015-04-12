@@ -38,6 +38,9 @@
         .add-more= link_to '+ Add more', 'javascript:;'
         = submit_tag 'Send invitations'
 
-  - @group.people.each do |person|
-    = person.name || person.email
-    %br
+  .members
+    - @group.people.each do |person|
+      .member
+        .avatar= image_tag person.photo_by_size('normal')
+        .name= person.name || person.email
+        .status{class: "#{person.status}"}= person.status.capitalize
