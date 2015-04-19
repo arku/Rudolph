@@ -16,11 +16,14 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    group_data = group_params
+    group_data[:date] = Date.strptime(group_params[:date], '%m/%d/%Y')
+
+    @group = Group.new(group_data)
 
     if @group.save
       flash[:success] = "Successfully created group #{@group.name}"
-      redirect_to groups_path
+      redirect_to group_path(@group)
     else
       flash[:error] = e.message
       render 'new'
