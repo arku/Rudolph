@@ -40,7 +40,4 @@
 
   .members
     - @group.people.each do |person|
-      .member
-        .avatar= image_tag person.photo_by_size('normal')
-        .name= person.name || person.email
-        .status{class: "#{person.status}"}= person.status.capitalize
+      = render partial: 'groups/member', locals: {person: person}

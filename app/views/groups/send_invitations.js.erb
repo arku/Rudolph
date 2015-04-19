@@ -9,6 +9,10 @@
   <% @success.each do |email| %>
     $('input').filter(function() { return this.value == "<%= email %>" }).parent('.invite-friend').remove();
     $('.success-list').append("<span><%= email %></span><br />");
+    <% person = Person.where(email: email).first %>
+    <% if person %>
+      $('.members').append("<%= j render(partial:'groups/member', locals: {person: person}) %>");
+    <% end %>
   <% end %>
   $('.success').removeClass('hidden').fadeIn();
 <% end %>

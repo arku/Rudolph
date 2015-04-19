@@ -1,0 +1,4 @@
+.member
+  .avatar= image_tag person.photo_by_size('normal')
+  .name= person.name || person.email.split('@').first[0..20]
+  .status{class: "#{person.status}"}= person.status.capitalize
