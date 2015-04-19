@@ -32,14 +32,18 @@ class GroupsController < ApplicationController
     @success = []
 
     params[:friends].each do |email|
-      person = Person.invite!(email: email, invited_by_id: current_person.id)
+      person = Person.where(email: email).first
 
-      if person.valid?
-        group_person = GroupPerson.create(group_id: params[:group_id], person_id: person.id)
-        
-        group_person.valid? ? @success << email :  @errors[email] = group_person.error_messages
-      else
-        @errors[email] = person.error_messages
+      if !person || person.can_be_invited?
+        person = Person.invite!(email: email, invited_by_id: current_person.id)
+
+        if person.valid?
+          group_person = GroupPerson.create(group_id: params[:group_id], person_id: person.id)
+          
+          group_person.valid? ? @success << email :  @errors[email] = group_person.error_messages
+        else
+          @errors[email] = person.error_messages
+        end
       end
     end
   end

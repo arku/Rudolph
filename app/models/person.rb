@@ -47,6 +47,10 @@ class Person < ActiveRecord::Base
     invited? ? 'pending' : 'active'
   end
 
+  def can_be_invited?
+    Time.now - invitation_created_at > 1.minute
+  end
+
   def error_messages
     errors.full_messages.join(' ,')
   end
