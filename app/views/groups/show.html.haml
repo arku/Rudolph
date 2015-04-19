@@ -1,6 +1,6 @@
 .row.full-width
   %h1= @group.name
-  - if current_person.is_admin?(@group) && @draw_pending
+  - if @is_admin && @draw_pending
     .box
       = button_to "Draw names now", drawing_path, disabled: !@group.can_draw_names?
       - if @group.can_draw_names?
@@ -21,6 +21,10 @@
       .item 
         .bold Description
         = @group.description
+      - if @is_admin
+        .item
+          .bold Admin actions
+          = link_to 'Edit group info', edit_group_path(@group)
     .map
       = image_tag 'fake_map.png'
   %br

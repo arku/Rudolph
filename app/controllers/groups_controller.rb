@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @draw_pending = @group.draw_pending?
+    @is_admin = current_person.is_admin?(@group)
   end
 
   def new
@@ -28,6 +29,22 @@ class GroupsController < ApplicationController
     else
       flash[:error] = e.message
       render 'new'
+    end
+  end
+
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def update
+    @group = Group.find(params[:id])
+
+    if @group.update(group_params)
+      flash[:success] = "Successfully updated group #{@group.name}"
+      redirect_to group_path(@group)
+    else
+      flash[:error] = e.message
+      render 'edit'
     end
   end
 
