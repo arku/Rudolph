@@ -31,6 +31,9 @@ class GroupsController < ApplicationController
     end
   end
 
+  def drawing
+  end
+
   def send_invitations
     @errors = {}
     @success = []

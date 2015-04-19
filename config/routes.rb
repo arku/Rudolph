@@ -12,6 +12,7 @@ Rudolph::Application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   post 'send-invitations', to: 'groups#send_invitations', as: 'send_invitations'
+  post 'drawing', to: 'groups#drawing'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

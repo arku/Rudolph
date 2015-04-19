@@ -17,4 +17,16 @@ class Group < ActiveRecord::Base
     GroupPerson.create(group_id: id, person_id: person.id)
   end
 
+  def can_draw_names?
+    people.select{|p| p.status == 'pending'}.empty?
+  end
+
+  def draw_pending?
+    status == 0
+  end
+
+  def draw_done?
+    status == 1
+  end
+
 end
