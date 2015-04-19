@@ -82,6 +82,22 @@ FactoryGirl.define do
     password 'colleaguepassword'
   end
 
+  factory :pending_person, class: Person do
+    id 14
+    email 'pending@rudolph.com'
+    password 'pendingpassword'
+    invitation_token 'abcd1234'
+    invitation_accepted_at nil
+  end
+
+  factory :invitation_accepted_person, class: Person do
+    id 15
+    email 'accepted@rudolph.com'
+    password 'acceptedpassword'
+    invitation_token nil
+    invitation_accepted_at Time.now
+  end
+
 
   # --------- GROUPS --------- #
 
