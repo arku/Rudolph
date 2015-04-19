@@ -7,17 +7,26 @@ body {
     background:transparent !important;
   }
 
+  a {
+    text-decoration: underline;
+  }
+
   .box {
     background-color: white;
     overflow: hidden;
     margin-bottom: 25px;
     padding: 20px;
+    border: 1px solid #DAD3B6;
   }
 
   h1 {
     color: #fd284b;
     font-size: 22px;
     font-family: 'Avenir Next';
+
+    a {
+      text-decoration: none;
+    }
   }
 
   #contents {
@@ -26,5 +35,26 @@ body {
 
   .hidden {
     display:none;
+  }
+
+  input[type=submit] {
+    background-color: #00a39b;
+    background: -webkit-linear-gradient(#00a39b, #0f7d75);
+    background: -o-linear-gradient(#00a39b, #0f7d75);
+    background: -moz-linear-gradient(#00a39b, #0f7d75);
+    background: linear-gradient(#00a39b, #0f7d75);
+    color: white;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: Avenir;
+    padding: 7px 15px;
+  }
+
+  input[type=submit]:disabled {
+    background-color: #00a39b;
+    background: -webkit-linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
+    background: -o-linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
+    background: -moz-linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
+    background: linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
   }
 }

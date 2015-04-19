@@ -1,12 +1,13 @@
 .row.full-width
   %h1= @group.name
   - if @is_admin && @draw_pending
-    .box
+    .box.group-draw
       = button_to "Draw names now", drawing_path, disabled: !@group.can_draw_names?
-      - if @group.can_draw_names?
-        Remember: you cannot invite any more people to the group after the names are drawn.
-      - else
-        The drawing can only start after everyone who was invited accepts the invitation.
+      .draw-notice
+        - if @group.can_draw_names?
+          Remember: you cannot invite any more people to the group after the names are drawn.
+        - else
+          The drawing can only start after everyone who was invited accepts the invitation.
   .box.group-about
     .info
       .item 
