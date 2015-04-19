@@ -120,15 +120,42 @@
     }
 
     .status {
-      font-size: 12px;
+      display: inline;
+      font-size: 14px;
     }
 
     .active {
-      color:#6EBA1E;
+      color: #6EBA1E;
     }
 
     .pending {
-      color:#ba4247;
+      color: #ba4247;
+    }
+
+    .edit {
+      display: inline;
+      font-size: 12px;
+    }
+
+    .edit-member {
+      box-shadow: 1px 0px 10px #C8C8C8;
+      display: none;
+      margin: auto;
+      padding: 10px;
+      position: absolute;
+      width: 150px;
+
+      p {
+        margin-bottom: 4px;
+
+        a {
+          font-size: 13px;
+        }
+
+        .red {
+          color: #ba4247;
+        }
+      }
     }
   }
 }

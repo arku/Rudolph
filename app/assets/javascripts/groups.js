@@ -4,3 +4,15 @@ $('.add-more').click(function() {
   clone.find('input[type=text]').val('');
   clone.insertAfter(last_field);
 });
+
+$('.edit').find('a').click(function() {
+  $(this).closest('.member').find('.edit-member').slideToggle();
+});
+
+$('body').click(function(event) {
+  target = $(event.target);
+  
+  if (!target.hasClass('edit') && !target.hasClass('edit-member') && !target.hasClass('edit-link')) {
+    $('.edit-member').fadeOut();
+  }
+});
