@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @draw_pending = @group.draw_pending?
   end
 
   def new

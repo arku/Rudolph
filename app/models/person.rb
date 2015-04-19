@@ -48,7 +48,11 @@ class Person < ActiveRecord::Base
   end
 
   def can_be_invited?
-    Time.now - invitation_created_at > 1.minute
+    invitation_created_at.nil? || Time.now - invitation_created_at > 1.minute
+  end
+
+  def is_admin?(group)
+    self == group.admin
   end
 
   def error_messages

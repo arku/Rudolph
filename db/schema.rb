@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403222802) do
+ActiveRecord::Schema.define(version: 20150419011049) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150403222802) do
     t.datetime "date"
     t.string   "location",    limit: 255
     t.string   "price_range", limit: 255
+    t.integer  "status",      limit: 4,     default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
