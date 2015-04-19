@@ -55,6 +55,10 @@ class Person < ActiveRecord::Base
     self == group.admin
   end
 
+  def is_member?(group)
+    group.people.include?(self)
+  end
+
   def error_messages
     errors.full_messages.join(' ,')
   end

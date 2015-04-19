@@ -2,6 +2,11 @@ class GroupsController < ApplicationController
   layout 'application'
 
   before_action :authenticate_person!
+  before_action :validate_group_person, except: [:index, :new, :create]
+
+  def validate_group_person
+    redirect_to root_path unless current_person.is_member?(Group.find(params[:id]))
+  end
 
   def index
     @groups = current_person.groups
