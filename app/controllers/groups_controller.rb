@@ -77,6 +77,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def remove_member
+    group = Group.find(params[:id])
+    @person = Person.find(params[:member_id])
+
+    if current_person.is_admin?(group) && group.draw_pending?
+      @success = GroupPerson.where(group_id: group.id, person_id: @person.id).first.try(:destroy)
+    end
+  end
+
   private
 
   def group_params

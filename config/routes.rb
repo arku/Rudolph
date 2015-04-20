@@ -7,6 +7,7 @@ Rudolph::Application.routes.draw do
   resources :groups do
     member do
       post   'send-invitations', as: 'send_invitations'
+      delete 'remove_member',    as: 'remove_member'
       post   'draw',             as: 'draw'
     end
   end

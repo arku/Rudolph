@@ -1,8 +1,10 @@
-.member
+.member{id: "person_#{person.id}"}
   .avatar= image_tag person.photo_by_size('normal')
   .name= person.name || person.email.split('@').first[0..20]
   .status{class: "#{person.status}"}= person.status.capitalize
-  .edit= link_to 'Edit', 'javascript:;', class: 'edit-link'
-  .row.small-1.box.edit-member
-    %p= link_to 'Make group admin', '#'
-    %p= link_to 'Remove from group', '#', class: 'red'
+  - if @is_admin
+    .edit= link_to 'Edit', 'javascript:;', class: 'edit-link'
+    .row.small-1.box.edit-member
+      %p= link_to 'Make group admin', '#'
+      - if draw_pending
+        %p= link_to 'Remove from group', remove_member_group_path(member_id:person.id), class: 'red', method: :delete, remote: true, data: {confirm: 'Are you sure?'}

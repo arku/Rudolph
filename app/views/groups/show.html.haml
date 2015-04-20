@@ -53,4 +53,4 @@
 
   .members
     - @group.people.each do |person|
-      = render partial: 'groups/member', locals: {person: person}
+      = render partial: 'groups/member', locals: {person: person, draw_pending: @draw_pending}
