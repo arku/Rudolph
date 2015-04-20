@@ -86,6 +86,24 @@ class GroupsController < ApplicationController
     end
   end
 
+  def make_admin
+    group = Group.find(params[:id])
+
+    if current_person.is_admin?(group)
+      begin
+        group.admin = Person.find(params[:member_id])
+        group.save!
+        flash[:success] = 'Admin updated successfully'
+      rescue => e
+        flash[:error] = e.message
+      end
+    else
+      flash[:error] = 'Only the Admin can make someone else Admin'
+    end
+
+    redirect_to group_path(group)
+  end
+
   private
 
   def group_params

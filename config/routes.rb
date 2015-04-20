@@ -8,6 +8,7 @@ Rudolph::Application.routes.draw do
     member do
       post   'send-invitations', as: 'send_invitations'
       delete 'remove_member',    as: 'remove_member'
+      put    'make_admin',       as: 'make_admin'
       post   'draw',             as: 'draw'
     end
   end
