@@ -1,18 +1,20 @@
 Rudolph::Application.routes.draw do
   devise_for :people, controllers: { invitations: 'invitations', 
                                      omniauth_callbacks: "omniauth_callbacks"}
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'index#index'
 
-  resources :groups
+  resources :groups do
+    member do
+      post   'send-invitations', as: 'send_invitations'
+      post   'draw',             as: 'draw'
+    end
+  end
 
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
-  post 'send-invitations', to: 'groups#send_invitations', as: 'send_invitations'
-  post 'drawing', to: 'groups#drawing'
+  get    'auth/:provider/callback', to: 'sessions#create'
+  get    'logout',                  to: 'sessions#destroy'
+  
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -2,7 +2,7 @@
   %h1= @group.name
   - if @is_admin && @draw_pending
     .box.group-draw
-      = button_to "Draw names now", drawing_path, disabled: !@group.can_draw_names?
+      = button_to "Draw names now", draw_group_path, disabled: !@group.can_draw_names?
       .draw-notice
         - if @group.can_draw_names?
           Remember: you cannot invite any more people to the group after the names are drawn.
@@ -42,8 +42,7 @@
       .error.hidden
         .error-title The following invitations could not be sent:
         .error-list
-      = form_tag send_invitations_path, method: :post, remote: true do
-        = hidden_field_tag :group_id, @group.id
+      = form_tag send_invitations_group_path, method: :post, remote: true do
         .invite-fields
           .invite-friend
             = label_tag 'friends[]', 'Email'

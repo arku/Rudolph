@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
     end
   end
 
-  def drawing
+  def draw
   end
 
   def send_invitations
@@ -67,7 +67,7 @@ class GroupsController < ApplicationController
         person = Person.invite!(email: email, invited_by_id: current_person.id)
 
         if person.valid?
-          group_person = GroupPerson.create(group_id: params[:group_id], person_id: person.id)
+          group_person = GroupPerson.create(group_id: params[:id], person_id: person.id)
           
           group_person.valid? ? @success << email :  @errors[email] = group_person.error_messages
         else
