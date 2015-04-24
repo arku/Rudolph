@@ -1,13 +1,15 @@
 #header-container, #header {
   background-color: #00a39b;
-  background: -webkit-linear-gradient(#00a39b, #0f7d75);
-  background: -o-linear-gradient(#00a39b, #0f7d75);
-  background: -moz-linear-gradient(#00a39b, #0f7d75);
-  background: linear-gradient(#00a39b, #0f7d75);
+  background: -webkit-linear-gradient(#0F7D75, #0f7d75);
+  background: -o-linear-gradient(#0F7D75, #0f7d75);
+  background: -moz-linear-gradient(#0F7D75, #0f7d75);
+  background: linear-gradient(#0F7D75, #0f7d75);
+  height: 60px
 }
 
 .top-bar-section {
   li {
+    margin-top: 8px;
     min-width: 90px;
   }
 

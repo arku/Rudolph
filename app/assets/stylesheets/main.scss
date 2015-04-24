@@ -12,21 +12,27 @@ body {
   }
 
   .box {
-    background-color: white;
-    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.95);;
+    border: 1px solid #DEDEDE;
     margin-bottom: 25px;
-    padding: 20px;
-    border: 1px solid #DAD3B6;
+    overflow: hidden;
+    padding: 20px;  
   }
 
   h1 {
-    color: #fd284b;
+    color: #EA4560;
     font-size: 22px;
     font-family: 'Avenir Next';
 
     a {
       text-decoration: none;
     }
+  }
+
+  .rudolph {
+    font-size: 26px !important;
+    font-family: 'Coustard' !important;
+    line-height: 60px !important;
   }
 
   #contents {
