@@ -29,10 +29,10 @@ class GroupsController < ApplicationController
     @group = Group.new(group_data)
 
     if @group.save
-      flash[:success] = "Successfully created group #{@group.name}"
+      flash.notice = "Successfully created group #{@group.name}"
       redirect_to group_path(@group)
     else
-      flash[:error] = e.message
+      flash.alert = e.message
       render 'new'
     end
   end
@@ -44,11 +44,12 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    if @group.update(group_params)
-      flash[:success] = "Successfully updated group #{@group.name}"
+    begin
+      @group.update!(group_params)
+      flash.notice = "Successfully updated group #{@group.name}"
       redirect_to group_path(@group)
-    else
-      flash[:error] = e.message
+    rescue => e
+      flash.alert = e.message
       render 'edit'
     end
   end
@@ -93,12 +94,12 @@ class GroupsController < ApplicationController
       begin
         group.admin = Person.find(params[:member_id])
         group.save!
-        flash[:success] = 'Admin updated successfully'
+        flash.notice = 'Admin updated successfully'
       rescue => e
-        flash[:error] = e.message
+        flash.alert = e.message
       end
     else
-      flash[:error] = 'Only the Admin can make someone else Admin'
+      flash.alert = 'Only the Admin can make someone else Admin'
     end
 
     redirect_to group_path(group)
