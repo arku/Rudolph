@@ -2,8 +2,10 @@ class InvitationsController < Devise::InvitationsController
 
   # GET /resource/invitation/accept?invitation_token=abcdef
   def edit
-    if params[:invitation_token] && self.resource = resource_class.find_by_invitation_token(params[:invitation_token], true)
-      session[:invitation_token] = params[:invitation_token]
+    invitation_token = params[:invitation_token]
+
+    if invitation_token && self.resource = resource_class.find_by_invitation_token(invitation_token, true)
+      session[:invitation_token] = invitation_token
       render :edit
     else
       set_flash_message(:alert, :invitation_token_invalid)

@@ -2,9 +2,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def all
     auth = request.env["omniauth.auth"]
+    invitation_token = session[:invitation_token]
 
-    if session[:invitation_token]
-      person = Person.find_by_invitation_token(session[:invitation_token], true)
+    if invitation_token
+      person = Person.find_by_invitation_token(invitation_token, true)
       person.apply_omniauth(auth)
       session[:invitation_token] = nil
     else
@@ -14,7 +15,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if person.persisted?
       person.accept_invitation! if person.invited?
       sign_in(:person, person)
-      flash.notice = "Successfully signed in via #{request.env["omniauth.auth"].provider}!"
+      flash.notice = "Successfully signed in via #{auth.provider}!"
     else
       session["devise.user_attributes"] = person.attributes
     end

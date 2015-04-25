@@ -7,31 +7,35 @@ class Person < ActiveRecord::Base
   has_many :groups, through: :group_people
 
   def self.omniauth(auth)
-    dummy = Devise.friendly_token[0,20]
+    dummy       = Devise.friendly_token[0,20]
+    info        = auth.info
+    credentials = auth.credentials
 
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider   = auth.provider
       user.uid        = auth.uid
-      user.name       = auth.info.name
-      user.image      = auth.info.image
-      user.token      = auth.credentials.token
-      user.email      = auth.info.email || "#{dummy}@rudolph.com"
-      user.expires_at = Time.at(auth.credentials.expires_at)
+      user.name       = info.name
+      user.image      = info.image
+      user.token      = credentials.token
+      user.email      = info.email || "#{dummy}@rudolph.com"
+      user.expires_at = Time.at(credentials.expires_at)
       user.password   = dummy
       user.save!
     end
   end
 
   def apply_omniauth(auth)
-    dummy = Devise.friendly_token[0,20]
+    dummy       = Devise.friendly_token[0,20]
+    info        = auth.info
+    credentials = auth.credentials
 
     update_attributes(provider: auth.provider,
                       uid: auth.uid,
-                      name: auth.info.name,
-                      image: auth.info.image,
-                      token: auth.credentials.token,
-                      email: auth.info.email || email || "#{dummy}@rudolph.com",
-                      expires_at: Time.at(auth.credentials.expires_at),
+                      name: info.name,
+                      image: info.image,
+                      token: credentials.token,
+                      email: info.email || email || "#{dummy}@rudolph.com",
+                      expires_at: Time.at(credentials.expires_at),
                       password: dummy)
   end
 
