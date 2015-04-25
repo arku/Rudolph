@@ -48,8 +48,8 @@ class GroupsController < ApplicationController
       @group.update!(group_params)
       flash.notice = "Successfully updated group #{@group.name}"
       redirect_to group_path(@group)
-    rescue => e
-      flash.alert = e.message
+    rescue => error
+      flash.alert = error.message
       render 'edit'
     end
   end
@@ -95,8 +95,8 @@ class GroupsController < ApplicationController
         group.admin = Person.find(params[:member_id])
         group.save!
         flash.notice = 'Admin updated successfully'
-      rescue => e
-        flash.alert = e.message
+      rescue => error
+        flash.alert = error.message
       end
     else
       flash.alert = 'Only the Admin can make someone else Admin'
