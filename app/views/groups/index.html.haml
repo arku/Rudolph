@@ -5,17 +5,18 @@
       = link_to '+ New group', new_group_path
 
   - if @groups.any?
-    - @groups.each do |group|
-      .box.group-about
-        .info
-          = link_to group.name, group_path(group)
-          .item 
-            .bold When
-            = group.date
-          .item 
-            .bold Where
-            = group.location
-      %br
+    .row.full-width
+      - @groups.each do |group|
+        .large-6.columns.left
+          .box.group-about
+            .info
+              = link_to group.name, group_path(group)
+              .item 
+                .bold When
+                = group.date
+              .item 
+                .bold Where
+                = group.location
   - else
     You don't belong to any groups yet.
     = link_to 'Create one!', new_group_path

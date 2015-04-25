@@ -6,7 +6,7 @@
 
       .field
         = f.label :name
-        = f.email_field :name, autofocus: true
+        = f.email_field :name
 
       .field
         = f.label :email
@@ -24,6 +24,6 @@
         = f.password_field :password_confirmation, autocomplete: "off"
 
       .actions
-        = f.submit "Sign up"
+        = f.submit "Sign up", class: 'btn gray'
 
   = render "people/shared/links"

@@ -2,7 +2,7 @@
   %h1= @group.name
   - if @is_admin && @draw_pending
     .box.group-draw
-      = button_to "Draw names now", draw_group_path, disabled: !@group.can_draw_names?
+      = button_to "Draw names now", draw_group_path, disabled: !@group.can_draw_names?, class: 'btn btn-info btn-large'
       .draw-notice
         - if @group.can_draw_names?
           Remember: you cannot invite any more people to the group after the names are drawn.
@@ -49,7 +49,7 @@
             = text_field_tag 'friends[]'
         .large3.columns
           .add-more= link_to '+ Add more', 'javascript:;'
-          = submit_tag 'Send invitations'
+          = submit_tag 'Send invitations', class: 'btn gray'
 
   .members
     - @group.people.each do |person|

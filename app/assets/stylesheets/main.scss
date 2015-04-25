@@ -11,6 +11,10 @@ body {
     text-decoration: underline;
   }
 
+  a, input, textarea, button {
+    outline:0 !important;
+  }
+
   .box {
     background-color: rgba(255, 255, 255, 0.95);;
     border: 1px solid #DEDEDE;
@@ -35,6 +39,14 @@ body {
     line-height: 60px !important;
   }
 
+  .gray {
+    color: #0f7d75;
+  }
+
+  .gray:hover {
+    color: rgba(15, 125, 117, 0.9);
+  }
+
   #contents {
     margin-top: 50px;
   }
@@ -44,23 +56,82 @@ body {
   }
 
   input[type=submit] {
-    background-color: #00a39b;
-    background: -webkit-linear-gradient(#00a39b, #0f7d75);
-    background: -o-linear-gradient(#00a39b, #0f7d75);
-    background: -moz-linear-gradient(#00a39b, #0f7d75);
-    background: linear-gradient(#00a39b, #0f7d75);
-    color: white;
     border-radius: 4px;
     font-size: 15px;
     font-family: Avenir;
     padding: 7px 15px;
   }
 
-  input[type=submit]:disabled {
-    background-color: #00a39b;
-    background: -webkit-linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
-    background: -o-linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
-    background: -moz-linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
-    background: linear-gradient(rgba(0, 163, 155, 0.45), rgba(15, 125, 117, 0.61));
+  .alert {
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+  }
+
+  .alert,
+  .alert h4 {
+    color: #c09853;
+  }
+
+  .alert h4 {
+    margin: 0;
+  }
+
+  .alert .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    line-height: 20px;
+  }
+
+  .alert-success {
+    color: #468847;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+  }
+
+  .alert-success h4 {
+    color: #468847;
+  }
+
+  .alert-danger,
+  .alert-error {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #eed3d7;
+  }
+
+  .alert-danger h4,
+  .alert-error h4 {
+    color: #b94a48;
+  }
+
+  .alert-info {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+  }
+
+  .alert-info h4 {
+    color: #3a87ad;
+  }
+
+  .alert-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .alert-block > p,
+  .alert-block > ul {
+    margin-bottom: 0;
+  }
+
+  .alert-block p + p {
+    margin-top: 5px;
   }
 }
