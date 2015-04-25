@@ -34,7 +34,7 @@ describe Person do
 
   it 'is not considered invited after invitation is accepted' do
     person = Person.find(15)
-    expect(person.invited?).to eq(false)
+    expect(person.invited?).to be_falsey
   end
 
   it 'always has a photo' do

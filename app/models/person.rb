@@ -40,7 +40,7 @@ class Person < ActiveRecord::Base
   end
 
   def invited?
-    !invitation_token.nil? && invitation_accepted_at.nil?
+    invitation_token && !invitation_accepted_at
   end
 
   def photo_by_size(size = 'normal')
@@ -52,7 +52,7 @@ class Person < ActiveRecord::Base
   end
 
   def can_be_invited?
-    invitation_created_at.nil? || Time.now - invitation_created_at > 1.minute
+    !invitation_created_at || Time.now - invitation_created_at > 1.minute
   end
 
   def is_admin?(group)
