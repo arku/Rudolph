@@ -120,7 +120,7 @@ FactoryGirl.define do
     location 'Office'
     price_range 'R$60 - R$70'
   end
-  
+
 
   # --------- GROUP PEOPLE --------- #
 

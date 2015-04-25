@@ -12,11 +12,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     if person.persisted?
-      person.accept_invitation! if person.invited? 
+      person.accept_invitation! if person.invited?
       sign_in(:person, person)
       flash.notice = "Successfully signed in via #{request.env["omniauth.auth"].provider}!"
     else
-      session["devise.user_attributes"] = person.attributes  
+      session["devise.user_attributes"] = person.attributes
     end
 
     redirect_to root_path

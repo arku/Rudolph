@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Person do
-  
+
   it 'has an email address and a password' do
     person = Person.new(email: 'flora.saramago@gmail.com', password: 'password1')
     expect(person).to be_valid

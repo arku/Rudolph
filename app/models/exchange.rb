@@ -12,9 +12,9 @@ class Exchange < ActiveRecord::Base
 
   def people_belong_to_same_group
     members = group.try(:people) || []
-    
+
     unless members.include?(giver) && members.include?(receiver)
-      errors.add(:receiver, "has to belong to same group as giver") 
+      errors.add(:receiver, "has to belong to same group as giver")
     end
   end
 

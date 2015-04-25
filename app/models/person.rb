@@ -10,7 +10,7 @@ class Person < ActiveRecord::Base
     dummy = Devise.friendly_token[0,20]
 
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider   = auth.provider 
+      user.provider   = auth.provider
       user.uid        = auth.uid
       user.name       = auth.info.name
       user.image      = auth.info.image
@@ -25,11 +25,11 @@ class Person < ActiveRecord::Base
   def apply_omniauth(auth)
     dummy = Devise.friendly_token[0,20]
 
-    update_attributes(provider: auth.provider, 
-                      uid: auth.uid, 
-                      name: auth.info.name, 
-                      image: auth.info.image, 
-                      token: auth.credentials.token, 
+    update_attributes(provider: auth.provider,
+                      uid: auth.uid,
+                      name: auth.info.name,
+                      image: auth.info.image,
+                      token: auth.credentials.token,
                       email: auth.info.email || email || "#{dummy}@rudolph.com",
                       expires_at: Time.at(auth.credentials.expires_at),
                       password: dummy)

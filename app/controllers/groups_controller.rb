@@ -69,7 +69,7 @@ class GroupsController < ApplicationController
 
         if person.valid?
           group_person = GroupPerson.create(group_id: params[:id], person_id: person.id)
-          
+
           group_person.valid? ? @success << email :  @errors[email] = group_person.error_messages
         else
           @errors[email] = person.error_messages
