@@ -6,7 +6,7 @@ $('.add-more').click(function() {
 });
 
 $(document).on('click', '.edit-link', function() {
-  $(this).closest('.member').find('.edit-member').slideToggle();
+  $(this).closest('.member').find('.edit-member').stop().slideToggle();
 });
 
 $(document).on('click', 'body', function(event) {
