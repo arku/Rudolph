@@ -18,7 +18,9 @@
         - else
           %li
             .logged-user
-              .logged-user-pic= image_tag current_person.image
+              .logged-user-pic
+                = link_to edit_person_registration_path do
+                  = image_tag current_person.image
               .logged-user-data
                 = current_person.name
                 = link_to 'logout', destroy_person_session_path, class: 'logout'

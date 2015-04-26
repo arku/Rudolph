@@ -1,5 +1,5 @@
 Rudolph::Application.routes.draw do
-  devise_for :people, controllers: { invitations: 'invitations', 
+  devise_for :people, controllers: { invitations: 'invitations',
                                      omniauth_callbacks: "omniauth_callbacks"}
 
   root 'index#index'
@@ -12,6 +12,8 @@ Rudolph::Application.routes.draw do
       post   'draw',             as: 'draw'
     end
   end
+
+  resources :people
 
   get    'auth/:provider/callback', to: 'sessions#create'
   get    'logout',                  to: 'sessions#destroy'
@@ -50,7 +52,7 @@ Rudolph::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
