@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  has_many :group_people
+  has_many :group_people, dependent: :destroy
   has_many :groups, through: :group_people
 
   def self.omniauth(auth)
@@ -61,6 +61,10 @@ class Person < ActiveRecord::Base
 
   def is_member?(group)
     group.people.include?(self)
+  end
+
+  def is_admin_of
+    groups.select{|group| is_admin?(group)}
   end
 
   def error_messages

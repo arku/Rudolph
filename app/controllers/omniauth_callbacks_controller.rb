@@ -9,7 +9,12 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       person.apply_omniauth(auth)
       session[:invitation_token] = nil
     else
-      person = Person.omniauth(auth)
+      begin
+        person = Person.omniauth(auth)
+      rescue => error
+        flash.alert = error.message
+        redirect_to :back and return
+      end
     end
 
     if person.persisted?

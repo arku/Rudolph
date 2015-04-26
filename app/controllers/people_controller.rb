@@ -18,6 +18,24 @@ class PeopleController < ApplicationController
     redirect_to edit_person_registration_path
   end
 
+  def destroy
+    person = Person.find(params[:id])
+    groups = person.is_admin_of
+
+    if groups.any?
+      flash.alert = "You are the admin of the following groups: #{groups.map{|g| g.name}.join(', ')}. Please name someone else admin before you cancel your account."
+      redirect_to :back
+    else
+      begin
+        person.destroy!
+        flash.notice = 'Account deleted. Hope to see you again soon!'
+        redirect_to root_path
+      rescue => error
+        flash.alert = error.message
+      end
+    end
+  end
+
   def person_params
     params.require(:person).permit(:name, :image, :email)
   end

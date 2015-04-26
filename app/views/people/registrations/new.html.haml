@@ -6,7 +6,7 @@
 
       .field
         = f.label :name
-        = f.email_field :name
+        = f.text_field :name
 
       .field
         = f.label :email
@@ -25,5 +25,3 @@
 
       .actions
         = f.submit "Sign up", class: 'btn gray'
-
-  = render "people/shared/links"
