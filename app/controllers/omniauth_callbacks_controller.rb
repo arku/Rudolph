@@ -10,7 +10,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:invitation_token] = nil
     else
       begin
-        person = Person.omniauth(auth)
+        if current_person
+          person = current_person
+          person.apply_omniauth(auth)
+          sign_out
+        else
+          person = Person.omniauth(auth)
+        end
       rescue => error
         flash.alert = error.message
         redirect_to :back and return
