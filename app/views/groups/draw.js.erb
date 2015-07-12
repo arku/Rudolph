@@ -1,0 +1,6 @@
+if("<%= @success %>" == "true") {
+  setTimeout(function() {
+    $('.draw-loading').hide();
+    $('.draw-done').removeClass('hidden').fadeIn();
+  }, 4000);
+}

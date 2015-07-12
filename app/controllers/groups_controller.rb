@@ -1,3 +1,5 @@
+require File.join(Rails.root, 'app/business/name_drawer')
+
 class GroupsController < ApplicationController
   layout 'application'
 
@@ -55,11 +57,19 @@ class GroupsController < ApplicationController
   end
 
   def draw
+    group = Group.find(params[:id])
+    @success = NameDrawer.new(group).perform
+  end
+
+  def who
+    group = Group.find(params[:id])
+    @person = Exchange.where(group: group, giver: current_person).first.try(:receiver)
   end
 
   def send_invitations
     @errors = {}
     @success = []
+    @group = Group.find(params[:id])
 
     params[:friends].each do |email|
       person = Person.where(email: email).first

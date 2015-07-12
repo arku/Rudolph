@@ -56,7 +56,7 @@ class Person < ActiveRecord::Base
   end
 
   def is_admin?(group)
-    self == group.admin
+    self == group.try(:admin)
   end
 
   def is_member?(group)

@@ -29,4 +29,9 @@ class Group < ActiveRecord::Base
     status == 1
   end
 
+  def update_status
+    status = 1
+    save
+  end
+
 end

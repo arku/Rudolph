@@ -10,6 +10,7 @@ Rudolph::Application.routes.draw do
       delete 'remove_member',    as: 'remove_member'
       put    'make_admin',       as: 'make_admin'
       post   'draw',             as: 'draw'
+      get    'who',              as: 'who'
     end
   end
 

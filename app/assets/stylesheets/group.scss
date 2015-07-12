@@ -169,4 +169,16 @@
     font-size: 14px;
     margin-left: 10px;
   }
+
+  .draw-loading {
+    img {
+      margin: 0 10px 0 10px;
+    }
+
+    span {
+      color: #6EBA1E;
+      display: inline;
+      font-size: 14px;
+    }
+  }
 }

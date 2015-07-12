@@ -16,3 +16,9 @@ $(document).on('click', 'body', function(event) {
     $('.edit-member').fadeOut();
   }
 });
+
+$('.draw_names').click(function() {
+  $(this).hide();
+  $('.draw-notice').hide();
+  $('.draw-loading').removeClass('hidden').fadeIn();
+});
