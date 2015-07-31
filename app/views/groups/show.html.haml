@@ -1,20 +1,5 @@
 .row.full-width
   %h1= @group.name
-  - if @is_admin && @draw_pending
-    .box.group-draw
-      = button_to "Draw names now", draw_group_path, remote: true, disabled: !@group.can_draw_names?, class: 'btn btn-info btn-large draw_names'
-      .draw-notice
-        - if @group.can_draw_names?
-          Remember: you cannot invite any more people to the group after the names are drawn.
-        - else
-          The drawing can only start after everyone who was invited accepts the invitation.
-      .draw-loading.hidden
-        Drawing names...
-        = image_tag 'loader.gif'
-        %span May the odds be ever in your favor.
-      .draw-done.hidden
-        Done! 
-        = link_to 'Who did I get?', who_group_path(@group)
   .box.group-about
     .info
       .item
@@ -35,6 +20,28 @@
           = link_to 'Edit group info', edit_group_path(@group)
     .map
       = image_tag 'fake_map.png'
+  %br
+  %h1 Drawing
+  - if @is_admin && @draw_pending
+    .box.group-draw
+      - if @group.can_draw_names?
+        = button_to "Draw names now", draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names'
+      .draw-notice
+        - if @group.can_draw_names?
+          Remember: you cannot invite any more people to the group after the names are drawn.
+        - else
+          The drawing can only start after everyone who was invited accepts the invitation.
+      .draw-loading.hidden
+        Drawing names...
+        = image_tag 'loader.gif'
+        %span May the odds be ever in your favor.
+      .draw-done.hidden
+        Done! 
+        = link_to 'Who did I get?', who_group_path(@group)
+  - unless @draw_pending
+    .box.group-draw
+      Names have been drawn!
+      = link_to 'Find out who you got!', who_group_path(@group)
   %br
   .section-header
     %h1 Members

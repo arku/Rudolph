@@ -30,7 +30,7 @@ class Group < ActiveRecord::Base
   end
 
   def update_status
-    status = 1
+    self.status = 1
     save
   end
 

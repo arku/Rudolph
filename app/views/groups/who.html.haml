@@ -5,6 +5,13 @@
 
       .show-me= link_to 'Yes. Show me the truth.', 'javascript:;', class: 'show-who'
   = image_tag 'confidential.png'
+
 #who.hidden
   .row
-    = @person.name || @person.email
+    .photo
+      = image_tag @person.photo_by_size('large')
+    .text
+      %h1= "And the Oscar goes to... #{@person.name || @person.email}!"
+      Looks like
+      = @person.name || @person.email
+      is the lucky friend who's getting a present from you!

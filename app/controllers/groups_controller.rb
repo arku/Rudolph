@@ -59,6 +59,7 @@ class GroupsController < ApplicationController
   def draw
     group = Group.find(params[:id])
     @success = NameDrawer.new(group).perform
+    group.update_status if @success
   end
 
   def who

@@ -1,7 +1,7 @@
 #confidential {
-  margin-top: -50px;
   background: transparent image-url("cork.png") repeat;
   height: 100%;
+  margin-top: -50px;
 
   img {
     float: right;
@@ -11,25 +11,44 @@
 
   .row {
     .sticker {
-      width: auto;
-      max-width: 30%;
-      height: auto;
       background: rgba(255, 235, 170, 0.86);
-      margin-top: 10%;
-      position: absolute;
       border-radius: 3px;
-      padding: 20px;
       font-family: courier;
+      height: auto;
+      margin-top: 10%;
+      max-width: 30%;
       overflow: hidden;
+      padding: 20px;
+      position: absolute;
+      width: auto;
 
       .show-me {
-        text-align: center;
         margin-top: 15px;
+        text-align: center;
 
         a {
           color: rgb(199, 49, 49);
         }
       }
+    }
+  }
+}
+
+#who {
+  .row {
+    .photo {
+      border: 7px solid white;
+      border-radius: 4px;
+      display: inline-block;
+      float: left;
+      margin: auto;
+      padding: 0;
+    }
+
+    .text {
+      display: inline-block;
+      float: left;
+      margin-left: 15px;
     }
   }
 }

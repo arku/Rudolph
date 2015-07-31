@@ -24,6 +24,6 @@ $('.draw_names').click(function() {
 });
 
 $(document).on('click', '.show-who', function() {
-  $('#confidential').hide();
+  $('#confidential').fadeOut(100);
   $('#who').removeClass('hidden').fadeIn();
 });

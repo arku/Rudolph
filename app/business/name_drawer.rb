@@ -14,7 +14,6 @@ class NameDrawer
           receiver = last_person?(person) ? people.first : people[index + 1]
           create_exchange(person, receiver)
         end
-        group.update_status
         true
       end
     rescue => error
