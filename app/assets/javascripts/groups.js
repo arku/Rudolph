@@ -22,3 +22,8 @@ $('.draw_names').click(function() {
   $('.draw-notice').hide();
   $('.draw-loading').removeClass('hidden').fadeIn();
 });
+
+$(document).on('click', '.show-who', function() {
+  $('#confidential').hide();
+  $('#who').removeClass('hidden').fadeIn();
+});

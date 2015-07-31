@@ -1,1 +1,10 @@
-= @person.name || @person.email
+#confidential
+  .row
+    .sticker
+      This is top secret information. Are you sure no one from the group can see your screen right now?
+
+      .show-me= link_to 'Yes. Show me the truth.', 'javascript:;', class: 'show-who'
+  = image_tag 'confidential.png'
+#who.hidden
+  .row
+    = @person.name || @person.email
