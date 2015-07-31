@@ -138,4 +138,14 @@ body {
   .alert-block p + p {
     margin-top: 5px;
   }
+
+  .bread {
+    margin-bottom: -15px;
+    margin-top: 50px;
+
+    li {
+      display: inline;
+      padding-right: 10px;
+    }
+  }
 }

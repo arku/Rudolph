@@ -34,10 +34,12 @@ gem 'compass-rails'
 
 gem 'foundation-rails'
 
-gem "koala", "~> 1.11.0rc"
+gem 'koala', '~> 1.11.0rc'
+
+gem 'breadcrumbs_on_rails'
 
 group :development do
-  gem "letter_opener"
+  gem 'letter_opener'
 end
 
 group :development, :test do

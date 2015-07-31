@@ -18,10 +18,16 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @draw_pending = @group.draw_pending?
     @is_admin = current_person.is_admin?(@group)
+
+    add_breadcrumb "My groups", :root_path
+    add_breadcrumb @group.name
   end
 
   def new
     @group = Group.new
+
+    add_breadcrumb "My groups", :root_path
+    add_breadcrumb "New group"
   end
 
   def create
@@ -41,6 +47,10 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+
+    add_breadcrumb "My groups", :root_path
+    add_breadcrumb @group.name, group_path(@group)
+    add_breadcrumb "Edit"
   end
 
   def update
@@ -65,6 +75,10 @@ class GroupsController < ApplicationController
   def who
     group = Group.find(params[:id])
     @person = Exchange.where(group: group, giver: current_person).first.try(:receiver)
+
+    add_breadcrumb "My groups", :root_path
+    add_breadcrumb group.name, group_path(group)
+    add_breadcrumb "Result"
   end
 
   def send_invitations

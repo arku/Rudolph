@@ -27,6 +27,10 @@
   %body
     = render 'shared/header'
     = render 'layouts/messages'
+
+    - unless hide_breadcrumbs?
+      .row.bread= render_breadcrumbs :tag => :li, :separator => ">&nbsp&nbsp"
+
     #contents
       = yield
 

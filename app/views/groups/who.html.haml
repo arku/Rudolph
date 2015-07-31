@@ -7,6 +7,7 @@
   = image_tag 'confidential.png'
 
 #who.hidden
+  .row.bread= render_breadcrumbs :tag => :li, :separator => ">&nbsp&nbsp"
   .row
     .photo
       = image_tag @person.photo_by_size('large')
