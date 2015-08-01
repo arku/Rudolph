@@ -20,9 +20,9 @@ $(document).on('ready page:load', function () {
   $(function(){ $(document).foundation(); });
 });
 
-$('#group_date').fdatepicker();
+$(document).ready(function() {
+  $('#group_date').fdatepicker();
 
-$('document').ready(function() {
   setTimeout(function() {
     $('.notice-box').fadeOut();
   }, 2000);

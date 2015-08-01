@@ -45,10 +45,34 @@
 .invitation-box {
   display:none;
 
+  .close-invitation-box {
+    display: inline;
+    float: right;
+    margin-top: -10px;
+    width: auto;
+
+    a {
+      font-size: 14px;
+    }
+  }
+
   .invite-friend {
     float: left;
     margin-right: 20px;
     width: 220px;
+
+    label {
+      display: inline;
+    }
+
+    .close {
+      display: inline;
+      float: right;
+
+      a {
+        text-decoration: none;
+      }
+    }
   }
 
   .add-more {

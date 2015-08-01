@@ -47,9 +47,10 @@
     %h1 Members
     - if @draw_pending
       .action
-        = link_to '+ Add members', 'javascript:;', onclick:"$('.invitation-box').slideToggle()"
+        .add-members= link_to '+ Add members', 'javascript:;'
   - if @draw_pending
     .box.invitation-box
+      .close-invitation-box= link_to 'Close', 'javascript:;'
       .success.hidden
         .success-title The following invitations were sent successfully:
         .success-list
@@ -60,6 +61,7 @@
         .invite-fields
           .invite-friend
             = label_tag 'friends[]', 'Email'
+            .close.hidden= link_to 'x', 'javascript:;', class: 'red'
             = text_field_tag 'friends[]'
         .large3.columns
           .add-more= link_to '+ Add more', 'javascript:;'
