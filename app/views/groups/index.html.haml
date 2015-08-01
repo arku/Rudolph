@@ -17,6 +17,13 @@
               .item
                 .bold Where
                 = group.location
+              .item
+                .bold Drawing status
+                - if group.status == 1
+                  Names have been drawn!
+                  = link_to 'Find out who you got!', who_group_path(group)
+                - else
+                  .red Pending
   - else
     You don't belong to any groups yet.
     = link_to 'Create one!', new_group_path
