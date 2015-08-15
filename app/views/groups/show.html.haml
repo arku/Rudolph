@@ -18,8 +18,10 @@
         .item
           .bold Admin actions
           = link_to 'Edit group info', edit_group_path(@group)
-    .map
-      = image_tag 'fake_map.png'
+    .side
+      .map= image_tag 'fake_map.png'
+      - if !@is_admin && @draw_pending
+        .leave= link_to 'Leave group', '#', class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   %br
   %h1 Drawing
   - if @is_admin && @draw_pending
@@ -65,7 +67,7 @@
             = text_field_tag 'friends[]'
         .large3.columns
           .add-more= link_to '+ Add more', 'javascript:;'
-          = submit_tag 'Send invitations', class: 'btn gray'
+          = submit_tag 'Send invitations', class: 'btn gray', onclick: "$(this).unbind('click')"
 
   .members
     - @group.people.each do |person|

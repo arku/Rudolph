@@ -1,6 +1,11 @@
+html {
+  height: 100%;
+}
+
 body {
   background: #FFF image-url("grain.png") repeat;
   font-family: 'Avenir Next';
+  min-height: 100vh;
 
   li, a {
     background:transparent !important;
@@ -148,4 +153,47 @@ body {
       padding-right: 10px;
     }
   }
+}
+
+.confirmation-modal {
+  border-color: #B3ACAF;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  margin: 10% auto auto auto;
+  width: 300px;
+
+  h2 {
+    color: #757474;
+    font-family: 'Avenir Next';
+    font-size: 23px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    display: none;
+  }
+
+  a.button {
+    border-radius: 4px;
+    margin: 0 15px;
+    padding: 8px 20px;
+  }
+
+  a.alert {
+    color: #cf2a0e !important;
+  }
+
+  a.secondary {
+    border: 1px solid #b9b9b9;
+    color: #b9b9b9;
+  }
+
+  a.secondary:hover {
+    color: #b9b9b9;
+  }
+}
+
+
+
+.reveal-modal-bg {
+  display: none !important;
 }

@@ -16,9 +16,15 @@
     }
   }
 
-  .map {
+  .side {
     display:inline-block;
     float:right;
+
+    .leave {
+      float: right;
+      font-size: 14px;
+      margin: 10px 5px 0 0;
+    }
   }
 }
 

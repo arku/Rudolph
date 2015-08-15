@@ -26,4 +26,6 @@ $(document).ready(function() {
   setTimeout(function() {
     $('.notice-box').fadeOut();
   }, 2000);
+
+  $(document).confirmWithReveal();
 });
