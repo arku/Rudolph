@@ -82,6 +82,9 @@ class GroupsController < ApplicationController
     response = @group_service.send_invitations(params[:friends])
     @success = response[:success_list]
     @errors = response[:error_list]
+    
+    @is_admin = current_person.is_admin?(@group)
+    @draw_pending = @group.draw_pending?
   end
 
   def remove_member

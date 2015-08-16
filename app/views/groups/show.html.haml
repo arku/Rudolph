@@ -24,26 +24,11 @@
         .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   %br
   %h1 Drawing
-  - if @is_admin && @draw_pending
-    .box.group-draw
-      - if @group.can_draw_names?
-        = button_to "Draw names now", draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names'
-      .draw-notice
-        - if @group.can_draw_names?
-          Remember: you cannot invite any more people to the group after the names are drawn.
-        - else
-          The drawing can only start after everyone who was invited accepts the invitation.
-      .draw-loading.hidden
-        Drawing names...
-        = image_tag 'loader.gif'
-        %span May the odds be ever in your favor.
-      .draw-done.hidden
-        Done! 
-        = link_to 'Who did I get?', who_group_path(@group)
-  - unless @draw_pending
-    .box.group-draw
-      Names have been drawn!
-      = link_to 'Find out who you got!', who_group_path(@group)
+  .box.group-draw
+    - if @draw_pending
+      = render 'groups/draw_pending'
+    - else
+      = render 'groups/draw_done'
   %br
   .section-header
     %h1 Members
@@ -61,10 +46,7 @@
         .error-list
       = form_tag send_invitations_group_path, method: :post, remote: true do
         .invite-fields
-          .invite-friend
-            = label_tag 'friends[]', 'Email'
-            .close.hidden= link_to 'x', 'javascript:;', class: 'red'
-            = text_field_tag 'friends[]'
+          = render 'invitation_field'
         .large3.columns
           .add-more= link_to '+ Add more', 'javascript:;'
           = submit_tag 'Send invitations', class: 'btn gray', onclick: "$(this).unbind('click')"

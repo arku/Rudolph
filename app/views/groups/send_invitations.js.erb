@@ -11,12 +11,20 @@
     $('.success-list').append("<span><%= email %></span><br />");
     <% person = Person.where(email: email).first %>
     <% if person %>
-      $('.members').append("<%= j render(partial:'groups/member', locals: {person: person}) %>");
+      $('.members').append("<%= j render(partial:'groups/member', locals: {person: person, draw_pending: @draw_pending}) %>");
     <% end %>
   <% end %>
   $('.success').removeClass('hidden').fadeIn();
+  <% if @draw_pending %>
+    $('.group-draw').html('');
+    $('.group-draw').append("<%= j render(partial:'groups/draw_pending') %>");
+  <% end %>
 <% end %>
 
 if($('.invite-friend').length == 1) {
   $('.close').hide();
+}
+
+if($('.invite-fields').children().length == 0) {
+  $('.invite-fields').append("<%= j render(partial:'groups/invitation_field') %>");
 }

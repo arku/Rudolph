@@ -54,7 +54,7 @@ class GroupService
     friends.each do |email|
       person = Person.where(email: email).first
 
-      if !person || person.can_be_invited?
+      if (!person || person.can_be_invited?) && !success.include?(email) && !errors.keys.include?(email)
         person = Person.invite!(email: email, invited_by_id: current_person.id)
 
         if person.valid?

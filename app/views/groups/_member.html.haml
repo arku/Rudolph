@@ -10,4 +10,4 @@
       .row.small-1.box.edit-member
         %p= link_to 'Make group admin', make_admin_group_path(member_id: person.id), method: :put, data: {confirm: 'Are you sure?'}
         - if draw_pending
-          %p= link_to 'Remove from group', remove_member_group_path(member_id: person.id), class: 'red', method: :delete, remote: true, data: {confirm: 'Are you sure?'}
+          %p= link_to 'Remove from group', remove_member_group_path(member_id: person.id), class: 'red', method: :delete, remote: true, data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
