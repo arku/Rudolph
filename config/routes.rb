@@ -11,6 +11,7 @@ Rudolph::Application.routes.draw do
       put    'make_admin',       as: 'make_admin'
       post   'draw',             as: 'draw'
       get    'who',              as: 'who'
+      delete 'leave_group',      as: 'leave'
     end
   end
 

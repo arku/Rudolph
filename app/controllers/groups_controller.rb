@@ -95,6 +95,18 @@ class GroupsController < ApplicationController
     redirect_to group_path(params[:id])
   end
 
+  def leave_group
+    response = @group_service.remove_member(current_person)
+
+    if response[:success]
+      flash.notice = "Successfully left group"
+      redirect_to root_path
+    else
+      flash.alert = "Unable to remove you from this group. Please contact the group admin."
+      redirect_to group_path(@group_service.group)
+    end
+  end
+
   private
 
   def group_params

@@ -21,7 +21,7 @@
     .side
       .map= image_tag 'fake_map.png'
       - if !@is_admin && @draw_pending
-        .leave= link_to 'Leave group', '#', class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
+        .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   %br
   %h1 Drawing
   - if @is_admin && @draw_pending
