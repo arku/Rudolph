@@ -24,7 +24,7 @@ $(document).ready(function() {
   $('#group_date').fdatepicker();
 
   setTimeout(function() {
-    $('.notice-box').fadeOut();
+    $('.notice-box, .alert-box').fadeOut();
   }, 2000);
 
   $(document).confirmWithReveal();
