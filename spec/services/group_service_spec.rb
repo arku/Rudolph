@@ -227,6 +227,33 @@ describe GroupService do
       end
     end
 
+    context 'member is not active' do
+      before(:all) do
+        group = Group.find(1)
+        current_person = group.admin
+        subject = GroupService.new(group, current_person)
+        subject.send_invitations(['a@a.com'])
+        group.reload
+      end
+
+      let(:response) do
+        member = group.people.where(email: 'a@a.com').last
+        subject.make_admin(member.id)
+      end
+
+      it 'returns a hash' do
+        expect(response).to be_a(Hash)
+      end
+
+      it 'returns a failure feedback' do
+        expect(response[:success]).to be false
+      end
+
+      it 'does not change the group admin' do
+        expect(group.admin.id).to eq(1)
+      end
+    end
+
     context 'invalid member' do
       let(:response) { subject.make_admin(1234567890) }
 

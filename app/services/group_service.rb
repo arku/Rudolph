@@ -36,9 +36,14 @@ class GroupService
   def make_admin(member_id)
     if current_person.is_admin?(group)
       begin
-        group.admin = Person.find(member_id)
-        group.save!
-        {success: true, message: 'Admin updated successfully'}
+        member = Person.find(member_id)
+        if member.status == 'active'
+          group.admin = member
+          group.save!
+          {success: true, message: 'Admin updated successfully'}
+        else
+          {success: false, message: 'Only active members can become Admin'}
+        end
       rescue => error
         {success: false, message: error.message}
       end
