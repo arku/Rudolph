@@ -54,3 +54,20 @@
   .members
     - @group.people.each do |person|
       = render partial: 'groups/member', locals: {person: person, draw_pending: @draw_pending}
+  .section-header
+    %h1 My Wishlist
+    .action
+      .add-members= link_to 'Edit wishlist', edit_wishlist_group_path
+  - if !@wishlist_description && @wishlist_items.empty?
+    .box
+      .light 
+        You don't have a wishlist yet!
+        = link_to 'Create one!', edit_wishlist_group_path
+  - else
+    - if @wishlist_description
+      .box= @wishlist_description
+    - if @wishlist_items
+      - @wishlist_items.each do |item|
+        = item.name_or_url
+      
+

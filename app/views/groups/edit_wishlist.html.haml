@@ -1,0 +1,57 @@
+= form_tag update_wishlist_group_path, method: :post do
+  .row.full-width
+    %h1 Edit My Wishlist
+    .box
+
+      = label_tag 'wishlist_description', 'General comments'
+      .light Anything that would help your friend pick a present for you. Like favorite colors, favorite themes, anything.
+      = text_area_tag :wishlist_description, @description, rows: 3
+      %br
+      .right= submit_tag 'Save', class: 'btn gray'
+
+    .section-header
+      %h1 Items
+      .action
+        .add-members= link_to '+ Add items', 'javascript:;'
+    .box.invitation-box
+      .close-invitation-box= link_to 'Close', 'javascript:;'
+      .success.hidden
+        .success-title The following invitations were sent successfully:
+        .success-list
+      .error.hidden
+        .error-title The following invitations could not be sent:
+        .error-list
+
+      .wishlist-item-fields.clonable-field
+        = label_tag 'items[][name_or_url]', 'Name or URL of the item'
+        .close.hidden= link_to 'x', 'javascript:;', class: 'red'
+        = text_field_tag 'items[][name_or_url]'
+
+        = label_tag 'items[][comments]', 'Comments'
+        = text_area_tag 'items[][comments]', nil, rows: 2
+
+      .large3.columns
+        .add-more= link_to '+ Add more', 'javascript:;'
+        = submit_tag 'Add', class: 'btn gray'
+    .row.full-width
+      - if @items.any?
+        - @items.each do |item|
+          .large-6.columns.left
+            .box.wishlist-item
+              - if item.image
+                .image= image_tag item.image
+              .info
+                .title
+                  - if is_url?(item.name_or_url)
+                    = link_to "#{item.link_title || item.name_or_url}"[0..50], item.name_or_url
+                  - else
+                    = item.name_or_url
+                - if item.link_description
+                  .description.light= item.link_description[0..100]
+                .comments= item.comments
+      - else
+        .full-width.columns.left
+          .box
+            .light
+              You don't have any items on your list yet.
+              = link_to 'Add some!', edit_wishlist_group_path

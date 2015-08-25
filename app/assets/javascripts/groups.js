@@ -11,7 +11,7 @@ $(document).ready(function(){
   });
 
   $(document).on('click', '.add-more', function() {
-    last_field = $('.invite-friend:last');
+    last_field = $('.clonable-field:last');
     clone = last_field.clone();
     clone.find('input[type=text]').val('');
     clone.insertAfter(last_field);
@@ -19,8 +19,8 @@ $(document).ready(function(){
   });
 
   $(document).on('click', '.close', function() {
-    $(this).closest('.invite-friend').remove();
-    if($('.invite-friend').length == 1) {
+    $(this).closest('.clonable-field').remove();
+    if($('.clonable-field').length == 1) {
       $('.close').hide();
     }
   });

@@ -12,6 +12,8 @@ Rudolph::Application.routes.draw do
       post   'draw',             as: 'draw'
       get    'who',              as: 'who'
       delete 'leave_group',      as: 'leave'
+      get    'edit_wishlist',    as: 'edit_wishlist'
+      post   'update_wishlist',  as: 'update_wishlist'
     end
   end
 

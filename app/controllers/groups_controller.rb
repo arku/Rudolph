@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   before_action :validate_group_person, except: [:index, :new, :create]
 
   before_filter :initialize_group
-  before_filter :initialize_breadcrumbs, only: [:show, :new, :edit, :who]
+  before_filter :initialize_breadcrumbs, only: [:show, :new, :edit, :who, :edit_wishlist]
 
   def initialize_group
     @group = params[:id].present? ? Group.find(params[:id]) : Group.new
@@ -29,6 +29,8 @@ class GroupsController < ApplicationController
   def show
     @draw_pending = @group.draw_pending?
     @is_admin = current_person.is_admin?(@group)
+    @wishlist_description = current_person.wishlist_description(@group)
+    @wishlist_items = current_person.wishlist_items(@group)
 
     add_breadcrumb @group.name
   end
@@ -82,7 +84,7 @@ class GroupsController < ApplicationController
     response = @group_service.send_invitations(params[:friends])
     @success = response[:success_list]
     @errors = response[:error_list]
-    
+
     @is_admin = current_person.is_admin?(@group)
     @draw_pending = @group.draw_pending?
   end
@@ -108,6 +110,28 @@ class GroupsController < ApplicationController
       flash.alert = "Unable to remove you from this group. Please contact the group admin."
       redirect_to group_path(@group_service.group)
     end
+  end
+
+  def edit_wishlist
+    group_person = current_person.group_person(@group)
+    @items       = group_person.wishlist_items
+    @description = group_person.wishlist_description
+    
+    add_breadcrumb @group.name, group_path(@group)
+    add_breadcrumb "Wishlist"
+  end
+
+  def update_wishlist
+    wishlist_service = WishlistService.new(@group, current_person)
+    response = wishlist_service.update(params[:wishlist_description], params[:items])
+
+    if response[:success]
+      flash.notice = response[:message]
+    else
+      flash.alert = response[:message]
+    end
+    
+    redirect_to edit_wishlist_group_path
   end
 
   private

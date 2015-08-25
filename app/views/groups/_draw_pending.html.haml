@@ -1,7 +1,7 @@
 - if @is_admin
   - if @group.can_draw_names?
     = button_to "Draw names now", draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names'
-  .draw-notice
+  .light
     - if @group.can_draw_names?
       Remember: you cannot invite any more people to the group after the names are drawn.
     - else
@@ -14,4 +14,4 @@
     Done! 
     = link_to 'Who did I get?', who_group_path(@group)
 - else
-  .draw-notice Waiting for group admin to draw names.
+  .light Waiting for group admin to draw names.

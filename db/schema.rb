@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419011049) do
+ActiveRecord::Schema.define(version: 20150816212937) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20150419011049) do
   end
 
   create_table "group_people", force: :cascade do |t|
-    t.integer  "group_id",   limit: 4
-    t.integer  "person_id",  limit: 4
+    t.integer  "group_id",             limit: 4
+    t.integer  "person_id",            limit: 4
+    t.text     "wishlist_description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,5 +75,14 @@ ActiveRecord::Schema.define(version: 20150419011049) do
   add_index "people", ["invitations_count"], name: "index_people_on_invitations_count", using: :btree
   add_index "people", ["invited_by_id"], name: "index_people_on_invited_by_id", using: :btree
   add_index "people", ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wishlist_items", force: :cascade do |t|
+    t.integer "group_person_id",  limit: 4
+    t.text    "name_or_url",      limit: 65535
+    t.text    "comments",         limit: 65535
+    t.string  "image",            limit: 255
+    t.string  "link_title",       limit: 255
+    t.text    "link_description", limit: 65535
+  end
 
 end

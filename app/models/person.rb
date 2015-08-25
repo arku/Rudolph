@@ -67,6 +67,18 @@ class Person < ActiveRecord::Base
     groups.select{|group| is_admin?(group)}
   end
 
+  def group_person(group)
+    GroupPerson.where(person: self, group: group).first
+  end
+
+  def wishlist_description(group)
+    group_person(group).try(:wishlist_description)
+  end
+
+  def wishlist_items(group)
+    group_person(group).try(:wishlist_items)
+  end
+
   def error_messages
     errors.full_messages.join(' ,')
   end

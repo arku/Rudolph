@@ -38,6 +38,8 @@ gem 'koala', '~> 1.11.0rc'
 
 gem 'breadcrumbs_on_rails'
 
+gem 'metainspector'
+
 group :development do
   gem 'letter_opener'
 end
