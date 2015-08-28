@@ -65,9 +65,20 @@
         = link_to 'Create one!', edit_wishlist_group_path
   - else
     - if @wishlist_description
-      .box= @wishlist_description
+      %p= @wishlist_description
     - if @wishlist_items
       - @wishlist_items.each do |item|
-        = item.name_or_url
+        .large-4.columns.left
+          .box.wishlist-item-small
+            - if item.image
+              .image= image_tag item.image
+            .info
+              .title
+                - if is_url?(item.name_or_url)
+                  = link_to "#{item.link_title || item.name_or_url}"[0..50], item.name_or_url
+                - else
+                  = item.name_or_url
+      - if @wishlist_size > 3
+        .action.right= link_to 'View all', edit_wishlist_group_path
       
 

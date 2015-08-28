@@ -1,0 +1,44 @@
+.wishlist-item {
+  .image {
+    display: inline-block;
+    float:left;
+
+    img {
+      width: 170px;
+    }
+  }
+
+  .info {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    max-width: 250px;
+  }
+
+  .description {
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+
+.wishlist-item-small {
+  .image {
+    margin-bottom: 20px;
+    text-align: center;
+    
+    img {
+      max-height: 150px;
+      max-width: 260px;
+    }
+  }
+
+  .info {
+    text-align: center;
+    max-width: 260px;
+  }
+}
+
+.wishlist-item-fields {
+  margin-bottom: 40px;
+  width: 100%;
+}

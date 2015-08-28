@@ -1,0 +1,14 @@
+- @wishlist_items.each do |item|
+  .large-6.columns.left
+    .box.wishlist-item
+      - if item.image
+        .image= image_tag item.image
+      .info
+        .title
+          - if is_url?(item.name_or_url)
+            = link_to cut_text("#{item.link_title || item.name_or_url}", 50), item.name_or_url
+          - else
+            = item.name_or_url
+        - if item.link_description
+          .description.light= cut_text(item.link_description, 100)
+        .comments= item.comments

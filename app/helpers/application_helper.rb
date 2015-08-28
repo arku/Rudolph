@@ -7,4 +7,8 @@ module ApplicationHelper
   def is_url?(string)
     string.include?('http://') || string.include?('https://')
   end
+
+  def cut_text(text, size)
+    text.size <= size ? text : "#{text[0..size-1]}..."
+  end
 end

@@ -36,16 +36,16 @@
     float:left;
     margin-bottom: 25px;
   }
+}
 
-  .action {
-    color:#00a39b;
-    cursor: pointer;
-    display:inline;
-    float:right;
-    font-size: 15px;
-    line-height: 35px;
-    text-decoration: underline;
-  }
+.action {
+  color:#00a39b;
+  cursor: pointer;
+  display:inline;
+  float:right;
+  font-size: 15px;
+  line-height: 35px;
+  text-decoration: underline;
 }
 
 .invitation-box {
@@ -203,34 +203,6 @@
   color: #8D8D8D;
   display: inline;
   font-size: 14px;
-}
-
-.wishlist-item {
-  .image {
-    display: inline-block;
-    float:left;
-
-    img {
-      width: 170px;
-    }
-  }
-
-  .info {
-    display: inline-block;
-    float: left;
-    margin-left: 20px;
-    max-width: 250px;
-  }
-
-  .description {
-    display: block;
-    margin-bottom: 30px;
-  }
-}
-
-.wishlist-item-fields {
-  margin-bottom: 40px;
-  width: 100%;
 }
 
 .clonable-field {

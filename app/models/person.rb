@@ -39,6 +39,10 @@ class Person < ActiveRecord::Base
                       password: dummy)
   end
 
+  def first_name
+    name.split(' ').first
+  end
+
   def invited?
     invitation_token && !invitation_accepted_at
   end

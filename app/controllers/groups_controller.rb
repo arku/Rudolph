@@ -27,10 +27,12 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @draw_pending = @group.draw_pending?
-    @is_admin = current_person.is_admin?(@group)
+    @draw_pending         = @group.draw_pending?
+    @is_admin             = current_person.is_admin?(@group)
     @wishlist_description = current_person.wishlist_description(@group)
-    @wishlist_items = current_person.wishlist_items(@group)
+    all_items             = current_person.wishlist_items(@group)
+    @wishlist_size        = all_items.size
+    @wishlist_items       = all_items.limit(3)
 
     add_breadcrumb @group.name
   end
@@ -75,6 +77,8 @@ class GroupsController < ApplicationController
 
   def who
     @person = Exchange.where(group: @group, giver: current_person).first.try(:receiver)
+    @wishlist_items = @person.wishlist_items(@group)
+    @wishlist_description = @person.wishlist_description(@group)
 
     add_breadcrumb @group.name, group_path(@group)
     add_breadcrumb "Result"
@@ -114,9 +118,9 @@ class GroupsController < ApplicationController
 
   def edit_wishlist
     group_person = current_person.group_person(@group)
-    @items       = group_person.wishlist_items
-    @description = group_person.wishlist_description
-    
+    @wishlist_items = group_person.wishlist_items
+    @description    = group_person.wishlist_description
+
     add_breadcrumb @group.name, group_path(@group)
     add_breadcrumb "Wishlist"
   end

@@ -8,7 +8,7 @@
 
 #who.hidden
   .row.bread= render_breadcrumbs :tag => :li, :separator => ">&nbsp&nbsp"
-  .row
+  .row.who-description
     .photo
       = image_tag @person.photo_by_size('large')
     .text
@@ -16,3 +16,17 @@
       Looks like
       = @person.name || @person.email
       is the lucky friend who's getting a present from you!
+
+  .row.full-width
+    .section-header
+      %h1= "#{@person.first_name}'s Wishlist"
+    - if @wishlist_description
+      %p= @wishlist_description
+
+    .row.full-width
+      - if @wishlist_items.any?
+        = render 'groups/wishlist_items'
+      - else
+        .full-width.columns.left
+          .box
+            .light= "#{@person.name} doesn't have any wishlist items yet..."
