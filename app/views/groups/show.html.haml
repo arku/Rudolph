@@ -60,7 +60,7 @@
       .add-members= link_to 'Edit wishlist', edit_wishlist_group_path
   - if !@wishlist_description && @wishlist_items.empty?
     .box
-      .light 
+      .light
         You don't have a wishlist yet!
         = link_to 'Create one!', edit_wishlist_group_path
   - else

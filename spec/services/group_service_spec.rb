@@ -9,12 +9,12 @@ describe GroupService do
 
     context 'valid group' do
       let(:valid_params) {
-        { 
-          :admin_id => "#{group.admin.id}", 
-          :name => "Test", 
-          :description => "Testing valid params", 
-          :location => "Here", 
-          :date => "12/24/2015", 
+        {
+          :admin_id => "#{group.admin.id}",
+          :name => "Test",
+          :description => "Testing valid params",
+          :location => "Here",
+          :date => "12/24/2015",
           :price_range => "30-40"
         }
       }
@@ -36,12 +36,12 @@ describe GroupService do
 
     context 'invalid group' do
       let(:invalid_params) {
-        { 
-          :admin_id => "#{group.admin.id}", 
+        {
+          :admin_id => "#{group.admin.id}",
           :name => nil,
-          :description => "Testing valid params", 
-          :location => "Here", 
-          :date => "12/24/2015", 
+          :description => "Testing valid params",
+          :location => "Here",
+          :date => "12/24/2015",
           :price_range => "30-40"
         }
       }
@@ -205,7 +205,7 @@ describe GroupService do
     end
 
     context 'current person is not admin' do
-      before(:all) do 
+      before(:all) do
         group = Group.find(1)
         group.admin = Person.find(1)
         group.save

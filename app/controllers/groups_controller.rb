@@ -134,7 +134,7 @@ class GroupsController < ApplicationController
     else
       flash.alert = response[:message]
     end
-    
+
     redirect_to edit_wishlist_group_path
   end
 

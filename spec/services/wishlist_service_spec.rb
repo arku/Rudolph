@@ -29,11 +29,11 @@ describe WishlistService do
 
     context 'updating only items' do
       let(:items) {
-        [ 
+        [
           {name_or_url: "http://www.americanas.com.br/produto/119195941/cafeteira-expresso-nespresso-19-bar-ruby-red-inissia", comments: 'I love coffee'},
           {name_or_url: 'Any coffee maker', comments: 'I really love coffee'},
           {name_or_url: 'A mug for my coffee', comments: ''}
-        ] 
+        ]
       }
       let(:response) { subject.update(subject.group_person.wishlist_description, items) }
 
@@ -56,11 +56,11 @@ describe WishlistService do
 
     context 'updating both description and items' do
       let(:items) {
-        [ 
+        [
           {name_or_url: "http://www.americanas.com.br/produto/119195941/cafeteira-expresso-nespresso-19-bar-ruby-red-inissia", comments: 'I love coffee'},
           {name_or_url: 'Any coffee maker', comments: 'I really love coffee'},
           {name_or_url: 'A mug for my coffee', comments: ''}
-        ] 
+        ]
       }
       let(:response) { subject.update("A brand new description", items) }
 
@@ -224,11 +224,11 @@ describe WishlistService do
 
     context 'many valid items' do
       let(:items) {
-        [ 
+        [
           {name_or_url: "http://www.americanas.com.br/produto/119195941/cafeteira-expresso-nespresso-19-bar-ruby-red-inissia", comments: 'I love coffee'},
           {name_or_url: 'Any coffee maker', comments: 'I really love coffee'},
           {name_or_url: 'A mug for my coffee', comments: ''}
-        ] 
+        ]
       }
       let(:response) { subject.update_list(items)}
 
@@ -247,11 +247,11 @@ describe WishlistService do
 
     context 'many items, some valid' do
       let(:items) {
-        [ 
+        [
           {name_or_url: "http://www.americanas.com.br/produto/119195941/cafeteira-expresso-nespresso-19-bar-ruby-red-inissia", comments: 'I love coffee'},
           {name_or_url: 'Any coffee maker', comments: 'I really love coffee'},
           {name_or_url: "#{21850.times.map {'a'}}", comments: 'Oops'}
-        ] 
+        ]
       }
       let(:response) { subject.update_list(items)}
 
