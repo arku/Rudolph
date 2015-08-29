@@ -1,4 +1,4 @@
-server ENV['server_ip'], port: 22, roles: [:web, :app, :db], primary: true
+server '104.131.61.67', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:florasaramago/Rudolph.git'
 set :application,     'Rudolph'
