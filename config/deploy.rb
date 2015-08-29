@@ -46,6 +46,22 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespace :figaro do
+  desc "SCP transfer figaro configuration to the shared folder"
+  task :setup do
+      on roles(:app) do
+          upload! "config/application.yml", "#{shared_path}/application.yml", via: :scp
+      end
+  end
+
+  desc "Symlink application.yml to the release path"
+  task :symlink do
+      on roles(:app) do
+          execute "ln -sf #{shared_path}/application.yml #{release_path}/config/application.yml"
+      end
+  end
+end
+
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
   task :check_revision do
@@ -74,6 +90,8 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
+  before :updated,      "figaro:setup"
+  before :updated,      "figaro:symlink"
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
