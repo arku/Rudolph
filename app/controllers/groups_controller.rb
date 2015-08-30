@@ -138,6 +138,10 @@ class GroupsController < ApplicationController
     redirect_to edit_wishlist_group_path
   end
 
+  def get_coordinates
+    render json: {latitude: @group.latitude, longitude: @group.longitude}.to_json
+  end
+
   private
 
   def group_params

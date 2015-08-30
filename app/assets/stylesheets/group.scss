@@ -1,4 +1,5 @@
 .group-about {
+  max-height: 312px;
   overflow: hidden;
 
   .info {
@@ -59,16 +60,23 @@
       }
     }
   }
+}
 
-  .side {
-    display:inline-block;
-    float:right;
+.side {
+  display:inline-block;
+  float:right;
 
-    .leave {
-      float: right;
-      font-size: 14px;
-      margin: 10px 5px 0 0;
-    }
+  #map {
+    border: 1px solid #8D8D8D;
+    height: 309px;
+    margin-top: 3px;
+    width: 312px;
+  }
+
+  .leave {
+    float: right;
+    font-size: 14px;
+    margin: 10px 5px 0 0;
   }
 }
 

@@ -14,6 +14,10 @@ Rudolph::Application.routes.draw do
       delete 'leave_group',      as: 'leave'
       get    'edit_wishlist',    as: 'edit_wishlist'
       post   'update_wishlist',  as: 'update_wishlist'
+
+      constraints format: :json do
+        get 'get_coordinates',  as: 'get_coordinates'
+      end
     end
   end
 

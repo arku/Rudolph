@@ -9,6 +9,9 @@ class Group < ActiveRecord::Base
 
   after_create :add_admin
 
+  geocoded_by :location
+  after_validation :geocode
+
   def add_admin
     add_person(admin)
   end

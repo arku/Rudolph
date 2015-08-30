@@ -42,6 +42,8 @@ gem 'metainspector'
 
 gem 'puma'
 
+gem 'geocoder'
+
 group :development do
   gem 'letter_opener'
   gem 'capistrano',         require: false

@@ -23,7 +23,7 @@
               = link_to 'Edit group info', edit_group_path(@group)
     .large-4.columns.right
       .side
-        .map= image_tag 'fake_map.png'
+        #map
         - if !@is_admin && @draw_pending
           .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   %br
