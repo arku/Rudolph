@@ -1,11 +1,12 @@
 - if @is_admin
-  - if @group.can_draw_names?
-    = button_to "Draw names now", draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names'
-  .light
+  .draw-notice
     - if @group.can_draw_names?
-      Remember: you cannot invite any more people to the group after the names are drawn.
-    - else
-      The drawing can only start after everyone who was invited accepts the invitation.
+      = button_to "Draw names now", draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names'
+    .light
+      - if @group.can_draw_names?
+        Remember: you cannot invite any more people to the group after the names are drawn.
+      - else
+        The drawing can only start after everyone who was invited accepts the invitation.
   .draw-loading.hidden
     Drawing names...
     = image_tag 'loader.gif'
