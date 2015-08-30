@@ -8,10 +8,54 @@
     font-size: 17px;
 
     .item {
+      display: block;
       margin-bottom:20px;
+      overflow: hidden;
+      width: 100%;
 
       .bold {
         color: rgb(199, 195, 195);
+      }
+    }
+
+    .calendar {
+      border: 1px solid #6B6060;
+      border-radius: 4px;
+      display: inline-block;
+      float:left;
+      height: 130px;
+      text-align: center;
+      width: 130px;
+
+      .month {
+        background-color: #ba4247;
+        color: white;
+        font-size: 19px;
+        height: 30px;
+      }
+
+      .day {
+        color: #6B6060;
+        font-size: 40px;
+        line-height: 71px;
+      }
+
+      .time {
+        background-color: rgba(221, 221, 221, 0.18);
+        border-top: 1px solid #6B6060;
+        color: #6B6060;
+        line-height: 27px;
+      }
+    }
+
+    .side-info {
+      display: inline-block;
+      float: left;
+      margin-left: 20px;
+      max-width: 463px;
+
+      p {
+        margin-bottom: 10px;
       }
     }
   }

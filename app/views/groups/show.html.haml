@@ -1,27 +1,31 @@
 .row.full-width
   %h1= @group.name
-  .box.group-about
-    .info
-      .item
-        .bold When
-        = @group.date
-      .item
-        .bold Where
-        = @group.location
-      .item
-        .bold Price range
-        = @group.price_range
-      .item
-        .bold Description
-        = @group.description
-      - if @is_admin
-        .item
-          .bold Admin actions
-          = link_to 'Edit group info', edit_group_path(@group)
-    .side
-      .map= image_tag 'fake_map.png'
-      - if !@is_admin && @draw_pending
-        .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
+  .row.full-width
+    .large-8.columns.left
+      .box.group-about
+        .info
+          .item
+            .calendar
+              .month= Date::MONTHNAMES[@group.date.month]
+              .day= @group.date.day
+              .time 8 PM
+            .side-info
+              .bold Where
+              %p= @group.location
+              .bold Price range
+              %p= @group.price_range
+          .item
+            .bold Description
+            = @group.description
+          - if @is_admin
+            .item
+              .bold Admin actions
+              = link_to 'Edit group info', edit_group_path(@group)
+    .large-4.columns.right
+      .side
+        .map= image_tag 'fake_map.png'
+        - if !@is_admin && @draw_pending
+          .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   %br
   %h1 Drawing
   .box.group-draw
