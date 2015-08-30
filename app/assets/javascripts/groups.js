@@ -67,12 +67,14 @@ $(document).ready(function(){
     marker.setMap(map);
   }
 
-  $.ajax({
-    url: window.location.href + '/get_coordinates',
-      success: function(response){
-        google.maps.event.addDomListener(window, 'load', initialize(response['latitude'], response['longitude']));
-      }, 
-    type: "GET", 
-    dataType: "json"
-  });
+  if($('#map').length > 0) {
+    $.ajax({
+      url: window.location.href + '/get_coordinates',
+        success: function(response){
+          google.maps.event.addDomListener(window, 'load', initialize(response['latitude'], response['longitude']));
+        }, 
+      type: "GET", 
+      dataType: "json"
+    });
+  }
 });

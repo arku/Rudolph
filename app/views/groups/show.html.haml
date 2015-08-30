@@ -18,14 +18,12 @@
             .bold Description
             = @group.description
           - if @is_admin
-            .item
-              .bold Admin actions
-              = link_to 'Edit group info', edit_group_path(@group)
+            .item= link_to 'Edit group info', edit_group_path(@group)
+        - if !@is_admin && @draw_pending
+          .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
     .large-4.columns.right
       .side
         #map
-        - if !@is_admin && @draw_pending
-          .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   %br
   %h1 Drawing
   .box.group-draw
