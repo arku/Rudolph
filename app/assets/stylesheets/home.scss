@@ -1,0 +1,15 @@
+#home {
+  background: transparent image-url("home.jpg") no-repeat;
+  background-size: cover;
+  height: 100%;
+  margin-top: -50px;
+
+  .home-container {
+    padding-top: 3%;
+
+    h1.main {
+      font-size: 45px;
+      margin-bottom: 15%;
+    }
+  }  
+}
