@@ -36,6 +36,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   alias_method :facebook, :all
 
+  def failure
+    redirect_to root_path
+  end
+
   def params
     params.require(:person).permit(:provider, :uid, :name, :image, :token, :expires_at)
   end
