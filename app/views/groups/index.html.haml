@@ -13,12 +13,13 @@
               %p= link_to group.name, group_path(group)
               .item
                 .bold Where
-                = cut_text(group.location, 60) 
+                = cut_text(group.location, 30) 
               .item
                 .bold Drawing status
                 - if group.status == 1
                   Names have been drawn!
-                  = link_to 'Find out who you got!', who_group_path(group)
+                  %br
+                  = link_to 'See the result!', who_group_path(group)
                 - else
                   .red Pending
             .side
