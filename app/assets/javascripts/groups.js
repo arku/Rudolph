@@ -1,13 +1,13 @@
 $(document).ready(function(){
 
-  $(document).on('click', '.add-members', function() {
-    $('.invitation-box').slideDown();
+  $(document).on('click', '.add', function() {
+    $('.sliding-box').slideDown();
     $(this).hide();
   });
 
-  $(document).on('click', '.close-invitation-box', function() {
-    $('.invitation-box').slideUp();
-    $('.add-members').show();
+  $(document).on('click', '.close-sliding-box', function() {
+    $('.sliding-box').slideUp();
+    $('.add').show();
   });
 
   $(document).on('click', '.add-more', function() {

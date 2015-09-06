@@ -1,25 +1,23 @@
 = form_for group do |f|
   = hidden_field_tag 'group[admin_id]', group.try(:admin).try(:id) || current_person.id
   .row.collapse
-    .large-8
-      = f.label :name, 'Name'
-      = f.text_field :name
-      = f.label :description, 'Description'
-      = f.text_area :description, rows: 5
-      = f.label :location, 'Location'
-      = f.text_field :location
+    = f.label :name, 'Name'
+    = f.text_field :name
+    = f.label :description, 'Description'
+    = f.text_area :description, rows: 5
+    = f.label :location, 'Location'
+    = f.text_field :location
   .row
     .large-12
-      .large-5.columns
+      .large-8.columns
         = f.label :date, 'Date'
         %div{style: "overflow:hidden;"}
           .form-group
             .row
               .col-md-8
                 #datetimepicker
-        = f.hidden_field :date
-      .large-3.columns
+        = hidden_field_tag 'group[date]', group.try(:date) || Time.new.getutc.change({ hour: 20, min: 0, sec: 0 })
+      .large-4.columns
         = f.label :price_range, 'Price range'
         = f.text_field :price_range, disabled: group.draw_done?
-      .large3.columns
-        = f.submit 'Save', class: 'btn gray'
+        = f.submit 'Save', class: 'btn gray group-form-submit'

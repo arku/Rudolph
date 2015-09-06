@@ -12,9 +12,9 @@
     .section-header
       %h1 Items
       .action
-        .add-members= link_to '+ Add items', 'javascript:;'
-    .box.invitation-box
-      .close-invitation-box= link_to 'Close', 'javascript:;'
+        .add= link_to '+ Add items', 'javascript:;'
+    .box.sliding-box
+      .close-sliding-box= link_to 'Close', 'javascript:;'
       .success.hidden
         .success-title The following invitations were sent successfully:
         .success-list
@@ -41,4 +41,4 @@
           .box
             .light
               You don't have any items on your list yet.
-              = link_to 'Add some!', edit_wishlist_group_path
+              = link_to 'Add some!', 'javascript:;', class: 'add'

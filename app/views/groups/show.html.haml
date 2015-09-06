@@ -34,10 +34,10 @@
     %h1 Members
     - if @draw_pending
       .action
-        .add-members= link_to '+ Add members', 'javascript:;'
+        .add= link_to '+ Add members', 'javascript:;'
   - if @draw_pending
-    .box.invitation-box
-      .close-invitation-box= link_to 'Close', 'javascript:;'
+    .box.sliding-box
+      .close-sliding-box= link_to 'Close', 'javascript:;'
       .success.hidden
         .success-title The following invitations were sent successfully:
         .success-list
@@ -63,7 +63,7 @@
   .section-header
     %h1 My Wishlist
     .action
-      .add-members= link_to 'Edit wishlist', edit_wishlist_group_path
+      = link_to 'Edit wishlist', edit_wishlist_group_path
   - if !@wishlist_description && @wishlist_items.empty?
     .box
       .light

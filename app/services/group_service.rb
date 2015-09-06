@@ -9,7 +9,7 @@ class GroupService
 
   def create_group(params)
     begin
-      @group = Group.create!(normalize(params))
+      @group = Group.create!(params)
       {success: true, message: "Successfully created group #{group.name}"}
     rescue => error
       {success: false, message: error.message}
@@ -82,11 +82,6 @@ class GroupService
 
   def remove_group_person(member)
     GroupPerson.where(group: group, person: member).first.try(:destroy)
-  end
-
-  def normalize(params)
-    params[:date] = Date.strptime(params[:date], '%m/%d/%Y')
-    params
   end
 
   def can_remove_member?(member)

@@ -103,10 +103,10 @@
   text-decoration: underline;
 }
 
-.invitation-box {
+.sliding-box {
   display:none;
 
-  .close-invitation-box {
+  .close-sliding-box {
     display: inline;
     float: right;
     margin-top: -10px;
@@ -307,6 +307,10 @@
   }
 }
 
+#group_description {
+  margin-bottom: 15px;
+}
+
 .xdsoft_datetimepicker {
   margin-left: 9px;
 }
@@ -374,4 +378,9 @@
     -webkit-transform: scale(1.07);
     box-shadow: 0 0 0 5px rgba(91, 183, 91, 0.3);
   }
+}
+
+.group-form-submit {
+  float: right;
+  margin-top: 130px;
 }
