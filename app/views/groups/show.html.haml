@@ -25,11 +25,9 @@
       .side
         #map
   %br
-  %h1 Drawing
-  .box.group-draw
-    - if @draw_pending
-      = render 'groups/draw_pending'
-    - else
+  - unless @draw_pending
+    %h1 Drawing
+    .group-draw
       = render 'groups/draw_done'
   %br
   .section-header
@@ -56,6 +54,12 @@
   .members
     - @group.people.each do |person|
       = render partial: 'groups/member', locals: {person: person, draw_pending: @draw_pending}
+
+  - if @draw_pending
+    %h1 Drawing
+    .box.group-draw
+      = render 'groups/draw_pending'
+  %br
   .section-header
     %h1 My Wishlist
     .action
