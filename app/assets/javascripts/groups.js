@@ -37,8 +37,10 @@ $(document).ready(function(){
     }
   });
 
-  $('.draw_names').click(function() {
-    $(this).hide();
+  $(document).on('click', '.confirm-drawing', function() {
+    $('.reveal-modal-bg').hide();
+    $('.reveal-modal').hide();
+    $('.draw_names').hide();
     $('.draw-notice').hide();
     $('.draw-loading').removeClass('hidden').fadeIn();
   });

@@ -1,7 +1,7 @@
 .row.full-width
   .section-header
     %h1 My account
-    .action= link_to "Cancel my account", person_path(resource), data: { confirm: "Are you sure?" }, method: :delete, class: 'red'
+    .action= link_to "Cancel my account", person_path(resource), method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
   .box
     = form_for(resource, as: resource_name, html: { method: :put }) do |f|
 
