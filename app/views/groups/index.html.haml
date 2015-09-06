@@ -8,15 +8,12 @@
     .row.full-width
       - @groups.each do |group|
         .large-6.columns.left
-          .box.group-about
-            .info
-              = link_to group.name, group_path(group)
-              .item
-                .bold When
-                = group.date
+          .box.group-about.index-group-about
+            .info.index-info
+              %p= link_to group.name, group_path(group)
               .item
                 .bold Where
-                = group.location
+                = cut_text(group.location, 60) 
               .item
                 .bold Drawing status
                 - if group.status == 1
@@ -24,6 +21,12 @@
                   = link_to 'Find out who you got!', who_group_path(group)
                 - else
                   .red Pending
+            .side
+              .calendar-small
+                .month= Date::MONTHNAMES[group.date.month]
+                .day= group.date.day
+                .time= group.date.strftime("%H:00")
+
   - else
     You don't belong to any groups yet.
     = link_to 'Create one!', new_group_path

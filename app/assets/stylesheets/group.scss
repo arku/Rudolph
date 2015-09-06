@@ -277,6 +277,36 @@
   }
 }
 
+.calendar-small {
+  border: 1px solid #6B6060;
+  border-radius: 4px;
+  display: inline-block;
+  float:left;
+  height: 117px;
+  text-align: center;
+  width: 120px;
+
+  .month {
+    background-color: #ba4247;
+    color: white;
+    font-size: 17px;
+    height: 27px;
+  }
+
+  .day {
+    color: #6B6060;
+    font-size: 35px;
+    line-height: 60px;
+  }
+
+  .time {
+    background-color: rgba(221, 221, 221, 0.18);
+    border-top: 1px solid #6B6060;
+    color: #6B6060;
+    line-height: 27px;
+  }
+}
+
 .xdsoft_datetimepicker {
   margin-left: 9px;
 }
@@ -303,4 +333,17 @@
   color: #fff !important;
   background: #0f7d75 !important;
   box-shadow: none !important;
+}
+
+.index-info {
+  width: auto !important;
+  max-width: 310px;
+
+  p {
+    font-size: 19px;
+  }
+}
+
+.index-group-about {
+  min-height: 275px !important;
 }
