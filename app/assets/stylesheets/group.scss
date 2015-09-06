@@ -276,3 +276,31 @@
     }
   }
 }
+
+.xdsoft_datetimepicker {
+  margin-left: 9px;
+}
+
+.xdsoft_current {
+  background: #00a39b !important;
+  box-shadow: #0f7d75 0 1px 3px 0 inset !important;
+}
+
+.xdsoft_current:hover {
+  background: #00a39b !important;
+  box-shadow: #0f7d75 0 1px 3px 0 inset !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select.xdsoft_monthselect{ right: -7px }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select.xdsoft_yearselect{ right: 2px }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select > div > .xdsoft_option:hover {
+  color: #fff;
+  background: #0f7d75 !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td:hover,
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div >div:hover {
+  color: #fff !important;
+  background: #0f7d75 !important;
+  box-shadow: none !important;
+}

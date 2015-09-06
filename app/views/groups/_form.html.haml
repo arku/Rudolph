@@ -10,9 +10,14 @@
       = f.text_field :location
   .row
     .large-12
-      .large-3.columns
+      .large-5.columns
         = f.label :date, 'Date'
-        = f.text_field :date
+        %div{style: "overflow:hidden;"}
+          .form-group
+            .row
+              .col-md-8
+                #datetimepicker
+        = f.hidden_field :date
       .large-3.columns
         = f.label :price_range, 'Price range'
         = f.text_field :price_range, disabled: group.draw_done?

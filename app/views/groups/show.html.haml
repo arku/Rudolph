@@ -8,7 +8,7 @@
             .calendar
               .month= Date::MONTHNAMES[@group.date.month]
               .day= @group.date.day
-              .time 8 PM
+              .time= @group.date.strftime("%H:00")
             .side-info
               .bold Where
               %p= @group.location

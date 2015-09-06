@@ -21,8 +21,6 @@ $(document).on('ready page:load', function () {
 });
 
 $(document).ready(function() {
-  $('#group_date').fdatepicker();
-
   setTimeout(function() {
     $('.notice-box, .alert-box').fadeOut();
   }, 2000);

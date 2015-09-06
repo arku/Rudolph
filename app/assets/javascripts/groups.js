@@ -48,6 +48,19 @@ $(document).ready(function(){
     $('#who').removeClass('hidden').fadeIn();
   });
 
+  $('#datetimepicker').datetimepicker({
+    format:'Y-m-d H:i:00',
+    inline:true,
+    todayButton: false,
+    value: $('#group_date').val().replace(' UTC',''),
+    onShow: function(dp, $input){
+      $('.xdsoft_time.xdsoft_current').trigger('click');
+    },
+    onChangeDateTime: function(dp, $input){
+      $('#group_date').val($input.val());
+    }
+  });
+
   function initialize(latitude, longitude) {
     var map;
     var mapOptions = {
