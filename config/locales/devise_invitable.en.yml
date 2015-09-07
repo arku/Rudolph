@@ -17,8 +17,9 @@ en:
         submit_button: "Sign up"
     mailer:
       invitation_instructions:
-        subject: "Invitation instructions"
-        hello: "Hello %{email}"
-        someone_invited_you: "Someone has invited you to %{url}, you can accept it through the link below."
+        subject: "You've been invited to Rudolph!"
+        hello: "Hello %{email},"
+        person_invited_you: "%{person} has invited you to Rudolph, a gift exchange app."
+        someone_invited_you: "Someone has invited you to Rudolph, a gift exchange app."
         accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email.<br />Your account won't be created until you access the link above and set your password."
+        ignore: "If you don't want to accept the invitation, please ignore this email.<br />Your account won't be created until you access the link above."

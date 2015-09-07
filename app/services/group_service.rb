@@ -60,7 +60,7 @@ class GroupService
       person = Person.where(email: email).first
 
       if (!person || person.can_be_invited?) && !success.include?(email) && !errors.keys.include?(email)
-        person = Person.invite!(email: email, invited_by_id: current_person.id)
+        person = Person.invite!({email:email}, current_person)
 
         if person.valid?
           group_person = add_group_person(person)
