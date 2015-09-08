@@ -57,17 +57,21 @@ class GroupService
     success = []
 
     friends.each do |email|
-      person = Person.where(email: email).first
+      begin
+        person = Person.where(email: email).first
 
-      if (!person || person.can_be_invited?) && !success.include?(email) && !errors.keys.include?(email)
-        person = Person.invite!({email:email}, current_person)
+        if (!person || person.can_be_invited?) && !success.include?(email) && !errors.keys.include?(email)
+          person = Person.invite!({email:email}, current_person)
 
-        if person.valid?
-          group_person = add_group_person(person)
-          group_person.valid? ? success << email : errors[email] = group_person.error_messages
-        else
-          errors[email] = person.error_messages
+          if person.valid?
+            group_person = add_group_person(person)
+            group_person.valid? ? success << email : errors[email] = group_person.error_messages
+          else
+            errors[email] = person.error_messages
+          end
         end
+      rescue => error
+        puts error.message
       end
     end
 
