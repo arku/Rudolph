@@ -44,8 +44,6 @@ gem 'puma'
 
 gem 'geocoder'
 
-gem 'sendgrid-rails', '~> 2.0'
-
 group :development do
   gem 'letter_opener'
   gem 'capistrano',         require: false
