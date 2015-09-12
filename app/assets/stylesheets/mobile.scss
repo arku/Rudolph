@@ -1,0 +1,36 @@
+@media screen and (max-width: 700px) {
+  h1.rudolph {
+    a {
+      img {
+        max-width: 150%;
+      }
+    }
+  }
+
+  .top-bar .toggle-topbar.menu-icon {
+    display: none;
+  }
+
+  .top-bar .title-area {
+    display: inline-block;
+  }
+
+  .top-bar-section {
+    display: inline-block;
+    overflow: hidden;
+    float: right;
+    margin-right: 15px;
+
+    .right {
+      li {
+        width: auto;
+
+        .logged-user {
+          width: auto;
+          float: right;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
