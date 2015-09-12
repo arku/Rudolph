@@ -1,4 +1,8 @@
 @media screen and (max-width: 700px) {
+  .full-width, .bread {
+    width: 90%;
+  }
+
   h1.rudolph {
     a {
       img {
@@ -33,4 +37,51 @@
       }
     }
   }
+
+  .group-about {
+    .info {
+
+      .item {
+        margin-bottom: 0;
+
+        .calendar {
+          margin-bottom: 15px;
+        }
+      }
+
+      .side-info {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .side {
+    display: block;
+    float: center;
+    float: none;
+    margin: auto;
+
+    #map {
+      width: 80%;
+      text-align: center;
+      margin: auto;
+    }
+  }
+
+  .members {
+    .member {
+      text-align: left;
+      width: 100%;
+
+      .avatar {
+        display: inline-block;
+      }
+
+      .member-data {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+      }
+    }
+  } 
 }
