@@ -4,7 +4,7 @@
   }
 
   .bread {
-    margin-top: 12px;
+    margin-top: 0;
     width: 90%;
   }
 
@@ -49,8 +49,28 @@
       .item {
         margin-bottom: 0;
 
+        a {
+          line-height: 40px;
+        }
+
         .calendar {
+          height: 104px;
           margin-bottom: 15px;
+          width: 110px;
+
+          .month {
+            font-size: 17px;
+            height: 27px;
+          }
+
+          .day {
+            font-size: 27px;
+            line-height: 50px;
+          }
+
+          .time {
+            font-size: 15px;
+          }
         }
       }
 
@@ -78,13 +98,8 @@
 
     .member {
       display: inline-block;
-      margin-right: 10px;
+      margin-right: 25px;
       width: auto;
-
-      .avatar {
-        height: 113px;
-        width: 113px;
-      }
 
       .name {
         font-size: 90%;
@@ -97,5 +112,33 @@
       display: block;
       margin-top: 15px;
     }
+  }
+
+  .index-group-about {
+    .side {
+      display: none;
+
+      .calendar {
+        display: none;
+      }
+    }
+
+    .index-info {
+      .item {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .xdsoft_datetimepicker {
+    border: none !important;
+  }
+
+  .xdsoft_timepicker {
+    margin: 15px auto 0 auto !important;
+  }
+
+  .group-form-submit {
+    margin-top: 10px;
   }
 }
