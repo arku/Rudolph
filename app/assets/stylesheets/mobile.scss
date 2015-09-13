@@ -1,5 +1,10 @@
 @media screen and (max-width: 700px) {
-  .full-width, .bread {
+  .full-width {
+    width: 90%;
+  }
+
+  .bread {
+    margin-top: 12px;
     width: 90%;
   }
 
@@ -21,18 +26,18 @@
 
   .top-bar-section {
     display: inline-block;
-    overflow: hidden;
     float: right;
     margin-right: 15px;
+    overflow: hidden;
 
     .right {
       li {
         width: auto;
 
         .logged-user {
-          width: auto;
-          float: right;
           display: inline-block;
+          float: right;
+          width: auto;
         }
       }
     }
@@ -57,31 +62,40 @@
 
   .side {
     display: block;
-    float: center;
     float: none;
     margin: auto;
 
     #map {
-      width: 80%;
-      text-align: center;
+      height: 250px;
       margin: auto;
+      text-align: center;
+      width: 80%;
     }
   }
 
   .members {
+    padding-left: 0;
+
     .member {
-      text-align: left;
-      width: 100%;
+      display: inline-block;
+      margin-right: 10px;
+      width: auto;
 
       .avatar {
-        display: inline-block;
+        height: 113px;
+        width: 113px;
       }
 
-      .member-data {
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 10px;
+      .name {
+        font-size: 90%;
       }
     }
-  } 
+  }
+
+  .draw-notice {
+    .light {
+      display: block;
+      margin-top: 15px;
+    }
+  }
 }
