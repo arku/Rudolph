@@ -23,7 +23,11 @@
 
   .home-container {
     .right {
-      float: none !important;
+      width: 100% !important;
+
+      .box.right {
+        padding: 13px !important;
+      }
     }
 
     .facebook {
@@ -166,7 +170,7 @@
   }
 
   .reveal-modal, dialog {
-    min-height: auto;
+    min-height: 100px;
     margin-left: 4%;
   }
 
