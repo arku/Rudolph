@@ -4,7 +4,7 @@
   }
 
   .bread {
-    margin-top: -15px;
+    margin-top: 10px !important;
     width: 90%;
   }
 
@@ -14,6 +14,25 @@
         max-width: 150%;
       }
     }
+  }
+
+  h1.main {
+    font-size: 25px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .home-container {
+    .right {
+      float: none !important;
+    }
+
+    .facebook {
+      margin-bottom: 20px !important;
+    }
+  }
+
+  .has-dropdown {
+    display: none;
   }
 
   .top-bar .toggle-topbar.menu-icon {
@@ -98,7 +117,7 @@
 
     .member {
       display: inline-block;
-      margin-right: 20px;
+      margin-right: 22px;
       width: auto;
 
       .name {
@@ -140,5 +159,18 @@
 
   .group-form-submit {
     margin-top: 10px;
+  }
+
+  .add-more {
+    margin-bottom: 20px;
+  }
+
+  .reveal-modal, dialog {
+    min-height: auto;
+    margin-left: 4%;
+  }
+
+  #wishlist_description {
+    height: 180px;
   }
 }
