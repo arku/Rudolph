@@ -37,4 +37,16 @@ class Group < ActiveRecord::Base
     save
   end
 
+  def show_location
+    location.present? ? location : "That's still a mystery."
+  end
+
+  def show_price_range
+    price_range.present? ? price_range : 'Anything goes!'
+  end
+
+  def show_description
+    description.present? ? description : "#{admin.first_name} was too lazy to write a description for this group..."
+  end
+
 end

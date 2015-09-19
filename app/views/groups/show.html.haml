@@ -9,14 +9,12 @@
               .month= Date::MONTHNAMES[@group.date.month]
               .day= @group.date.day
               .time= @group.date.strftime("%H:00")
-            .side-info
-              .bold Where
-              %p= @group.location
-              .bold Price range
-              %p= @group.price_range
-          .item
+            .bold Where
+            %p= @group.show_location
+            .bold Price range
+            %p= @group.show_price_range
             .bold Description
-            = @group.description
+            = @group.show_description
           - if @is_admin
             .item= link_to 'Edit group info', edit_group_path(@group)
         - if !@is_admin && @draw_pending
