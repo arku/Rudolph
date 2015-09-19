@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
       user.name       = info.name
       user.image      = info.image
       user.token      = credentials.token
-      user.email      = info.email || "#{dummy}@rudolph.com"
+      user.email      = info.email || "#{dummy}@itsrudolph.com"
       user.expires_at = Time.at(credentials.expires_at)
       user.password   = dummy
       user.save!
@@ -34,7 +34,7 @@ class Person < ActiveRecord::Base
                       name: info.name,
                       image: info.image,
                       token: credentials.token,
-                      email: info.email || email || "#{dummy}@rudolph.com",
+                      email: info.email || email || "#{dummy}@itsrudolph.com",
                       expires_at: Time.at(credentials.expires_at),
                       password: dummy)
   end
@@ -51,8 +51,8 @@ class Person < ActiveRecord::Base
     uid ? "http://graph.facebook.com/#{uid}/picture?type=#{size}" : 'http://profile.ak.fbcdn.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
   end
 
-  def status
-    invited? ? 'pending' : 'active'
+  def status(group)
+    invited? || !confirmed?(group) ? 'pending' : 'active'
   end
 
   def can_be_invited?
@@ -65,6 +65,10 @@ class Person < ActiveRecord::Base
 
   def is_member?(group)
     group.people.include?(self)
+  end
+
+  def confirmed?(group)
+    group_person(group).try(:confirmed)
   end
 
   def is_admin_of

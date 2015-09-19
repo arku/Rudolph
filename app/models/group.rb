@@ -13,7 +13,8 @@ class Group < ActiveRecord::Base
   after_validation :geocode
 
   def add_admin
-    add_person(admin)
+    admin_group_person = add_person(admin)
+    admin_group_person.update_attribute(:confirmed, true)
   end
 
   def add_person(person)
@@ -21,7 +22,7 @@ class Group < ActiveRecord::Base
   end
 
   def can_draw_names?
-    people.select{|person| person.status == 'pending'}.empty? && people.size > 1
+    people.select{|person| person.status(self) == 'pending'}.empty? && people.size > 1
   end
 
   def draw_pending?

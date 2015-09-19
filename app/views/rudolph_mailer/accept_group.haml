@@ -1,0 +1,13 @@
+%table{style: 'background-color: #F1EDE0; border-collapse: collapse; font-family: Helvetica; width: auto; min-width: 40%;'}
+  %tr{style: 'background-color: #0F7D75; text-align: center; height: 60px;'}
+    %td{style: 'padding-top: 8px;'}
+      = link_to root_url do
+        = image_tag 'http://itsrudolph.com/logo.png'
+  %tr
+    %td{style: 'text-align: center; color: #8D8D8D;'}
+      %div{style: 'background-color: white; border: 1px solid #DEDEDE; margin: 20px; padding: 20px;'}
+        %p= t("devise.mailer.invitation_instructions.hello", email: @person.name.split(' ').first)
+
+        %p= "#{@invited_by.name} has invited you to join the group '#{@group.name}'"
+
+        %p= link_to "Join '#{@group.name}'", accept_group_group_url(@group), style: 'color: #008CBA; font-size: 18px; line-height: 45px;'

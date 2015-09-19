@@ -5,6 +5,19 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  before_filter :store_location
+
+  def store_location
+    return unless request.get? 
+    if !request.path.include?('/people/') && !request.xhr?
+      session[:previous_url] = request.fullpath
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || root_path
+  end
+
   protected
 
   def configure_permitted_parameters

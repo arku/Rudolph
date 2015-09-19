@@ -8,7 +8,7 @@ describe Person do
   end
 
   it 'has a unique email address' do
-    person = Person.new(email: 'flora@rudolph.com', password: 'password1')
+    person = Person.new(email: 'flora@itsrudolph.com', password: 'password1')
     expect(person).to_not be_valid
   end
 
@@ -28,7 +28,7 @@ describe Person do
   end
 
   it 'is invited when invitation was sent, but not accepted yet' do
-    person = Person.invite!(email: 'test_invitation@rudolph.com', invited_by_id: 1)
+    person = Person.invite!(email: 'test_invitation@itsrudolph.com', invited_by_id: 1)
     expect(person.invited?).to eq(true)
   end
 
@@ -43,22 +43,28 @@ describe Person do
     end
   end
 
-  it 'has a valid_status' do
+  it 'has a valid status for a group' do
     valid_statuses = ['pending', 'active']
+    group = Group.find(1)
 
     Person.all.each do |person|
-      expect(valid_statuses).to include(person.status)
+      expect(valid_statuses).to include(person.status(group))
     end
   end
 
   it "is 'pending' when invitation was not accepted yet" do
-    person = Person.invite!(email: 'new_test_invitation@rudolph.com', invited_by_id: 1)
-    expect(person.status).to eq('pending')
+    person = Person.invite!(email: 'new_test_invitation@itsrudolph.com', invited_by_id: 1)
+    group = Group.find(1)
+    GroupPerson.create(group: group, person: person)
+
+    expect(person.status(group)).to eq('pending')
   end
 
   it "is 'active' after they accept the invitation" do
-    person = Person.find(15)
-    expect(person.status).to eq('active')
+    person = Person.find(1)
+    group = Group.find(1)
+
+    expect(person.status(group)).to eq('active')
   end
 
 end

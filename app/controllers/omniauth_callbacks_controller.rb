@@ -31,7 +31,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session["devise.user_attributes"] = person.attributes
     end
 
-    redirect_to root_path
+    redirect_to after_sign_in_path_for(person)
   end
 
   alias_method :facebook, :all

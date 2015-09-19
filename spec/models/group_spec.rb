@@ -40,8 +40,9 @@ describe Group do
 
   it 'can draw names after every member is confirmed' do
     group = Group.create(name: 'Ready', admin_id: 1)
-    confirmed_person = Person.find(2)
-    GroupPerson.create(group:group, person: confirmed_person)
+    person = Person.find(2)
+    GroupPerson.create(group:group, person: person)
+    GroupService.new(group, person).accept_group
 
     expect(group.can_draw_names?).to eq(true)
   end

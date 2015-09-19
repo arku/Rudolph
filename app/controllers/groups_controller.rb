@@ -104,6 +104,12 @@ class GroupsController < ApplicationController
     redirect_to group_path(params[:id])
   end
 
+  def accept_group
+    response = @group_service.accept_group
+    response[:success] ? flash.notice = response[:message] : flash.alert = response[:message]
+    redirect_to group_path(params[:id])
+  end
+
   def leave_group
     response = @group_service.remove_member(current_person)
 

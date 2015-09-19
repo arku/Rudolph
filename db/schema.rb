@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830221951) do
+ActiveRecord::Schema.define(version: 20150913150004) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150830221951) do
   create_table "group_people", force: :cascade do |t|
     t.integer  "group_id",             limit: 4
     t.integer  "person_id",            limit: 4
+    t.boolean  "confirmed",            limit: 1
     t.text     "wishlist_description", limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"

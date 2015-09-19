@@ -14,7 +14,7 @@ describe GroupService do
           :name => "Test",
           :description => "Testing valid params",
           :location => "Here",
-          :date => "12/24/2015",
+          :date => "2015-12-24 20:00:00",
           :price_range => "30-40"
         }
       }
@@ -101,7 +101,7 @@ describe GroupService do
 
   describe '#remove_member' do
 
-    let(:new_member) { Person.create(id: 200, email: 'new_person@rudolph.com', password: 'newperson') }
+    let(:new_member) { Person.create(id: 200, email: 'new_person@itsrudolph.com', password: 'newperson') }
 
     before(:each) do
       GroupPerson.create(group: group, person: new_member)
@@ -188,6 +188,13 @@ describe GroupService do
 
     let(:new_admin) { Person.find(2) }
 
+    before(:all) {
+      group = Group.find(1)
+      person = Person.find(2)
+      group_person = GroupPerson.where(group: group, person: person).first
+      group_person.update_attribute(:confirmed, true) 
+    }
+
     context 'current person is admin' do
       let(:response) { subject.make_admin(new_admin.id) }
 
@@ -272,5 +279,60 @@ describe GroupService do
   end
 
   describe '#send_invitations' do
+  end
+
+  describe '#accept_group' do
+    before(:all) { Group.create(name: 'Invitations Test', date: Date.tomorrow, admin_id: 1) }
+
+    let(:group) { Group.where(name: 'Invitations Test').first }
+
+    context 'person was invited' do
+      before(:all) do
+        group = Group.where(name: 'Invitations Test').first
+        GroupService.new(group, Person.find(1)).send_invitations(['daniel@itsrudolph.com'])
+      end
+
+      let(:invited_person) { Person.find(2) }
+      let(:response) { GroupService.new(group, invited_person).accept_group }
+
+      it 'returns a hash' do
+        expect(response).to be_a(Hash)
+      end
+
+      it 'returns a success feedback' do
+        expect(response[:success]).to be true
+      end
+
+      it 'confirms the new member' do
+        group_person = GroupPerson.where(group: group, person: invited_person).first
+        expect(group_person.confirmed).to be true
+      end
+
+      it "changes new member's status to 'active'" do
+        expect(invited_person.status(group)).to eq('active')
+      end
+    end
+
+    context 'person was not invited' do
+      let(:uninvited_person) { Person.find(13) }
+      let(:response) { GroupService.new(group, uninvited_person).accept_group }
+
+      it 'returns a hash' do
+        expect(response).to be_a(Hash)
+      end
+
+      it 'returns a failure feedback' do
+        expect(response[:success]).to be false
+      end
+
+      it 'does not confirm the new member' do
+        group_person = GroupPerson.where(group: group, person: uninvited_person).first
+        expect(group_person).to be_nil
+      end
+
+      it "does not change new member's status to 'active'" do
+        expect(uninvited_person.status(group)).to_not eq('active')
+      end
+    end
   end
 end

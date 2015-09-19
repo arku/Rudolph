@@ -37,7 +37,7 @@ class GroupService
     if current_person.is_admin?(group)
       begin
         member = Person.find(member_id)
-        if member.status == 'active'
+        if member.status(group) == 'active'
           group.admin = member
           group.save!
           {success: true, message: 'Admin updated successfully'}
@@ -78,10 +78,23 @@ class GroupService
     {success_list: success, error_list: errors}
   end
 
+  def accept_group
+    begin
+      group_person = GroupPerson.where(group: group, person: current_person).first
+      group_person.update_attribute(:confirmed, true)
+      {success: true, message: "Welcome to the group #{group.name}!"}
+    rescue => error
+      {success: false, message: "It appears your invitation got lost in the mail... Contact the group admin for a new invitation."}
+    end
+  end
+
   private
 
   def add_group_person(person)
-    GroupPerson.create(group: group, person: person)
+    if group_person = GroupPerson.create(group: group, person: person, confirmed: person.invited?)
+      RudolphMailer.accept_group(person, group, current_person).deliver_now
+      group_person
+    end
   end
 
   def remove_group_person(member)
