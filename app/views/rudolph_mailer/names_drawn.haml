@@ -8,6 +8,8 @@
       %div{style: 'background-color: white; border: 1px solid #DEDEDE; margin: 20px; padding: 20px;'}
         %p= t("devise.mailer.invitation_instructions.hello", email: @person.first_name)
 
-        %p= "#{@invited_by.name} has invited you to join the group '#{@group.name}'"
+        %p= "We're excited to announce that names have been drawn in the group '#{@group.name}'!"
 
-        %p= link_to "Join '#{@group.name}'", accept_group_group_url(@group), style: 'color: #008CBA; font-size: 18px; line-height: 45px;'
+        %p If the suspense is killing you, just click the link below:
+
+        %p= link_to "Let's see the result!", who_group_url(@group), style: 'color: #008CBA; font-size: 18px; line-height: 45px;'

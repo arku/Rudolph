@@ -1,3 +1,5 @@
+require File.join(Rails.root, 'app/business/name_drawer')
+
 class GroupService
 
   attr_accessor :group, :current_person
@@ -88,6 +90,20 @@ class GroupService
     end
   end
 
+  def draw_names
+    begin
+      return {success: false, message: 'Names have already been drawn.'} unless group.draw_pending?
+      return {success: false, message: 'Only the Admin can draw names.'} unless current_person.is_admin?(group)
+      
+      NameDrawer.new(group).perform
+      group.update_status
+      notify_members_after_draw
+      {success: true}
+    rescue => error
+      {success: false, message: error.message}
+    end
+  end
+
   private
 
   def add_group_person(person)
@@ -103,5 +119,11 @@ class GroupService
 
   def can_remove_member?(member)
     current_person.is_admin?(group) || current_person == member
+  end
+
+  def notify_members_after_draw
+    group.people.each do |person|
+      RudolphMailer.names_drawn(person, group).deliver_now
+    end
   end
 end

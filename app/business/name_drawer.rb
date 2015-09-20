@@ -8,21 +8,17 @@ class NameDrawer
   end
 
   def perform
-    begin
-      if group.draw_pending?
-        people.each_with_index do |person, index|
-          receiver = last_person?(person) ? people.first : people[index + 1]
-          create_exchange(person, receiver)
-        end
-        true
+    if group.draw_pending?
+      people.each_with_index do |person, index|
+        receiver = last_person?(person) ? people.first : people[index + 1]
+        create_exchange(person, receiver)
       end
-    rescue => error
+      true
     end
   end
 
   def create_exchange(giver, receiver)
     Exchange.create!(group: group, giver: giver, receiver: receiver)
-  rescue => error
   end
 
   def last_person?(person)

@@ -40,7 +40,7 @@ class Person < ActiveRecord::Base
   end
 
   def first_name
-    name.split(' ').first
+    name ? name.split(' ').first : email.split('@').first
   end
 
   def invited?

@@ -6,7 +6,7 @@
   %tr
     %td{style: 'text-align: center; color: #8D8D8D;'}
       %div{style: 'background-color: white; border: 1px solid #DEDEDE; margin: 20px; padding: 20px;'}
-        %p= t("devise.mailer.invitation_instructions.hello", email: @resource.email.split('@').first)
+        %p= t("devise.mailer.invitation_instructions.hello", email: @resource.first_name)
 
         - if @resource.invited_by
           %p= t("devise.mailer.invitation_instructions.person_invited_you", person: @resource.invited_by.name)

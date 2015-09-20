@@ -1,5 +1,3 @@
-require File.join(Rails.root, 'app/business/name_drawer')
-
 class GroupsController < ApplicationController
   layout 'application'
 
@@ -71,8 +69,8 @@ class GroupsController < ApplicationController
   end
 
   def draw
-    @success = NameDrawer.new(@group).perform
-    @group.update_status if @success
+    response = @group_service.draw_names
+    @success = response[:success]
   end
 
   def who

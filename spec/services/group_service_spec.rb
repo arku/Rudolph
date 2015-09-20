@@ -335,4 +335,109 @@ describe GroupService do
       end
     end
   end
+
+  describe '#draw_names' do
+    before(:all) do
+      group = Group.create(name: 'Draw Test', date: Date.tomorrow, admin_id: 1)
+      GroupService.new(group, Person.find(1)).send_invitations(['daniel@itsrudolph.com'])
+      GroupService.new(group, Person.find(2)).accept_group
+    end
+
+    context 'successful draw' do
+      let(:group) { Group.where(name: 'Draw Test').first }
+      let(:response) { GroupService.new(group, Person.find(1)).draw_names }
+
+      it 'creates exchanges' do
+        expect{response}.to change{Exchange.count}.by(2)
+      end
+
+      it 'updates group status' do
+        expect(group.draw_done?).to be true
+      end
+
+      it 'emails group members' do
+        group_emails = ActionMailer::Base.deliveries.select do |email| 
+          email.subject == "Names have been drawn!" && 
+          [['flora@itsrudolph.com'], ['daniel@itsrudolph.com']].include?(email.to)
+        end
+
+        expect(group_emails.size).to eq(2)
+      end
+    end
+
+    context 'names have already been drawn' do
+      before(:all) do
+        group = Group.create(name: 'Draw Test 2', date: Date.tomorrow, admin_id: 3)
+        GroupService.new(group, Person.find(3)).send_invitations(['carolina@itsrudolph.com'])
+        GroupService.new(group, Person.find(4)).accept_group
+        GroupService.new(group, Person.find(3)).draw_names
+      end
+
+      let(:group) { Group.where(name: 'Draw Test 2').first }
+      let(:response) { GroupService.new(group, Person.find(3)).draw_names }
+
+      it 'returns a hash' do
+        expect(response).to be_a(Hash)
+      end
+
+      it 'returns a failure feedback' do
+        expect(response[:success]).to be false
+      end
+
+      it 'does not update group status' do
+        expect(group.draw_done?).to be true
+      end
+
+      it 'does not re-send emails to group members' do
+        group_emails = ActionMailer::Base.deliveries.select do |email| 
+          email.subject == "Names have been drawn!" && 
+          [['aline@itsrudolph.com'], ['carolina@itsrudolph.com']].include?(email.to)
+        end
+
+        expect(group_emails.size).to eq(2)
+      end
+    end
+
+    context 'not enough people in the group' do
+      before(:all) { Group.create(name: 'Draw Test 3', date: Date.tomorrow, admin_id: 1) }
+
+      let(:group) { Group.where(name: 'Draw Test 3').first }
+      let(:response) { GroupService.new(group, Person.find(1)).draw_names }
+
+      it 'returns a hash' do
+        expect(response).to be_a(Hash)
+      end
+
+      it 'returns a failure feedback' do
+        expect(response[:success]).to be false
+      end
+
+      it 'does not update group status' do
+        expect(group.draw_done?).to be false
+      end
+    end
+
+    context 'current_person is not group admin' do
+      before(:all) do
+        group = Group.create(name: 'Draw Test 4', date: Date.tomorrow, admin_id: 1)
+        GroupService.new(group, Person.find(1)).send_invitations(['daniel@itsrudolph.com'])
+        GroupService.new(group, Person.find(2)).accept_group
+      end
+
+      let(:group) { Group.where(name: 'Draw Test 4').first }
+      let(:response) { GroupService.new(group, Person.find(2)).draw_names }
+
+      it 'returns a hash' do
+        expect(response).to be_a(Hash)
+      end
+
+      it 'returns a failure feedback' do
+        expect(response[:success]).to be false
+      end
+
+      it 'does not update group status' do
+        expect(group.draw_done?).to be false
+      end
+    end
+  end
 end
