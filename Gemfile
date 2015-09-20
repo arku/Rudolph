@@ -59,5 +59,6 @@ group :development, :test do
   gem 'guard-rspec'
 end
 
+gem 'simplecov', :require => false, :group => :test
 gem 'factory_girl_rails', :group => :test
 gem 'database_cleaner'
