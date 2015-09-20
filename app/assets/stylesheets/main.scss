@@ -6,6 +6,7 @@ body {
   background: #FFF image-url("grain.png") repeat;
   font-family: 'Avenir Next';
   min-height: 100vh;
+  height: auto;
 
   li, a {
     background:transparent !important;
@@ -57,7 +58,7 @@ body {
 
   #contents {
     margin-top: 50px;
-    height: 100%;
+    padding-bottom: 70px;
   }
 
   .hidden {
@@ -190,8 +191,4 @@ body {
   a.secondary:hover {
     color: #b9b9b9;
   }
-}
-
-.reveal-modal-bg {
-  display: none !important;
 }
