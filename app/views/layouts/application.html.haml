@@ -42,15 +42,17 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-    = render 'shared/header'
-    = render 'layouts/messages'
+    #wrapper
+      = render 'shared/header'
+      = render 'layouts/messages'
 
-    - unless hide_breadcrumbs?
-      .row.bread= render_breadcrumbs :tag => :li, :separator => ">&nbsp&nbsp"
+      - unless hide_breadcrumbs?
+        .row.bread= render_breadcrumbs :tag => :li, :separator => ">&nbsp&nbsp"
 
-    #contents
-      = yield
-    = render 'shared/footer'
+      #contents
+        = yield
+      - unless hide_footer?
+        = render 'shared/footer'
 
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js"
     = javascript_include_tag "application", "data-turbolinks-track" => true
