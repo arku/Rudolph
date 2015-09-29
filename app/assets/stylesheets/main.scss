@@ -27,6 +27,10 @@ body {
     font-family: 'Avenir Next';
   }
 
+  input[type="checkbox"] {
+    margin: 0;
+  }
+
   #wrapper {
     min-height:100%;
     position:relative;
