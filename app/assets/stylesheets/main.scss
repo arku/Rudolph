@@ -8,7 +8,7 @@ html {
 
 body {
   background: #FFF image-url("grain.png") repeat;
-  font-family: 'Avenir Next';
+  font-family: 'Avenir Next', Helvetica;
   height:100%;
 
   li, a {
@@ -24,7 +24,7 @@ body {
   }
 
   textarea {
-    font-family: 'Avenir Next';
+    font-family: 'Avenir Next', Helvetica;
   }
 
   input[type="checkbox"] {
@@ -47,7 +47,7 @@ body {
   h1 {
     color: #EA4560;
     font-size: 22px;
-    font-family: 'Avenir Next';
+    font-family: 'Avenir Next', Helvetica;
 
     a {
       text-decoration: none;
@@ -84,7 +84,7 @@ body {
   input[type=submit] {
     border-radius: 4px;
     font-size: 15px;
-    font-family: Avenir;
+    font-family: Avenir, Helvetica;
     padding: 7px 15px;
   }
 
@@ -180,7 +180,7 @@ body {
 
   h2 {
     color: #757474;
-    font-family: 'Avenir Next';
+    font-family: 'Avenir Next', Helvetica;
     font-size: 23px;
     margin-bottom: 20px;
   }
