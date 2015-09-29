@@ -1,8 +1,8 @@
 .row.full-width
   .section-header
-    %h1 My groups
+    %h1= t('my_groups')
     .action
-      = link_to '+ New group', new_group_path
+      = link_to t('new_group'), new_group_path
 
   - if @groups.any?
     .row.full-width
@@ -12,16 +12,16 @@
             .info.index-info
               %p= link_to group.name, group_path(group)
               .item
-                .bold Where
+                .bold= t('where')
                 = cut_text(group.location, 30) 
               .item
-                .bold Drawing status
+                .bold= t('status')
                 - if group.status == 1
-                  Names have been drawn!
+                  = t('status_drawn')
                   %br
-                  = link_to 'See the result!', who_group_path(group)
+                  = link_to t('see_result'), who_group_path(group)
                 - else
-                  .red Pending
+                  .red= t('status_pending')
             .side
               .calendar-small
                 .month= Date::MONTHNAMES[group.date.month]
@@ -29,5 +29,5 @@
                 .time= group.date.strftime("%H:00")
 
   - else
-    You don't belong to any groups yet.
-    = link_to 'Create one!', new_group_path
+    = t('no_groups')
+    = link_to t('create_group'), new_group_path

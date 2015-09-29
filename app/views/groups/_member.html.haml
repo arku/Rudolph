@@ -4,13 +4,13 @@
   .avatar= image_tag person.photo_by_size('normal')
   .name= person.name || person.email.split('@').first[0..20]
   - if person.is_admin?(@group)
-    .status Group Admin
+    .status= t('group_admin')
   - else
-    .status{class: "#{status}"}= status.capitalize
+    .status{class: "#{status}"}= t("#{status}")
     - if @is_admin
-      .edit= link_to 'Edit', 'javascript:;', class: 'edit-link'
+      .edit= link_to t('edit'), 'javascript:;', class: 'edit-link'
       .row.small-1.box.edit-member
         - if status == 'active'
-          %p= link_to 'Make group admin', make_admin_group_path(member_id: person.id), method: :put, data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
+          %p= link_to t('make_admin'), make_admin_group_path(member_id: person.id), method: :put, data: {confirm: {title: t('are_you_sure'), ok: t('yes'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}
         - if draw_pending
-          %p= link_to 'Remove from group', remove_member_group_path(member_id: person.id), class: 'red', method: :delete, remote: true, data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
+          %p= link_to t('remove_member'), remove_member_group_path(member_id: person.id), class: 'red', method: :delete, remote: true, data: {confirm: {title: t('are_you_sure'), ok: t('yes'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}

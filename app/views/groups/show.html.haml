@@ -9,64 +9,64 @@
               .month= Date::MONTHNAMES[@group.date.month]
               .day= @group.date.day
               .time= @group.date.strftime("%H:00")
-            .bold Where
+            .bold= t('where')
             %p= @group.show_location
-            .bold Price range
+            .bold= t('price_range')
             %p= @group.show_price_range
-            .bold Description
+            .bold= t('description')
             = @group.show_description
           - if @is_admin
-            .item= link_to 'Edit group info', edit_group_path(@group)
+            .item= link_to t('edit_info'), edit_group_path(@group)
         - if !@is_admin && @draw_pending
-          .leave= link_to 'Leave group', leave_group_path, method: :delete, class: 'red', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal'}}
+          .leave= link_to t('leave_group'), leave_group_path, method: :delete, class: 'red', data: {confirm: {title: t('are_you_sure'), ok: t('yes'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}
     .large-4.columns.right
       .side
         #map
   %br
   - unless @draw_pending
-    %h1 Drawing
+    %h1= t('drawing')
     .group-draw
       = render 'groups/draw_done'
   %br
   .section-header
-    %h1 Members
+    %h1= t('members')
     - if @draw_pending
       .action
-        .add= link_to '+ Add members', 'javascript:;'
+        .add= link_to t('add_members'), 'javascript:;'
   - if @draw_pending
     .box.sliding-box
-      .close-sliding-box= link_to 'Close', 'javascript:;'
+      .close-sliding-box= link_to t('close'), 'javascript:;'
       .success.hidden
-        .success-title The following invitations were sent successfully:
+        .success-title= t('invitations_sent')
         .success-list
       .error.hidden
-        .error-title The following invitations could not be sent:
+        .error-title= t('invitations_not_sent')
         .error-list
       = form_tag send_invitations_group_path, method: :post, remote: true do
         .invite-fields
           = render 'invitation_field'
         .large3.columns
-          .add-more= link_to '+ Add more', 'javascript:;'
-          = submit_tag 'Send invitations', class: 'btn gray', onclick: "$(this).unbind('click')"
+          .add-more= link_to t('add_more'), 'javascript:;'
+          = submit_tag t('send_invitations'), class: 'btn gray', onclick: "$(this).unbind('click')"
 
   .members
     - @group.people.each do |person|
       = render partial: 'groups/member', locals: {person: person, draw_pending: @draw_pending}
 
   - if @draw_pending
-    %h1 Drawing
+    %h1= t('drawing')
     .box.group-draw
       = render 'groups/draw_pending'
   %br
   .section-header
-    %h1 My Wishlist
+    %h1= t('my_wishlist')
     .action
-      = link_to 'Edit wishlist', edit_wishlist_group_path
+      = link_to t('edit_wishlist'), edit_wishlist_group_path
   - if !@wishlist_description && @wishlist_items.empty?
     .box
       .light
-        You don't have a wishlist yet!
-        = link_to 'Create one!', edit_wishlist_group_path
+        = t('empty_wishlist')
+        = link_to t('create_wishlist'), edit_wishlist_group_path
   - else
     - if @wishlist_description
       %p= @wishlist_description
@@ -83,6 +83,6 @@
                 - else
                   = item.name_or_url
       - if @wishlist_size > 3
-        .action.right= link_to 'View all', edit_wishlist_group_path
+        .action.right= link_to t('view_all'), edit_wishlist_group_path
       
 

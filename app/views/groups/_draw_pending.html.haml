@@ -1,18 +1,18 @@
 - if @is_admin
   .draw-notice
     - if @group.can_draw_names?
-      = button_to "Draw names now", draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names', data: {confirm: {title: 'Are you sure?', ok: 'Yes', modal_class: 'confirmation-modal', ok_class: 'confirm-drawing button alert'}}
+      = button_to t('draw_now'), draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names', data: {confirm: {title: t('are_you_sure'), ok: t('yes'), cancel: t('cancel'), modal_class: 'confirmation-modal', ok_class: 'confirm-drawing button alert'}}
     .light
       - if @group.can_draw_names?
-        Remember: you cannot invite any more people to the group after the names are drawn.
+        = t('can_draw_warning')
       - else
-        The drawing can only start after everyone who was invited accepts the invitation.
+        = t('cannot_draw_warning')
   .draw-loading.hidden
-    Drawing names...
+    = t('drawing_loader')
     = image_tag 'loader.gif'
-    %span May the odds be ever in your favor.
+    %span= t('good_luck')
   .draw-done.hidden
-    Done!
-    = link_to 'Who did I get?', who_group_path(@group)
+    = t('done')
+    = link_to t('who_did_i_get'), who_group_path(@group)
 - else
-  .light Waiting for group admin to draw names.
+  .light= t('waiting_for_drawing')

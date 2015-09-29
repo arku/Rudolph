@@ -1,4 +1,4 @@
 .row.full-width
-  %h1= "Edit group '#{@group.name}'"
+  %h1= "#{t('edit_group')} '#{@group.name}'"
   .box.large-9
     = render 'groups/form', group: @group

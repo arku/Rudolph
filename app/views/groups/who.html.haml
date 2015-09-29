@@ -1,9 +1,9 @@
 #confidential
   .row
     .sticker
-      This is top secret information. Are you sure no one from the group can see your screen right now?
+      = t('top_secret')
 
-      .show-me= link_to 'Yes. Show me the truth.', 'javascript:;', class: 'show-who'
+      .show-me= link_to t('show_me'), 'javascript:;', class: 'show-who'
   = image_tag 'confidential.png'
 
 #who.hidden
@@ -12,14 +12,12 @@
     .photo
       = image_tag @person.photo_by_size('large')
     .text
-      %h1= "And the Oscar goes to... #{@person.name || @person.email}!"
-      Looks like
-      = @person.name || @person.email
-      is the lucky friend who's getting a present from you!
+      %h1= "#{t('oscar')} #{@person.name || @person.email}!"
+      = t('who', name: @person.name || @person.email)
 
   .row.full-width
     .section-header
-      %h1= "#{@person.first_name}'s Wishlist"
+      %h1= t('persons_wishlist', name: @person.first_name)
     - if @wishlist_description
       %p= @wishlist_description
 
@@ -29,4 +27,4 @@
       - else
         .full-width.columns.left
           .box
-            .light= "#{@person.name} doesn't have any wishlist items yet..."
+            .light= t('persons_empty_wishlist', name: @person.name)

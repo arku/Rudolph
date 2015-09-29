@@ -1,7 +1,7 @@
 #home
   .row.full-width.home-container
     .large-6.columns.left
-      %h1.main.red Some very meaningful and beautiful headline
+      %h1.main.red= t('headline')
       .facebook
         = link_to '/people/auth/facebook' do
           = image_tag 'fb-login.png'
@@ -21,8 +21,8 @@
             = f.password_field :password, autocomplete: "off"
 
           .field
-            = f.label :password_confirmation, "Confirm password"
+            = f.label :password_confirmation, t('confirm_password')
             = f.password_field :password_confirmation, autocomplete: "off"
 
           .actions
-            = f.submit "Sign up", class: 'btn gray'
+            = f.submit t('sign_up'), class: 'btn gray'

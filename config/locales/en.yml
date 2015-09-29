@@ -20,4 +20,82 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  headline: Some very meaningful and beautiful headline
+
+  confirm_password: Confirm password
+  sign_up: Sign up
+
+  my_groups: My groups
+  new_group: + New group
+  new_group_title: New group
+  status_pending: Pending
+  status_drawn: Names have been drawn!
+  no_groups: You don't belong to any groups yet.
+  create_group: Create one!
+
+  name: Name
+  description: Description
+  date: Date
+  location: Location
+  where: Where
+  price_range: Price range
+  status: Drawing status
+  edit_info: Edit group info
+  leave_group: Leave group
+  edit_group: Edit group
+
+  are_you_sure: Are you sure?
+  yes: Yes
+  cancel: Cancel
+  save: Save
+  close: Close
+
+  drawing: Drawing
+  waiting_for_drawing: Waiting for group admin to draw names.
+  cannot_draw_warning: The drawing can only start after everyone who was invited accepts the invitation.
+  can_draw_warning: "Remember: you cannot invite any more people to the group after the names are drawn."
+  draw_now: Draw names now
+  drawing_loader: Drawing names...
+  good_luck: May the odds be ever in your favor.
+  done: Done!
+  see_result: Let's see the result!
+  who_did_i_get: Who did I get?
+
+  members: Members
+  add_members: + Add members
+  invitations_sent: "The following invitations were sent successfully:"
+  invitations_not_sent: "The following invitations could not be sent:"
+  add_more: + Add more
+  send_invitations: Send invitations
+  group_admin: Group Admin
+  active: Active
+  peding: Pending
+  edit: Edit
+  make_admin: Make group admin
+  remove_member: Remove from group
+
+  my_wishlist: My Wishlist
+  edit_wishlist: Edit wishlist
+  empty_wishlist: You don't have a wishlist yet!
+  create_wishlist: Create one!
+  view_all: View all
+
+  edit_my_wishlist: Edit My Wishlist
+  comments: Comments
+  general_comments: General comments
+  about_comments: "Anything that would help your friend pick a present for you. Like favorite colors, favorite themes, anything."
+  items: Items
+  no_items: You don't have any items on your list yet.
+  add_items: + Add items
+  name_or_url: Name or URL of the item
+  add: Add
+  add_some: Add some!
+
+  top_secret: This is top secret information. Are you sure no one from the group can see your screen right now?
+  show_me: Yes. Show me the truth.
+  oscar: And the Oscar goes to...
+  who: "Looks like %{name} is the lucky friend who's getting a present from you!"
+  persons_wishlist: "%{name}'s Wishlist"
+  persons_empty_wishlist: "%{name} doesn't have any wishlist items yet..."
+
+

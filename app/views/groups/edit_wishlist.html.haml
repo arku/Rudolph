@@ -1,38 +1,32 @@
 = form_tag update_wishlist_group_path, method: :post do
   .row.full-width
-    %h1 Edit My Wishlist
+    %h1= t('edit_my_wishlist')
     .box
 
-      = label_tag 'wishlist_description', 'General comments'
-      .light Anything that would help your friend pick a present for you. Like favorite colors, favorite themes, anything.
+      = label_tag 'wishlist_description', t('general_comments')
+      .light= t('about_comments')
       = text_area_tag :wishlist_description, @description, rows: 3
       %br
-      .right= submit_tag 'Save', class: 'btn gray'
+      .right= submit_tag t('save'), class: 'btn gray'
 
     .section-header
-      %h1 Items
+      %h1= t('items')
       .action
-        .add= link_to '+ Add items', 'javascript:;'
+        .add= link_to t('add_items'), 'javascript:;'
     .box.sliding-box
-      .close-sliding-box= link_to 'Close', 'javascript:;'
-      .success.hidden
-        .success-title The following invitations were sent successfully:
-        .success-list
-      .error.hidden
-        .error-title The following invitations could not be sent:
-        .error-list
+      .close-sliding-box= link_to t('close'), 'javascript:;'
 
       .wishlist-item-fields.clonable-field
-        = label_tag 'items[][name_or_url]', 'Name or URL of the item'
+        = label_tag 'items[][name_or_url]', t('name_or_url')
         .close.hidden= link_to 'x', 'javascript:;', class: 'red'
         = text_field_tag 'items[][name_or_url]'
 
-        = label_tag 'items[][comments]', 'Comments'
+        = label_tag 'items[][comments]', t('comments')
         = text_area_tag 'items[][comments]', nil, rows: 2
 
       .large3.columns
-        .add-more= link_to '+ Add more', 'javascript:;'
-        = submit_tag 'Add', class: 'btn gray'
+        .add-more= link_to t('add_more'), 'javascript:;'
+        = submit_tag t('add'), class: 'btn gray'
     .row.full-width
       - if @wishlist_items.any?
         = render 'groups/wishlist_items'
@@ -40,5 +34,5 @@
         .full-width.columns.left
           .box
             .light
-              You don't have any items on your list yet.
-              = link_to 'Add some!', 'javascript:;', class: 'add'
+              = t('no_items')
+              = link_to t('add_some'), 'javascript:;', class: 'add'
