@@ -123,7 +123,7 @@ en:
   ignore_email: "If you didn't request this, please ignore this email."
   password_notice: Your password won't change until you access the link above and create a new one.
   account_locked: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
-  unlock_account_below: Click the link below to unlock your account:
+  unlock_account_below: "Click the link below to unlock your account:"
   unlock_account: Unlock my account
   change_your_password: Change your password
   change_my_password: Change my password
