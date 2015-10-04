@@ -6,6 +6,6 @@
       = t('in_2015')
 
     %p.language
-      = link_to 'English', '#'
+      = link_to 'English', change_locale_people_path(locale: 'en'), method: :post
       |
-      = link_to 'Português', '#'
+      = link_to 'Português', change_locale_people_path(locale: 'pt-br'), method: :post

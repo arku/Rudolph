@@ -1,0 +1,121 @@
+pt-br:
+  headline: Organizar um amigo oculto nunca foi tão fácil.
+
+  sign_up: Cadastre-se
+  confirm_password: Confirme a senha
+  minimum_password_length: "(mínimo de %{length} caracteres)"
+  sign_in: Entrar
+  login: Entrar
+  password: Senha
+  remember_me: Manter logado
+
+  my_groups: Meus grupos
+  new_group: + Novo grupo
+  new_group_title: Novo grupo
+  status_pending: Pendente
+  status_drawn: O sorteio foi realizado!
+  no_groups: Você não faz parte de nenhum grupo ainda.
+  create_group: Crie um!
+
+  name: Nome
+  description: Descrição
+  date: Data
+  location: Local
+  where: Onde
+  price_range: Faixa de preço
+  status: Status do sorteio
+  edit_info: Editar dados do grupo
+  leave_group: Sair do grupo
+  edit_group: Editar grupo
+
+  are_you_sure: Tem certeza?
+  yes: Sim
+  cancel: Cancelar
+  save: Salvar
+  close: Fechar
+
+  drawing: Sorteio
+  waiting_for_drawing: Esperando o Admin do grupo realizar o sorteio.
+  cannot_draw_warning: O sorteio só pode começar depois que todos os convidados aceitarem o convite.
+  can_draw_warning: "Lembre-se: Você não pode convidar mais ninguém depois que o sorteio for realizado."
+  draw_now: Sortear agora
+  drawing_loader: Sorteando...
+  good_luck: May the odds be ever in your favor.
+  done: Pronto!
+  see_result: Quem eu tirei?
+  who_did_i_get: Quem eu tirei?
+
+  members: Membros
+  add_members: + Adicionar membros
+  invitations_sent: "Os seguintes convites foram enviados com sucesso:"
+  invitations_not_sent: "Os seguintes convites não puderam ser enviados:"
+  add_more: + Adicionar outros
+  send_invitations: Enviar convites
+  group_admin: Admin do grupo
+  active: Ativo
+  pending: Pendente
+  edit: Editar
+  make_admin: Tornar admin
+  remove_member: Remover do grupo
+
+  my_wishlist: Minha Lista de Desejos
+  edit_wishlist: Editar Lista de Desejos
+  empty_wishlist: Você ainda não tem uma Lista de Desejos!
+  create_wishlist: Crie uma!
+  view_all: Ver tudo
+
+  edit_my_wishlist: Editar minha Lista de Desejos
+  comments: Comentários
+  general_comments: Comentários gerais
+  about_comments: "Qualquer coisa que ajude o amigo a escolher o seu presente. Pode mencionar cores favoritas, temas que curte, etc."
+  items: Itens
+  no_items: Você ainda não tem nenhum item na sua lista.
+  add_items: + Adicionar itens
+  name_or_url: Nome ou URL do item
+  add: Adicionar
+  add_some: Adicione alguns!
+
+  top_secret: Esta informação é ultra confidencial. Tem certeza de que nenhum membro do grupo pode estar vendo a sua tela nesse momento?
+  show_me: Yes. Show me the truth.
+  oscar: And the Oscar goes to...
+  who: "Looks like %{name} is the lucky friend who's getting a present from you!"
+  persons_wishlist: "Lista de Desejos de %{name}"
+  persons_empty_wishlist: "%{name} ainda não colocou nenhum item na lista..."
+
+  my_account: Minha conta
+  cancel_my_account: Cancelar minha conta
+  update: Salvar
+
+  invited_by: "%{invited_by} te convidou para entrar no grupo '%{group}'"
+  join_group: "Entrar no grupo '%{group}'"
+
+  names_drawn_for_group: "We're excited to announce that names have been drawn in the group '%{group}'!"
+  see_result_below: "If the suspense is killing you, just click the link below:"
+
+  resend_confirmation: Reenviar instruções de confirmação
+  welcome: "Welcome %{email}!"
+  confirm_email_below: "Você pode confirmar seu email pelo link abaixo:"
+  confirm_account: Confirmar eu email
+  hello: "Olá %{email}!"
+  change_password_below: Você solicitou um link para mudar a senha. Segue o link abaixo.
+  change_password: Mudar minha senha
+  ignore_email: "Se você não pediu isso, por favor ignore este email."
+  password_notice: Sua senha não será alterada enquanto você não clicar no link abaixo para criar uma nova.
+  account_locked: Sua conta foi bloqueada devido à um número muito alto de tentativas frustradas de login.
+  unlock_account_below: "Clique no link abaixo para desbloquear sua conta:"
+  unlock_account: Desbloquear minha conta
+  change_your_password: Mude sua senha
+  change_my_password: Mudar minha senha
+  new_password: Nova senha
+  confirm_new_password: Confirmar nova senha
+  forgot_your_password: Esqueceu a senha?
+  send_reset_password: Me mande instruções de senha
+  didnt_receive_confirmation: Não recebeu instruções de confirmação?
+  didnt_receive_unlock: Não recebeu instruções de desbloqueio?
+  sign_in_with_provider: "Entrar com %{provider}"
+  resend_unlock_instructions: Reenviar instruções de desbloqueio
+
+  created_by: Criado por
+  in_2015: em 2015
+
+

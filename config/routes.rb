@@ -22,10 +22,14 @@ Rudolph::Application.routes.draw do
     end
   end
 
-  resources :people
+  resources :people do
+    collection do
+      post 'change_locale', as: 'change_locale'
+    end
+  end
 
-  get    'auth/:provider/callback', to: 'sessions#create'
-  get    'logout',                  to: 'sessions#destroy'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'logout',                  to: 'sessions#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

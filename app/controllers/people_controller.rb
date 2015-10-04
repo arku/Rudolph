@@ -36,6 +36,12 @@ class PeopleController < ApplicationController
     end
   end
 
+  def change_locale
+    locale = params[:locale]
+    current_person.update_attribute(:locale, locale) if ['en', 'pt-br'].include?(locale)
+    redirect_to :back
+  end
+
   def person_params
     params.require(:person).permit(:name, :image, :email)
   end

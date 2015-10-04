@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :store_location
 
+  before_filter :set_locale
+
   def store_location
     return unless request.get? 
     if !request.path.include?('/people/') && !request.xhr?
@@ -16,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     session[:previous_url] || root_path
+  end
+
+  def set_locale
+    I18n.locale = current_person.locale if current_person
   end
 
   protected

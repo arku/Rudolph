@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913150004) do
+ActiveRecord::Schema.define(version: 20151004123021) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150913150004) do
     t.integer  "invited_by_id",          limit: 4
     t.string   "invited_by_type",        limit: 255
     t.integer  "invitations_count",      limit: 4,   default: 0
+    t.string   "locale",                 limit: 255
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
