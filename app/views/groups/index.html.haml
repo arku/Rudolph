@@ -24,9 +24,9 @@
                   .red= t('status_pending')
             .side
               .calendar-small
-                .month= Date::MONTHNAMES[group.date.month]
+                .month= t("months")[group.date.month]
                 .day= group.date.day
-                .time= group.date.strftime("%H:00")
+                .time= localize_time(group.date)
 
   - else
     = t('no_groups')

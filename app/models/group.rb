@@ -39,15 +39,15 @@ class Group < ActiveRecord::Base
   end
 
   def show_location
-    location.present? ? location : t('location_default')
+    location.present? ? location : I18n.t('location_default')
   end
 
   def show_price_range
-    price_range.present? ? price_range : t('price_range_default')
+    price_range.present? ? price_range : I18n.t('price_range_default')
   end
 
   def show_description
-    description.present? ? description : t('description_default', admin_name: admin.first_name)
+    description.present? ? description : I18n.t('description_default', admin_name: admin.first_name)
   end
 
 end

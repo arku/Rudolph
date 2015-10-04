@@ -153,4 +153,17 @@ en:
   internal_server_error: Oops! Something went wrong...
   internal_server_error_message: Sorry about that! We'll look into it so it doesn't happen again.
 
+  months:
+    1: January
+    2: February
+    3: March
+    4: April
+    5: May
+    6: June
+    7: July
+    8: August
+    9: September
+    10: October
+    11: November
+    12: December
 

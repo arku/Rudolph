@@ -21,7 +21,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = current_person.locale if current_person
+    I18n.locale = current_person ? current_person.locale : session[:locale]
+  end
+
+  def get_locale
+    render json: {locale: I18n.locale}.to_json
   end
 
   protected

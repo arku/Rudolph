@@ -51,17 +51,33 @@ $(document).ready(function(){
   });
 
   if($('#datetimepicker').length > 0 && $('#group_date').length > 0)  {
-    $('#datetimepicker').datetimepicker({
-      format:'Y-m-d H:i:00',
-      inline:true,
-      todayButton: false,
-      value: $('#group_date').val().replace(' UTC',''),
-      onShow: function(dp, $input){
-        $('.xdsoft_time.xdsoft_current').trigger('click');
-      },
-      onChangeDateTime: function(dp, $input){
-        $('#group_date').val($input.val());
-      }
+    var locale = 'en';
+
+    $.ajax({
+      url: window.location.origin + '/get_locale',
+        success: function(response) {
+          locale = response['locale'];
+          if (locale == 'pt-br') {
+            locale = 'pt';
+          }
+        },
+        complete: function() {
+          $('#datetimepicker').datetimepicker({
+            format: 'Y-m-d H:i:00',
+            inline: true,
+            todayButton: false,
+            value: $('#group_date').val().replace(' UTC',''),
+            lang: locale,
+            onShow: function(dp, $input){
+              $('.xdsoft_time.xdsoft_current').trigger('click');
+            },
+            onChangeDateTime: function(dp, $input){
+              $('#group_date').val($input.val());
+            }
+          });
+        },
+      type: "GET", 
+      dataType: "json"
     });
   }
   

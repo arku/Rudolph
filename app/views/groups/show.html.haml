@@ -6,9 +6,9 @@
         .info
           .item
             .calendar
-              .month= Date::MONTHNAMES[@group.date.month]
+              .month= t("months")[@group.date.month]
               .day= @group.date.day
-              .time= @group.date.strftime("%H:00")
+              .time= localize_time(@group.date)
             .bold= t('where')
             %p= @group.show_location
             .bold= t('price_range')

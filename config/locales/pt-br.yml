@@ -54,7 +54,7 @@ pt-br:
   can_draw_warning: "Lembre-se: Você não pode convidar mais ninguém depois que o sorteio for realizado."
   draw_now: Sortear agora
   drawing_loader: Sorteando...
-  good_luck: May the odds be ever in your favor.
+  good_luck: Momento 'guenta coração!
   done: Pronto!
   see_result: Quem eu tirei?
   who_did_i_get: Quem eu tirei?
@@ -92,9 +92,9 @@ pt-br:
 
   result: Resultado
   top_secret: Esta informação é ultra confidencial. Tem certeza de que nenhum membro do grupo pode estar vendo a sua tela nesse momento?
-  show_me: Yes. Show me the truth.
-  oscar: And the Oscar goes to...
-  who: "Looks like %{name} is the lucky friend who's getting a present from you!"
+  show_me: Sim. Pode mostrar.
+  oscar: E o Oscar vai para...
+  who: "%{name} é a pessoa sortuda que vai ganhar um presente seu!"
   persons_wishlist: "Lista de Desejos de %{name}"
   persons_empty_wishlist: "%{name} ainda não colocou nenhum item na lista..."
 
@@ -116,18 +116,18 @@ pt-br:
   left_group: Saída do grupo confirmada
   didnt_leave: Não conseguimos te remover desse grupo. Por favor entre em contato com o Admin do grupo.
 
-  names_drawn_for_group: "We're excited to announce that names have been drawn in the group '%{group}'!"
-  see_result_below: "If the suspense is killing you, just click the link below:"
+  names_drawn_for_group: "É com muita alegria que anunciamos que o sorteio do grupo '%{group}' foi realizado!"
+  see_result_below: "Se o suspense estiver te matando, clique logo no link abaixo:"
 
   resend_confirmation: Reenviar instruções de confirmação
-  welcome: "Welcome %{email}!"
+  welcome: "Rudolph te deseja boas vindas, %{email}!"
   confirm_email_below: "Você pode confirmar seu email pelo link abaixo:"
   confirm_account: Confirmar eu email
   hello: "Olá %{email}!"
-  change_password_below: Você solicitou um link para mudar a senha. Segue o link abaixo.
+  change_password_below: "Você solicitou um link para mudar sua senha. Segue o link abaixo:"
   change_password: Mudar minha senha
   ignore_email: "Se você não pediu isso, por favor ignore este email."
-  password_notice: Sua senha não será alterada enquanto você não clicar no link abaixo para criar uma nova.
+  password_notice: Sua senha não será alterada enquanto você não clicar no link acima para criar uma nova.
   account_locked: Sua conta foi bloqueada devido à um número muito alto de tentativas frustradas de login.
   unlock_account_below: "Clique no link abaixo para desbloquear sua conta:"
   unlock_account: Desbloquear minha conta
@@ -151,6 +151,20 @@ pt-br:
   go_back: Voltar
   internal_server_error: Ops! Tem algo errado...
   internal_server_error_message: Pedimos desculpas! Vamos investigar para que isso não volte a acontecer.
+
+  months:
+    1: Janeiro
+    2: Fevereiro
+    3: Março
+    4: Abril
+    5: Maio
+    6: Junho
+    7: Julho
+    8: Agosto
+    9: Setembro
+    10: Outubro
+    11: Novembro
+    12: Dezembro
 
   activerecord:
     models:
@@ -177,3 +191,4 @@ pt-br:
         password: Senha
         encrypted_password: Senha
         password_confirmation: Confirmação de senha
+        remember_me: Manter logado

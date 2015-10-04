@@ -15,4 +15,14 @@ module ApplicationHelper
   def cut_text(text, size)
     text.size <= size ? text : "#{text[0..size-1]}..."
   end
+
+  def localize_time(time)
+    if I18n.locale == :en
+      time = time.strftime("%I %p")
+      time[0] = '' if time[0] == '0'
+      time
+    else
+      time.strftime("%H:00")
+    end
+  end
 end

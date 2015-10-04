@@ -33,5 +33,9 @@ Rudolph::Application.routes.draw do
 
   get "/404" => "errors#not_found"
   get "/500" => "errors#internal_server_error"
-  
+
+  constraints format: :json do
+    get 'get_locale', to: 'application#get_locale', as: 'get_locale'
+  end
+
 end

@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   layout 'application'
 
-  before_action :authenticate_person!
+  before_action :authenticate_person!, except: :change_locale
 
   def update
     if current_person.id == params[:id].to_i
@@ -38,7 +38,16 @@ class PeopleController < ApplicationController
 
   def change_locale
     locale = params[:locale]
-    current_person.update_attribute(:locale, locale) if ['en', 'pt-br'].include?(locale)
+
+    if ['en', 'pt-br'].include?(locale)
+      if current_person
+        current_person.update_attribute(:locale, locale)
+      else
+        I18n.locale = locale
+        session[:locale] = locale
+      end
+    end
+
     redirect_to :back
   end
 
