@@ -1,5 +1,5 @@
 .row
-  %h1 Log in
+  %h1= t('login')
 .row.full-width.collapse
   .large-5.columns.left
     .box
@@ -20,6 +20,7 @@
             = f.label :remember_me
 
         .actions.right
-          = f.submit "Log in", class: 'btn gray'
+          = f.submit t('login'), class: 'btn gray'
+          
   .large-7.right.login-side
     = render "people/shared/links"

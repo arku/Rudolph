@@ -1,5 +1,5 @@
 .row
-  %h1 Forgot your password?
+  %h1= t('forgot_your_password')
 .row.full-width.collapse
   .large-5.columns.left
     .box
@@ -11,7 +11,7 @@
           = f.email_field :email, autofocus: true
 
         .actions.right
-          = f.submit "Send me reset password instructions", class: 'btn gray'
+          = f.submit t('send_reset_password'), class: 'btn gray'
 
   .large-7.right.login-side
     = render "people/shared/links"

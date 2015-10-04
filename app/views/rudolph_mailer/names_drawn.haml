@@ -6,10 +6,10 @@
   %tr
     %td{style: 'text-align: center; color: #8D8D8D;'}
       %div{style: 'background-color: white; border: 1px solid #DEDEDE; margin: 20px; padding: 20px;'}
-        %p= t("devise.mailer.invitation_instructions.hello", email: @person.first_name)
+        %p= t("hello", email: @person.first_name)
 
-        %p= "We're excited to announce that names have been drawn in the group '#{@group.name}'!"
+        %p= t('names_drawn_for_group', group: @group.name)
 
-        %p If the suspense is killing you, just click the link below:
+        %p= t('see_result_below')
 
-        %p= link_to "Let's see the result!", who_group_url(@group), style: 'color: #008CBA; font-size: 18px; line-height: 45px;'
+        %p= link_to t('see_result'), who_group_url(@group), style: 'color: #008CBA; font-size: 18px; line-height: 45px;'

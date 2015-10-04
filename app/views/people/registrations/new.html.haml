@@ -1,5 +1,5 @@
 .row
-  %h1 Sign up
+  %h1= t('sign_up')
   .box.large-5
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
@@ -15,7 +15,7 @@
       .field
         = f.label :password
         - if @validatable
-          %em= "(#{@minimum_password_length} characters minimum)"
+          %em= t('minimum_password_length', length: @minimum_password_length)
           %br
           = f.password_field :password, autocomplete: "off"
 
@@ -24,4 +24,4 @@
         = f.password_field :password_confirmation, autocomplete: "off"
 
       .actions
-        = f.submit "Sign up", class: 'btn gray'
+        = f.submit t('sign_up'), class: 'btn gray'
