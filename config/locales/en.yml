@@ -118,4 +118,10 @@ en:
   created_by: Created by
   in_2015: in 2015
 
+  page_not_found: Page not found!
+  not_found_message: "Sorry, we couldn't find the page you are looking for :("
+  go_back: Go back
+  internal_server_error: Oops! Something went wrong...
+  internal_server_error_message: Sorry about that! We'll look into it so it doesn't happen again.
+
 

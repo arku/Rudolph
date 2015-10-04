@@ -118,4 +118,10 @@ pt-br:
   created_by: Criado por
   in_2015: em 2015
 
+  page_not_found: Página não encontrada!
+  not_found_message: "Desculpe, não encontramos o que você está procurando :("
+  go_back: Voltar
+  internal_server_error: Ops! Tem algo errado...
+  internal_server_error_message: Pedimos desculpas! Vamos investigar para que isso não volte a acontecer.
+
 
