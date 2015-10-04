@@ -1,13 +1,15 @@
 #footer.contain-to-grid
   .row.full-width
-    .addthis_native_toolbox
-    
-    %p
-      = t('created_by')
-      = link_to 'Flora Saramago', 'http://www.florasaramago.com', {target: '_blank'}
-      = t('in_2015')
+    .large-4.columns
+      .addthis_native_toolbox
+    .large-4.columns
+      %p
+        = t('created_by')
+        = link_to 'Flora Saramago', 'http://www.florasaramago.com', {target: '_blank'}
+        = t('in_2015')
 
-    %p.language
-      = link_to 'English', change_locale_people_path(locale: 'en'), method: :post
-      |
-      = link_to 'Português', change_locale_people_path(locale: 'pt-br'), method: :post
+      %p.language
+        = link_to 'English', change_locale_people_path(locale: 'en'), method: :post
+        |
+        = link_to 'Português', change_locale_people_path(locale: 'pt-br'), method: :post
+    .large-4.columns
