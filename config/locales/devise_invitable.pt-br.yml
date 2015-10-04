@@ -1,0 +1,25 @@
+pt-br:
+  devise:
+    failure:
+      invited: "Você possui um convite pendente, aceite-o para criar sua conta."
+    invitations:
+      send_instructions: "Um email de convite foi enviado para %{email}."
+      invitation_token_invalid: "Convite inválido!"
+      updated: "Sua senha foi salva com sucesso. Você agora está logado."
+      updated_not_active: "Sua senha foi salva com sucesso."
+      no_invitations_remaining: "Não restam mais convites"
+      invitation_removed: "Seu convite foi removido."
+      new:
+        header: "Enviar convite"
+        submit_button: "Enviar um convite"
+      edit:
+        header: "Complete seu cadastro..."
+        submit_button: "Cadastre-se"
+    mailer:
+      invitation_instructions:
+        subject: "Você foi convidado para o Rudolph!"
+        hello: "Olá %{email},"
+        person_invited_you: "%{person} te convidou para o Rudolph, um app de amigo oculto."
+        someone_invited_you: "Te convidaram para o Rudolph, um app de amigo oculto."
+        accept: "Aceitar convite"
+        ignore: "Se não quiser aceitar o convite, por favor ignore este email.<br />Sua conta não será criada se você não clicar no link acima."
