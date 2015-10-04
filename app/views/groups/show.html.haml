@@ -18,7 +18,7 @@
           - if @is_admin
             .item= link_to t('edit_info'), edit_group_path(@group)
         - if !@is_admin && @draw_pending
-          .leave= link_to t('leave_group'), leave_group_path, method: :delete, class: 'red', data: {confirm: {title: t('are_you_sure'), ok: t('yes'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}
+          .leave= link_to t('leave_group'), leave_group_path, method: :delete, class: 'red', data: {confirm: {title: t('are_you_sure'), ok: t('sure'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}
     .large-4.columns.right
       .side
         #map

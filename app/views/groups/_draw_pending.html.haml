@@ -1,7 +1,7 @@
 - if @is_admin
   .draw-notice
     - if @group.can_draw_names?
-      = button_to t('draw_now'), draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names', data: {confirm: {title: t('are_you_sure'), ok: t('yes'), cancel: t('cancel'), modal_class: 'confirmation-modal', ok_class: 'confirm-drawing button alert'}}
+      = button_to t('draw_now'), draw_group_path, remote: true, class: 'btn btn-success btn-large draw_names', data: {confirm: {title: t('are_you_sure'), ok: t('sure'), cancel: t('cancel'), modal_class: 'confirmation-modal', ok_class: 'confirm-drawing button alert'}}
     .light
       - if @group.can_draw_names?
         = t('can_draw_warning')

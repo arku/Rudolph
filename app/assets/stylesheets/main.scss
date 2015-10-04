@@ -204,7 +204,7 @@ body {
 
   a.button {
     border-radius: 4px;
-    margin: 0 15px;
+    margin: 0 13px;
     padding: 8px 20px;
   }
 
@@ -220,4 +220,8 @@ body {
   a.secondary:hover {
     color: #b9b9b9;
   }
+}
+
+.reveal-modal-bg {
+  position: fixed !important;
 }

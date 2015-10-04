@@ -43,7 +43,7 @@ pt-br:
   description_default: "%{admin_name} ficou com preguiça de escrever uma descrição pro grupo..."
 
   are_you_sure: Tem certeza?
-  yes: Sim
+  sure: Sim
   cancel: Cancelar
   save: Salvar
   close: Fechar
