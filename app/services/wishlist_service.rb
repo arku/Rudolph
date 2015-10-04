@@ -13,12 +13,13 @@ class WishlistService
     result_items       = update_list(items)
 
     if result_description[:success] && result_items[:success]
-      {success: true, message: 'Successfully updated list'}
+      { success: true, message: t('updated_wishlist') }
     else
       errors = []
       errors << result_description[:message] if result_description[:message]
       errors = errors + result_items[:message] if result_items[:message]
-      {success: false, message: errors.join(', ')}
+
+      { success: false, message: errors.join(', ') }
     end
   end
 
@@ -26,9 +27,9 @@ class WishlistService
     begin
       group_person.wishlist_description = description
       group_person.save!
-      {success: true}
+      { success: true }
     rescue => error
-      {success: false, message: error.message}
+      { success: false, message: error.message }
     end
   end
 
@@ -66,7 +67,7 @@ class WishlistService
       end
     end
 
-    errors.empty? ? {success: true} : {success: false, message: errors}
+    errors.empty? ? { success: true } : { success: false, message: errors }
 
   end
 

@@ -7,13 +7,13 @@ class RudolphMailer < ActionMailer::Base
     @group  = group
     @invited_by = invited_by
 
-    mail :to => @person.email, :subject => "You've been invited to the group #{@group.name}"
+    mail :to => @person.email, :subject => t('invitation_subject', name: @group.name)
   end
 
   def names_drawn(person, group)
     @person = person
     @group  = group
 
-    mail :to => @person.email, :subject => "Names have been drawn!"
+    mail :to => @person.email, :subject => t('status_drawn')
   end
 end

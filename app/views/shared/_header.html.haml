@@ -25,4 +25,4 @@
                   = image_tag current_person.photo_by_size
               .logged-user-data
                 = current_person.name
-                = link_to 'logout', destroy_person_session_path, class: 'logout'
+                = link_to t('logout'), destroy_person_session_path, class: 'logout'

@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
   end
 
   def initialize_breadcrumbs
-    add_breadcrumb "My groups", :root_path
+    add_breadcrumb t('my_groups'), :root_path
   end
 
   def validate_group_person
@@ -36,7 +36,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    add_breadcrumb "New group"
+    add_breadcrumb t('new_group_title')
   end
 
   def create
@@ -53,7 +53,7 @@ class GroupsController < ApplicationController
 
   def edit
     add_breadcrumb @group.name, group_path(@group)
-    add_breadcrumb "Edit"
+    add_breadcrumb t('edit')
   end
 
   def update
@@ -79,7 +79,7 @@ class GroupsController < ApplicationController
     @wishlist_description = @person.wishlist_description(@group)
 
     add_breadcrumb @group.name, group_path(@group)
-    add_breadcrumb "Result"
+    add_breadcrumb t('result')
   end
 
   def send_invitations
@@ -112,10 +112,10 @@ class GroupsController < ApplicationController
     response = @group_service.remove_member(current_person)
 
     if response[:success]
-      flash.notice = "Successfully left group"
+      flash.notice = t('left_group')
       redirect_to root_path
     else
-      flash.alert = "Unable to remove you from this group. Please contact the group admin."
+      flash.alert = t('didnt_leave')
       redirect_to group_path(@group_service.group)
     end
   end
@@ -126,7 +126,7 @@ class GroupsController < ApplicationController
     @description    = group_person.wishlist_description
 
     add_breadcrumb @group.name, group_path(@group)
-    add_breadcrumb "Wishlist"
+    add_breadcrumb t('wishlist')
   end
 
   def update_wishlist

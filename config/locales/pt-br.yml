@@ -8,6 +8,7 @@ pt-br:
   login: Entrar
   password: Senha
   remember_me: Manter logado
+  logout: sair
 
   my_groups: Meus grupos
   new_group: + Novo grupo
@@ -16,6 +17,16 @@ pt-br:
   status_drawn: O sorteio foi realizado!
   no_groups: Você não faz parte de nenhum grupo ainda.
   create_group: Crie um!
+
+  created_group: "Grupo %{name} criado com sucesso!"
+  updated_group: "Grupo %{name} atualizado com sucesso!"
+  updated_admin: Admin atualizado com sucesso
+  inactive_admin: Só membros ativos podem se tornar Admin do grupo
+  only_admin: Só o Admin do grupo pode nomear outro Admin
+  welcome_to_group: "Bem vindo ao grupo %{name}!"
+  no_invitation: Parece que o seu convite se perdeu no correio... Peça ao Admin do grupo para lhe enviar um novo convite.
+  names_already_drawn: O sorteio já foi realizado.
+  only_admin_draw: Só o Admin do grupo pode realizar o sorteio.
 
   name: Nome
   description: Descrição
@@ -27,6 +38,9 @@ pt-br:
   edit_info: Editar dados do grupo
   leave_group: Sair do grupo
   edit_group: Editar grupo
+  location_default: Isso ainda é um mistério.
+  price_range_default: Vale tudo!
+  description_default: "%{admin_name} ficou com preguiça de escrever uma descrição pro grupo..."
 
   are_you_sure: Tem certeza?
   yes: Sim
@@ -74,7 +88,9 @@ pt-br:
   name_or_url: Nome ou URL do item
   add: Adicionar
   add_some: Adicione alguns!
+  updated_wishlist: Lista atualizada com sucesso
 
+  result: Resultado
   top_secret: Esta informação é ultra confidencial. Tem certeza de que nenhum membro do grupo pode estar vendo a sua tela nesse momento?
   show_me: Yes. Show me the truth.
   oscar: And the Oscar goes to...
@@ -82,12 +98,23 @@ pt-br:
   persons_wishlist: "Lista de Desejos de %{name}"
   persons_empty_wishlist: "%{name} ainda não colocou nenhum item na lista..."
 
+  exchange_different_groups_error: deve pertencer ao mesmo grupo que quem vai receber o presente
+  exchange_same_person_error: não pode presentear a si mesmo
+  member_not_unique_error: já pertence a este grupo
+
   my_account: Minha conta
   cancel_my_account: Cancelar minha conta
   update: Salvar
+  updated_information: Informações atualizadas com sucesso
+  invalid_user: Usuário inválido
+  cant_remove_admin: "Você é o Admin dos seguintes grupos: %{group_list}. Por favor nomeie outro Admin antes de cancelar sua conta."
+  account_deleted: Conta deletada. Esperamos te ver de novo em breve!
 
+  invitation_subject: "Convite para entrar no grupo '%{name}'"
   invited_by: "%{invited_by} te convidou para entrar no grupo '%{group}'"
   join_group: "Entrar no grupo '%{group}'"
+  left_group: Saída do grupo confirmada
+  didnt_leave: Não conseguimos te remover desse grupo. Por favor entre em contato com o Admin do grupo.
 
   names_drawn_for_group: "We're excited to announce that names have been drawn in the group '%{group}'!"
   see_result_below: "If the suspense is killing you, just click the link below:"
@@ -113,6 +140,7 @@ pt-br:
   didnt_receive_confirmation: Não recebeu instruções de confirmação?
   didnt_receive_unlock: Não recebeu instruções de desbloqueio?
   sign_in_with_provider: "Entrar com %{provider}"
+  signed_in_with_provider: "Logou via %{provider} com sucesso!"
   resend_unlock_instructions: Reenviar instruções de desbloqueio
 
   created_by: Criado por
@@ -124,4 +152,28 @@ pt-br:
   internal_server_error: Ops! Tem algo errado...
   internal_server_error_message: Pedimos desculpas! Vamos investigar para que isso não volte a acontecer.
 
-
+  activerecord:
+    models:
+      exchange: Troca de presentes
+      group: Grupo
+      group_person: Membro
+      person: Usuário
+      wishlist_item: Item
+    attributes:
+      exchange:
+        giver: Quem vai dar o presente
+        receiver: Quem vai receber o presente
+        group: Grupo
+      group:
+        admin: Admin do grupo
+        name: Nome
+        description: Descrição
+        date: Data
+        location: Local
+        price_range: Faixa de preço
+        status: Status
+      person:
+        name: Nome
+        password: Senha
+        encrypted_password: Senha
+        password_confirmation: Confirmação de senha

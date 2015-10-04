@@ -6,7 +6,7 @@ class GroupPerson < ActiveRecord::Base
 
   validates_presence_of :group, :person
 
-  validates_uniqueness_of :person, scope: :group, message: "already belongs to this group"
+  validates_uniqueness_of :person, scope: :group, message: I18n.t('member_not_unique_error')
 
   def error_messages
     errors.full_messages.join(' ,')

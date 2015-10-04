@@ -26,7 +26,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if person.persisted?
       person.accept_invitation! if person.invited?
       sign_in(:person, person)
-      flash.notice = "Successfully signed in via #{auth.provider}!"
+      flash.notice = t('signed_in_with_provider', provider: auth.provider)
     else
       session["devise.user_attributes"] = person.attributes
     end

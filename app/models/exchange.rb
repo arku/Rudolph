@@ -15,13 +15,13 @@ class Exchange < ActiveRecord::Base
     members = group.try(:people) || []
 
     unless members.include?(giver) && members.include?(receiver)
-      errors.add(:receiver, "has to belong to same group as giver")
+      errors.add(:receiver, I18n.t('exchange_different_groups_error'))
     end
   end
 
   def giver_and_receiver_are_not_the_same
     unless giver != receiver
-      errors.add(:receiver, "can't be the same as giver")
+      errors.add(:receiver, I18n.t('exchange_same_person_error'))
     end
   end
 

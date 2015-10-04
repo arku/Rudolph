@@ -12,26 +12,26 @@ class GroupService
   def create_group(params)
     begin
       @group = Group.create!(params)
-      {success: true, message: "Successfully created group #{group.name}"}
+      { success: true, message: t('created_group', name: group.name) }
     rescue => error
-      {success: false, message: error.message}
+      { success: false, message: error.message }
     end
   end
 
   def update_group(params)
     begin
       @group.update!(params)
-      {success: true, message: "Successfully updated group #{@group.name}"}
+      { success: true, message: t('updated_group', name: group.name) }
     rescue => error
-      {success: false, message: error.message}
+      { success: false, message: error.message }
     end
   end
 
   def remove_member(member)
     if can_remove_member?(member) && group.draw_pending?
-      {success: remove_group_person(member)}
+      { success: remove_group_person(member) }
     else
-      {success: false}
+      { success: false }
     end
   end
 
@@ -42,15 +42,15 @@ class GroupService
         if member.status(group) == 'active'
           group.admin = member
           group.save!
-          {success: true, message: 'Admin updated successfully'}
+          { success: true, message: t('updated_admin') }
         else
-          {success: false, message: 'Only active members can become Admin'}
+          { success: false, message: t('inactive_admin') }
         end
       rescue => error
-        {success: false, message: error.message}
+        { success: false, message: error.message }
       end
     else
-      {success: false, message: 'Only the Admin can make someone else Admin'}
+      { success: false, message: t('only_admin') }
     end
   end
 
@@ -77,30 +77,31 @@ class GroupService
       end
     end
 
-    {success_list: success, error_list: errors}
+    { success_list: success, error_list: errors }
   end
 
   def accept_group
     begin
       group_person = GroupPerson.where(group: group, person: current_person).first
       group_person.update_attribute(:confirmed, true)
-      {success: true, message: "Welcome to the group #{group.name}!"}
+      { success: true, message: t('welcome_to_group', name: group.name) }
     rescue => error
-      {success: false, message: "It appears your invitation got lost in the mail... Contact the group admin for a new invitation."}
+      { success: false, message: t('no_invitation') }
     end
   end
 
   def draw_names
     begin
-      return {success: false, message: 'Names have already been drawn.'} unless group.draw_pending?
-      return {success: false, message: 'Only the Admin can draw names.'} unless current_person.is_admin?(group)
+      return { success: false, message: t('names_already_drawn') } unless group.draw_pending?
+      return { success: false, message: t('only_admin_draw') } unless current_person.is_admin?(group)
       
       NameDrawer.new(group).perform
       group.update_status
       notify_members_after_draw
-      {success: true}
+      
+      { success: true }
     rescue => error
-      {success: false, message: error.message}
+      { success: false, message: error.message }
     end
   end
 

@@ -39,15 +39,15 @@ class Group < ActiveRecord::Base
   end
 
   def show_location
-    location.present? ? location : "That's still a mystery."
+    location.present? ? location : t('location_default')
   end
 
   def show_price_range
-    price_range.present? ? price_range : 'Anything goes!'
+    price_range.present? ? price_range : t('price_range_default')
   end
 
   def show_description
-    description.present? ? description : "#{admin.first_name} was too lazy to write a description for this group..."
+    description.present? ? description : t('description_default', admin_name: admin.first_name)
   end
 
 end

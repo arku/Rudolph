@@ -8,6 +8,7 @@ en:
   login: Log in
   password: Password
   remember_me: Remember me
+  logout: logout
 
   my_groups: My groups
   new_group: + New group
@@ -16,6 +17,16 @@ en:
   status_drawn: Names have been drawn!
   no_groups: You don't belong to any groups yet.
   create_group: Create one!
+
+  created_group: "Successfully created group %{name}"
+  updated_group: "Successfully updated group %{name}"
+  updated_admin: Admin updated successfully
+  inactive_admin: Only active members can become Admin
+  only_admin: Only the Admin can make someone else Admin
+  welcome_to_group: "Welcome to the group %{name}!"
+  no_invitation: It appears your invitation got lost in the mail... Contact the group admin for a new invitation.
+  names_already_drawn: Names have already been drawn.
+  only_admin_draw: Only the Admin can draw names.
 
   name: Name
   description: Description
@@ -27,6 +38,9 @@ en:
   edit_info: Edit group info
   leave_group: Leave group
   edit_group: Edit group
+  location_default: That's still a mystery.
+  price_range_default: Anything goes!
+  description_default: "%{admin_name} was too lazy to write a description for this group..."
 
   are_you_sure: Are you sure?
   yes: Yes
@@ -58,6 +72,7 @@ en:
   make_admin: Make group admin
   remove_member: Remove from group
 
+  wishlist: Wishlist
   my_wishlist: My Wishlist
   edit_wishlist: Edit wishlist
   empty_wishlist: You don't have a wishlist yet!
@@ -74,7 +89,9 @@ en:
   name_or_url: Name or URL of the item
   add: Add
   add_some: Add some!
+  updated_wishlist: Successfully updated list
 
+  result: Result
   top_secret: This is top secret information. Are you sure no one from the group can see your screen right now?
   show_me: Yes. Show me the truth.
   oscar: And the Oscar goes to...
@@ -82,12 +99,23 @@ en:
   persons_wishlist: "%{name}'s Wishlist"
   persons_empty_wishlist: "%{name} doesn't have any wishlist items yet..."
 
+  exchange_different_groups_error: has to belong to same group as giver
+  exchange_same_person_error: can't be the same as giver
+  member_not_unique_error: already belongs to this group
+
   my_account: My account
   cancel_my_account: Cancel my account
   update: Update
+  updated_information: Successfully updated your information
+  invalid_user: Invalid user
+  cant_remove_admin: "You are the admin of the following groups: %{group_list}. Please name someone else admin before you cancel your account."
+  account_deleted: Account deleted. Hope to see you again soon!
 
+  invitation_subject: "You've been invited to the group '%{name}'"
   invited_by: "%{invited_by} has invited you to join the group '%{group}'"
   join_group: "Join '%{group}'"
+  left_group: Successfully left group
+  didnt_leave: Unable to remove you from this group. Please contact the group admin.
 
   names_drawn_for_group: "We're excited to announce that names have been drawn in the group '%{group}'!"
   see_result_below: "If the suspense is killing you, just click the link below:"
@@ -113,6 +141,7 @@ en:
   didnt_receive_confirmation: Didn't receive confirmation instructions?
   didnt_receive_unlock: Didn't receive unlock instructions?
   sign_in_with_provider: "Sign in with %{provider}"
+  signed_in_with_provider: "Successfully signed in via %{provider}!"
   resend_unlock_instructions: Resend unlock instructions
 
   created_by: Created by
