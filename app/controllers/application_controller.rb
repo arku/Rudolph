@@ -21,7 +21,14 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = current_person ? current_person.locale : session[:locale]
+    if current_person.locale
+      I18n.locale = current_person.locale
+    elsif session[:locale]
+      I18n.locale = session[:locale]
+    else
+      parsed_locale = request.host.split('.').last
+      I18n.locale = parsed_locale == 'br' ? 'pt-br' : 'en'
+    end
   end
 
   def get_locale
