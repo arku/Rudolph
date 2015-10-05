@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    if current_person.locale
+    if current_person
       I18n.locale = current_person.locale
     elsif session[:locale]
       I18n.locale = session[:locale]
