@@ -20,6 +20,4 @@
       = f.submit t("devise.invitations.edit.submit_button")
 
   %h1 ...or
-  .fb-login
-    = link_to '/people/auth/facebook' do
-      = image_tag 'fb-login.png'
+  .fb-login= render 'shared/facebook_login_button'

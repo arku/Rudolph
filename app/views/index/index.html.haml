@@ -2,9 +2,7 @@
   .row.full-width.home-container
     .large-6.columns.left
       %h1.main.red= t('headline')
-      .facebook
-        = link_to '/people/auth/facebook' do
-          = image_tag 'fb-login.png'
+      .facebook= render 'shared/facebook_login_button'
     .large-6.columns.right
       .box.right.large-10
         = form_for Person.new do |f|

@@ -14,9 +14,7 @@
             = link_to 'Login', '#'
             %ul.dropdown
               %li.regular-login= render 'shared/log_in_form'
-              %li.fb-login
-                = link_to '/people/auth/facebook' do
-                  = image_tag 'fb-login.png'
+              %li.fb-login= render 'shared/facebook_login_button'
         - else
           %li
             .logged-user

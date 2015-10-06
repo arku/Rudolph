@@ -31,4 +31,7 @@
 
   - unless resource.provider == 'facebook'
     = link_to '/people/auth/facebook' do
-      = image_tag 'fb-connect.png'
+      - if I18n.locale.to_s == 'pt-br'
+        = image_tag 'fb-connect-pt.png'
+      - else
+        = image_tag 'fb-connect.png'
