@@ -3,6 +3,11 @@
     width: 90%;
   }
 
+  #contents {
+    padding-bottom: 210px !important;
+    min-height: 490px !important;
+  }
+
   .bread {
     margin-top: 10px !important;
     width: 90%;
@@ -79,6 +84,7 @@
         .calendar {
           height: 104px;
           margin-bottom: 15px;
+          margin-left: 10px;
           width: 110px;
 
           .month {
@@ -123,6 +129,8 @@
       display: inline-block;
       margin-right: 22px;
       width: auto;
+      max-width: 145px;
+      overflow: hidden;
 
       .name {
         font-size: 90%;
@@ -213,5 +221,10 @@
     .text {
       margin-left: 0;
     }
+  }
+
+  .addthis_button_facebook_share {
+    width: auto !important;
+    margin-right: 20px;
   }
 }
