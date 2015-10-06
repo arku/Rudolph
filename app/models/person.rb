@@ -48,7 +48,7 @@ class Person < ActiveRecord::Base
   end
 
   def photo_by_size(size = 'normal')
-    uid ? "http://graph.facebook.com/#{uid}/picture?type=#{size}" : 'http://profile.ak.fbcdn.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
+    uid ? "http://graph.facebook.com/#{uid}/picture?type=#{size}" : 'placeholder.png'
   end
 
   def status(group)
