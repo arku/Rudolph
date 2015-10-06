@@ -192,3 +192,25 @@ pt-br:
         encrypted_password: Senha
         password_confirmation: Confirmação de senha
         remember_me: Manter logado
+    errors:
+      models:
+        person:
+          attributes:
+            email:
+              blank: não pode ficar em branco
+              taken: já está em uso
+              invalid: inválido
+            password:
+              blank: não pode ficar em branco
+              confirmation: está diferente da confirmação
+            password_confirmation:
+              blank: não pode ficar em branco
+              confirmation: está diferente da senha
+            name:
+              blank: não pode ficar em branco
+        group:
+          attributes:
+            name:
+              blank: Nome do grupo não pode ficar em branco
+      messages:
+        record_invalid: Não foi possível salvar.

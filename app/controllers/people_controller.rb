@@ -3,6 +3,10 @@ class PeopleController < ApplicationController
 
   before_action :authenticate_person!, except: :change_locale
 
+  def index
+    redirect_to root_path
+  end
+
   def update
     if current_person.id == params[:id].to_i
       begin

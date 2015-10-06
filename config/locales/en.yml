@@ -167,3 +167,51 @@ en:
     11: November
     12: December
 
+  activerecord:
+    models:
+      exchange: Exchange
+      group: Group
+      group_person: Member
+      person: Person
+      wishlist_item: Item
+    attributes:
+      exchange:
+        giver: Giver
+        receiver: Receiver
+        group: Group
+      group:
+        admin: Group Admin
+        name: Name
+        description: Description
+        date: Date
+        location: Location
+        price_range: Price range
+        status: Status
+      person:
+        name: Name
+        password: Password
+        encrypted_password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+    errors:
+      models:
+        person:
+          attributes:
+            email:
+              blank: can't be blank
+              taken: is already taken
+              invalid: is invalid
+            password:
+              blank: can't be blank
+              confirmation: doesn't match confirmation
+            password_confirmation:
+              blank: can't be blank
+              confirmation: doesn't match password
+            name:
+              blank: can't be blank
+        group:
+          attributes:
+            name:
+              blank: Name can't be blank
+      messages:
+        record_invalid: Could not save.
