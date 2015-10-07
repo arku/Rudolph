@@ -12,7 +12,7 @@ class GroupService
   def create_group(params)
     begin
       @group = Group.create!(params)
-      { success: true, message: t('created_group', name: group.name) }
+      { success: true, message: I18n.t('created_group', name: group.name) }
     rescue => error
       { success: false, message: error.message }
     end
@@ -21,7 +21,7 @@ class GroupService
   def update_group(params)
     begin
       @group.update!(params)
-      { success: true, message: t('updated_group', name: group.name) }
+      { success: true, message: I18n.t('updated_group', name: group.name) }
     rescue => error
       { success: false, message: error.message }
     end
@@ -42,15 +42,15 @@ class GroupService
         if member.status(group) == 'active'
           group.admin = member
           group.save!
-          { success: true, message: t('updated_admin') }
+          { success: true, message: I18n.t('updated_admin') }
         else
-          { success: false, message: t('inactive_admin') }
+          { success: false, message: I18n.t('inactive_admin') }
         end
       rescue => error
         { success: false, message: error.message }
       end
     else
-      { success: false, message: t('only_admin') }
+      { success: false, message: I18n.t('only_admin') }
     end
   end
 
@@ -84,16 +84,16 @@ class GroupService
     begin
       group_person = GroupPerson.where(group: group, person: current_person).first
       group_person.update_attribute(:confirmed, true)
-      { success: true, message: t('welcome_to_group', name: group.name) }
+      { success: true, message: I18n.t('welcome_to_group', name: group.name) }
     rescue => error
-      { success: false, message: t('no_invitation') }
+      { success: false, message: I18n.t('no_invitation') }
     end
   end
 
   def draw_names
     begin
-      return { success: false, message: t('names_already_drawn') } unless group.draw_pending?
-      return { success: false, message: t('only_admin_draw') } unless current_person.is_admin?(group)
+      return { success: false, message: I18n.t('names_already_drawn') } unless group.draw_pending?
+      return { success: false, message: I18n.t('only_admin_draw') } unless current_person.is_admin?(group)
       
       NameDrawer.new(group).perform
       group.update_status

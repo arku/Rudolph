@@ -13,7 +13,7 @@ class WishlistService
     result_items       = update_list(items)
 
     if result_description[:success] && result_items[:success]
-      { success: true, message: t('updated_wishlist') }
+      { success: true, message: I18n.t('updated_wishlist') }
     else
       errors = []
       errors << result_description[:message] if result_description[:message]
