@@ -92,7 +92,7 @@ namespace :deploy do
   before :starting,     :check_revision
   before :updated,      "figaro:setup"
   before :updated,      "figaro:symlink"
-  # after  :finishing,    :compile_assets
+  after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end
