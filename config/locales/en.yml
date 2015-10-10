@@ -43,7 +43,7 @@ en:
   description_default: "%{admin_name} was too lazy to write a description for this group..."
 
   are_you_sure: Are you sure?
-  yes: Yes
+  sure: "Yes"
   cancel: Cancel
   save: Save
   close: Close
