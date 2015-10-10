@@ -88,7 +88,7 @@ class Person < ActiveRecord::Base
   end
 
   def error_messages
-    errors.full_messages.join(' ,')
+    errors.full_messages.join(', ')
   end
 
 end

@@ -26,4 +26,16 @@ describe GroupPerson do
     expect(group_person).to_not be_valid
   end
 
+  describe '#error_messages' do
+    it 'returns the error message' do
+      group_person = GroupPerson.create(group_id: 1, person_id: 2000000)
+      expect(group_person.error_messages).to eq("Person can't be blank")
+    end
+
+    it 'concatenates messages' do
+      group_person = GroupPerson.create(group_id: 1000000, person_id: 2000000)
+      expect(group_person.error_messages).to eq("Group can't be blank, Person can't be blank")
+    end
+  end
+
 end

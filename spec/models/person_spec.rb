@@ -67,4 +67,67 @@ describe Person do
     expect(person.status(group)).to eq('active')
   end
 
+  describe '#error_messages' do
+    it 'returns the error message' do
+      person = Person.create(email: 'flora123@itsrudolph.com')
+      expect(person.error_messages).to eq("Password can't be blank")
+    end
+
+    it 'concatenates messages' do
+      person = Person.create()
+      expect(person.error_messages).to eq("Email can't be blank, Password can't be blank")
+    end
+  end
+
+  describe '#is_admin?' do
+    context 'is admin' do
+      it 'returns true' do
+        person = Person.find(1)
+        group = Group.find(1)
+
+        expect(person.is_admin?(group)).to be true
+      end
+    end
+
+    context 'is not admin' do
+      it 'returns false' do
+        person = Person.find(2)
+        group = Group.find(1)
+
+        expect(person.is_admin?(group)).to be false
+      end
+    end
+  end
+
+  describe '#is_member?' do
+    context 'is member' do
+      it 'returns true' do
+        person = Person.find(1)
+        group = Group.find(1)
+
+        expect(person.is_member?(group)).to be true
+      end
+    end
+
+    context 'is not member' do
+      it 'returns false' do
+        person = Person.create(email: 'not_in_group@itsrudolph.com', password: 'notingroup')
+        group = Group.find(1)
+
+        expect(person.is_member?(group)).to be false
+      end
+    end
+  end
+
+  describe '#wishlist_description' do
+    it 'returns the correct description' do
+      person = Person.find(1)
+      group = Group.find(1)
+      group_person = GroupPerson.where(person: person, group: group).first
+      group_person.update_attribute(:wishlist_description, 'Some description')
+
+      expect(person.wishlist_description(group)).to eq('Some description')
+    end
+  end
+
 end

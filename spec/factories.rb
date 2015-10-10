@@ -6,6 +6,7 @@ FactoryGirl.define do
 
   factory :flora, class: Person do
     id 1
+    name 'Flora Saramago'
     email 'flora@itsrudolph.com'
     password 'florapassword'
   end
