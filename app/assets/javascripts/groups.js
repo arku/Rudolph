@@ -38,8 +38,8 @@ $(document).ready(function(){
   });
 
   $(document).on('click', '.confirm-drawing', function() {
-    $('.reveal-modal-bg').hide();
-    $('.reveal-modal').hide();
+    $('.reveal-modal-bg').remove();
+    $('.reveal-modal').remove();
     $('.draw_names').hide();
     $('.draw-notice').hide();
     $('.draw-loading').removeClass('hidden').fadeIn();
