@@ -6,6 +6,8 @@ class Person < ActiveRecord::Base
   has_many :group_people, dependent: :destroy
   has_many :groups, through: :group_people
 
+  mount_uploader :image, ImageUploader
+
   def self.omniauth(auth)
     dummy       = Devise.friendly_token[0,20]
     info        = auth.info
@@ -48,6 +50,7 @@ class Person < ActiveRecord::Base
   end
 
   def photo_by_size(size = 'normal')
+    return image_url if image_url
     uid ? "http://graph.facebook.com/#{uid}/picture?type=#{size}" : 'placeholder.png'
   end
 

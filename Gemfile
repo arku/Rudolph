@@ -44,6 +44,8 @@ gem 'puma'
 
 gem 'geocoder'
 
+gem 'carrierwave'
+
 group :development do
   gem 'letter_opener'
   gem 'capistrano',         require: false

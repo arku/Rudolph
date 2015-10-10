@@ -189,6 +189,7 @@ pt-br:
       person:
         name: Nome
         password: Senha
+        image: Foto
         encrypted_password: Senha
         password_confirmation: Confirmação de senha
         remember_me: Manter logado
