@@ -22,5 +22,5 @@
                 = link_to edit_person_registration_path do
                   = image_tag current_person.photo_by_size
               .logged-user-data
-                = current_person.name
+                .name-link= link_to current_person.name, edit_person_registration_path 
                 = link_to t('logout'), destroy_person_session_path, class: 'logout'
