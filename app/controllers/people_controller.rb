@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
   def update
     if current_person.id == params[:id].to_i
       begin
-        current_person.update!(person_params)
+        current_person.update!(sanitize(person_params))
         flash.notice = t('updated_information')
       rescue => error
         flash.alert = error.message
@@ -55,8 +55,18 @@ class PeopleController < ApplicationController
     redirect_to :back
   end
 
+  private
+
   def person_params
     params.require(:person).permit(:name, :image, :email, :password, :password_confirmation)
+  end
+
+  def sanitize(person_params)
+    unless person_params[:password].present? && person_params[:password_confirmation].present?
+      person_params = person_params.except(:password, :password_confirmation)
+    end
+
+    person_params
   end
 
 end
