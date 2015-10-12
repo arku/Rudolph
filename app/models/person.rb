@@ -50,8 +50,9 @@ class Person < ActiveRecord::Base
   end
 
   def photo_by_size(size = 'normal')
+    return "http://graph.facebook.com/#{uid}/picture?type=#{size}" if uid
     return image_url if image_url
-    uid ? "http://graph.facebook.com/#{uid}/picture?type=#{size}" : 'placeholder.png'
+    'placeholder.png'
   end
 
   def status(group)
