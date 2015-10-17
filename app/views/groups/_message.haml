@@ -1,0 +1,7 @@
+.message
+  .sender-pic= image_tag message.sender.photo_by_size('small')
+  .message-box
+    .sender-name.light
+      .name= message.sender.first_name
+      .date= localize_datetime(message.created_at)
+    .message-text= message.message

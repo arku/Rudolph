@@ -16,6 +16,14 @@ module ApplicationHelper
     text.size <= size ? text : "#{text[0..size-1]}..."
   end
 
+  def localize_datetime(datetime)
+    if I18n.locale == :en
+      datetime.strftime("%m/%d/%Y %I %p")
+    else
+      datetime.strftime("%d/%m/%Y %H:00")
+    end
+  end
+
   def localize_time(time)
     if I18n.locale == :en
       time = time.strftime("%I %p")

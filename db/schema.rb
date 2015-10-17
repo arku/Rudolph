@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004123021) do
+ActiveRecord::Schema.define(version: 20151016154427) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20151004123021) do
     t.integer  "status",      limit: 4,     default: 0
     t.float    "latitude",    limit: 24
     t.float    "longitude",   limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "sender_id",    limit: 4
+    t.integer  "recipient_id", limit: 4
+    t.integer  "group_id",     limit: 4
+    t.text     "message",      limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
   end

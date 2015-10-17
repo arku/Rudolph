@@ -2,6 +2,7 @@ class Group < ActiveRecord::Base
   has_many :group_people
   has_many :people, through: :group_people
   has_many :exchanges
+  has_many :messages
 
   belongs_to :admin, class_name: 'Person', foreign_key: 'admin_id'
 
@@ -36,6 +37,10 @@ class Group < ActiveRecord::Base
   def update_status
     self.status = 1
     save
+  end
+
+  def public_messages
+    Message.public_by_group(id)
   end
 
   def show_location

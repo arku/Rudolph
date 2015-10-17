@@ -5,6 +5,7 @@ class Person < ActiveRecord::Base
 
   has_many :group_people, dependent: :destroy
   has_many :groups, through: :group_people
+  has_many :messages
 
   mount_uploader :image, ImageUploader
 

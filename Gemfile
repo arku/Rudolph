@@ -46,6 +46,12 @@ gem 'geocoder'
 
 gem 'carrierwave'
 
+gem 'faye'
+
+gem 'thin'
+
+gem 'private_pub'
+
 group :development do
   gem 'letter_opener'
   gem 'capistrano',         require: false

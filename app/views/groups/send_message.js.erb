@@ -1,0 +1,5 @@
+<% publish_to "/messages/new" do %>
+  $('#message-board').append("<%= j render partial:'message', locals:{message: @message} %>");
+<% end %>
+
+$('#new-message').find('textarea').val('');

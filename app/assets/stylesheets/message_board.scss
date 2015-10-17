@@ -1,0 +1,32 @@
+.message {
+  margin-bottom: 25px;
+
+  .sender-pic {
+    width: 50px;
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  .sender-name {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    .name {
+      display: inline;
+      float: left;
+    }
+
+    .date {
+      display: inline;
+      float: right;
+    }
+  }
+
+  .message-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 90%;
+  }
+}

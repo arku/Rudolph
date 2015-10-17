@@ -142,6 +142,17 @@ class GroupsController < ApplicationController
     redirect_to edit_wishlist_group_path
   end
 
+  def message_board
+    @messages = @group.public_messages
+
+    add_breadcrumb @group.name, group_path(@group)
+    add_breadcrumb t('message_board')
+  end
+
+  def send_message
+    @message = Message.create!(group: @group, sender: current_person, message: params[:message])
+  end
+
   def get_coordinates
     render json: {latitude: @group.latitude, longitude: @group.longitude}.to_json
   end

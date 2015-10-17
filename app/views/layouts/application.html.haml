@@ -56,3 +56,6 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56119761615d1010", "async" => "async"
     = javascript_include_tag "vendor/modernizr"
+
+    - if action_name == 'message_board'
+      = subscribe_to "/messages/new"
