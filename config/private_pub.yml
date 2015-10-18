@@ -5,6 +5,6 @@ test:
   server: "http://localhost:9292/faye"
   secret_token: "secret"
 production:
-  server: "http://itsrudolph.com/faye"
+  server: "http://localhost:9292/faye"
   secret_token: ENV['private_pub_secret_token']
   signature_expiration: 3600 # one hour
