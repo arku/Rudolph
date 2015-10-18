@@ -6,17 +6,18 @@ Rudolph::Application.routes.draw do
 
   resources :groups do
     member do
-      post   'send-invitations', as: 'send_invitations'
-      delete 'remove_member',    as: 'remove_member'
-      put    'make_admin',       as: 'make_admin'
-      post   'draw',             as: 'draw'
-      get    'who',              as: 'who'
-      get    'accept_group',     as: 'accept_group'
-      delete 'leave_group',      as: 'leave'
-      get    'edit_wishlist',    as: 'edit_wishlist'
-      post   'update_wishlist',  as: 'update_wishlist'
-      get    'message_board',    as: 'message_board'
-      post   'send_message',     as: 'send_message'
+      post   'send-invitations',     as: 'send_invitations'
+      delete 'remove_member',        as: 'remove_member'
+      put    'make_admin',           as: 'make_admin'
+      post   'draw',                 as: 'draw'
+      get    'who',                  as: 'who'
+      get    'accept_group',         as: 'accept_group'
+      delete 'leave_group',          as: 'leave'
+      get    'edit_wishlist',        as: 'edit_wishlist'
+      post   'update_wishlist',      as: 'update_wishlist'
+      get    'message_board',        as: 'message_board'
+      post   'send_message',         as: 'send_message'
+      get    'wishlists/:person_id', to: 'groups#wishlists', as: 'view_wishlist'
 
       constraints format: :json do
         get 'get_coordinates',  as: 'get_coordinates'

@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   before_action :validate_group_person, except: [:index, :new, :create]
 
   before_filter :initialize_group
-  before_filter :initialize_breadcrumbs, only: [:show, :new, :edit, :who, :edit_wishlist]
+  before_filter :initialize_breadcrumbs, only: [:show, :new, :edit, :who, :edit_wishlist, :wishlists]
 
   def initialize_group
     @group = params[:id].present? ? Group.find(params[:id]) : Group.new
@@ -140,6 +140,15 @@ class GroupsController < ApplicationController
     end
 
     redirect_to edit_wishlist_group_path
+  end
+
+  def wishlists
+    @person = Person.find(params[:person_id])
+    @wishlist_items = @person.wishlist_items(@group)
+    @wishlist_description = @person.wishlist_description(@group)
+
+    add_breadcrumb @group.name, group_path(@group)
+    add_breadcrumb t('result')
   end
 
   def message_board
