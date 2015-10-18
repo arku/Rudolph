@@ -52,6 +52,8 @@ gem 'thin'
 
 gem 'private_pub'
 
+gem 'foreman'
+
 group :development do
   gem 'letter_opener'
   gem 'capistrano',         require: false
