@@ -237,4 +237,11 @@
     width: auto !important;
     margin: 0 0 10px 20px !important;
   }
+
+  .activity {
+    .activity-box {
+      max-width: 65%;
+      width: auto;
+    }
+  }
 }
