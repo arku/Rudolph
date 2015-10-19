@@ -27,6 +27,7 @@ class WishlistService
     begin
       group_person.wishlist_description = description
       group_person.save!
+      WishlistDescriptionActivity.create!(person: current_person, group: @group)
       { success: true }
     rescue => error
       { success: false, message: error.message }
@@ -44,7 +45,7 @@ class WishlistService
             if name_or_url.include?('http://') || name_or_url.include?('https://')
               page = MetaInspector.new(name_or_url)
 
-              WishlistItem.create!(
+              wi = WishlistItem.create!(
                 group_person: group_person,
                 name_or_url: name_or_url,
                 comments: item[:comments],
@@ -53,12 +54,13 @@ class WishlistService
                 image: get_image(page)
               )
             else
-              WishlistItem.create!(
+              wi = WishlistItem.create!(
                 group_person: group_person,
                 name_or_url: name_or_url,
                 comments: item[:comments]
               )
             end
+            WishlistItemActivity.create!(wishlist_item: wi)
           end
         rescue => error
           message = error.message.size > 100 ? error.message[0..100] + '...' : error.message

@@ -402,3 +402,34 @@
   float: right;
   margin-top: 130px;
 }
+
+.activity {
+  .person-pic {
+    width: 50px;
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+
+  .activity-description {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    .name {
+      display: inline;
+      float: left;
+    }
+
+    .date {
+      display: inline;
+      float: right;
+    }
+  }
+
+  .activity-box {
+    display: inline-block;
+    vertical-align: top;
+    width: 90%;
+  }
+}

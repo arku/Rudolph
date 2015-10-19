@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   before_action :validate_group_person, except: [:index, :new, :create]
 
   before_filter :initialize_group
-  before_filter :initialize_breadcrumbs, only: [:show, :new, :edit, :who, :edit_wishlist, :wishlists]
+  before_filter :initialize_breadcrumbs, only: [:show, :new, :edit, :who, :edit_wishlist, :wishlists, :activity]
 
   def initialize_group
     @group = params[:id].present? ? Group.find(params[:id]) : Group.new
@@ -21,7 +21,8 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = current_person.groups
+    @groups   = current_person.groups
+    @activity = GroupActivity.by_person(current_person)
   end
 
   def show
@@ -31,6 +32,7 @@ class GroupsController < ApplicationController
     all_items             = current_person.wishlist_items(@group)
     @wishlist_size        = all_items.size
     @wishlist_items       = all_items.limit(3)
+    @activity             = @group.group_activities.limit(3)
 
     add_breadcrumb @group.name
   end
@@ -162,6 +164,13 @@ class GroupsController < ApplicationController
 
     add_breadcrumb @group.name, group_path(@group)
     add_breadcrumb t('result')
+  end
+
+  def activity
+    @activity = @group.group_activities
+
+    add_breadcrumb @group.name, group_path(@group)
+    add_breadcrumb t('group_activity')
   end
 
   def message_board

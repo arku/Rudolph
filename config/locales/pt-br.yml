@@ -123,6 +123,28 @@ pt-br:
   names_drawn_for_group: "É com muita alegria que anunciamos que o sorteio do grupo '%{group}' foi realizado!"
   see_result_below: "Se o suspense estiver te matando, clique logo no link abaixo:"
 
+  group_activity: Atividade do grupo
+  latest_group_activity: Atividade recente
+  no_group_activity: Nada aconteceu ainda.
+  create_group_activity: "%{person} criou o grupo."
+  wishlist_item_activity: "%{person} adicionou o item \"%{item}\" à lista de desejos."
+  join_group_activity: "%{person} entrou no grupo."
+  leave_group_activity: "%{person} saiu do grupo. :("
+  update_group_activity: "%{person} atualizou as informações do grupo."
+  wishlist_description_activity: "%{person} atualizou os comentários gerais da lista de desejos."
+  new_admin_activity: "%{person} se tornou Admin do grupo."
+  draw_names_activity: O sorteio finalmente aconteceu!
+  latest_activity_home: Atividade recente nos meus grupos
+
+  create_group_activity_full: "%{person} criou o grupo '%{group}'."
+  wishlist_item_activity_full: "%{person} adicionou \"%{item}\" à lista de desejos no grupo '%{group}'."
+  join_group_activity_full: "%{person} entrou no grupo '%{group}'."
+  leave_group_activity_full: "%{person} saiu do grupo '%{group}'. :("
+  update_group_activity_full: "%{person} atualizou as informações do grupo '%{group}'."
+  wishlist_description_activity_full: "%{person} atualizou os comentários gerais da lista de desejos no grupo '%{group}'."
+  new_admin_activity_full: "%{person} se tornou Admin do grupo '%{group}'."
+  draw_names_activity_full: "O sorteio do grupo '%{group}' finalmente aconteceu!"
+
   resend_confirmation: Reenviar instruções de confirmação
   welcome: "Rudolph te deseja boas vindas, %{email}!"
   confirm_email_below: "Você pode confirmar seu email pelo link abaixo:"

@@ -124,6 +124,28 @@ en:
   names_drawn_for_group: "We're excited to announce that names have been drawn in the group '%{group}'!"
   see_result_below: "If the suspense is killing you, just click the link below:"
 
+  group_activity: Group activity
+  latest_group_activity: Latest group activity
+  no_group_activity: Nothing happened yet.
+  create_group_activity: "%{person} created the group."
+  wishlist_item_activity: "%{person} added \"%{item}\" to their wishlist."
+  join_group_activity: "%{person} joined the group."
+  leave_group_activity: "%{person} left the group. :("
+  update_group_activity: "%{person} updated the group info."
+  wishlist_description_activity: "%{person} updated their wishlist description."
+  new_admin_activity: "%{person} is the new group admin."
+  draw_names_activity: Names were finally drawn!
+  latest_activity_home: Latest activity in my groups
+
+  create_group_activity_full: "%{person} created the group '%{group}'."
+  wishlist_item_activity_full: "%{person} added \"%{item}\" to their wishlist in the group '%{group}'."
+  join_group_activity_full: "%{person} joined the group '%{group}'."
+  leave_group_activity_full: "%{person} left the group '%{group}'. :("
+  update_group_activity_full: "%{person} updated '%{group}' group info."
+  wishlist_description_activity_full: "%{person} updated their wishlist description in the group '%{group}'."
+  new_admin_activity_full: "%{person} is the new group admin in '%{group}'."
+  draw_names_activity_full: "Names were finally drawn in the group '%{group}'!"
+
   resend_confirmation: Resend confirmation instructions
   welcome: "Welcome %{email}!"
   confirm_email_below: "You can confirm your account email through the link below:"

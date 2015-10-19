@@ -18,6 +18,7 @@ Rudolph::Application.routes.draw do
       delete 'remove_from_wishlist', as: 'remove_from_wishlist'
       get    'message_board',        as: 'message_board'
       post   'send_message',         as: 'send_message'
+      get    'activity',             as: 'activity'
       get    'wishlists/:person_id', to: 'groups#wishlists', as: 'view_wishlist'
 
       constraints format: :json do

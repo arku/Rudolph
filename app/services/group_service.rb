@@ -12,6 +12,7 @@ class GroupService
   def create_group(params)
     begin
       @group = Group.create!(params)
+      CreateGroupActivity.create!(person: current_person, group: @group)
       { success: true, message: I18n.t('created_group', name: group.name) }
     rescue => error
       { success: false, message: error.message }
@@ -21,6 +22,7 @@ class GroupService
   def update_group(params)
     begin
       @group.update!(params)
+      UpdateGroupActivity.create!(person: current_person, group: @group)
       { success: true, message: I18n.t('updated_group', name: group.name) }
     rescue => error
       { success: false, message: error.message }
@@ -29,7 +31,9 @@ class GroupService
 
   def remove_member(member)
     if can_remove_member?(member) && group.draw_pending?
-      { success: remove_group_person(member) }
+      remove_group_person(member)
+      LeaveGroupActivity.create!(person: member, group: group)
+      { success: true }
     else
       { success: false }
     end
@@ -42,6 +46,7 @@ class GroupService
         if member.status(group) == 'active'
           group.admin = member
           group.save!
+          NewAdminActivity.create!(person: group.admin, group: group)
           { success: true, message: I18n.t('updated_admin') }
         else
           { success: false, message: I18n.t('inactive_admin') }
@@ -84,6 +89,7 @@ class GroupService
     begin
       group_person = GroupPerson.where(group: group, person: current_person).first
       group_person.update_attribute(:confirmed, true)
+      JoinGroupActivity.create!(person: current_person, group: group)
       { success: true, message: I18n.t('welcome_to_group', name: group.name) }
     rescue => error
       { success: false, message: I18n.t('no_invitation') }
@@ -98,6 +104,7 @@ class GroupService
       NameDrawer.new(group).perform
       group.update_status
       notify_members_after_draw
+      DrawNamesActivity.create(person: current_person, group: group)
       
       { success: true }
     rescue => error
@@ -115,7 +122,7 @@ class GroupService
   end
 
   def remove_group_person(member)
-    GroupPerson.where(group: group, person: member).first.try(:destroy)
+    GroupPerson.where(group: group, person: member).first.try(:destroy!)
   end
 
   def can_remove_member?(member)

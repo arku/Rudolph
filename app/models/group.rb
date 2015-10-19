@@ -3,6 +3,7 @@ class Group < ActiveRecord::Base
   has_many :people, through: :group_people
   has_many :exchanges
   has_many :messages
+  has_many :group_activities
 
   belongs_to :admin, class_name: 'Person', foreign_key: 'admin_id'
 

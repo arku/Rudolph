@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016154427) do
+ActiveRecord::Schema.define(version: 20151019190055) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
     t.integer  "giver_id",    limit: 4
     t.integer  "receiver_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "group_activities", force: :cascade do |t|
+    t.integer  "group_id",    limit: 4
+    t.integer  "person_id",   limit: 4
+    t.integer  "resource_id", limit: 4
+    t.string   "type",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

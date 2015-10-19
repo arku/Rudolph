@@ -68,31 +68,49 @@
 
   - if current_person.confirmed?(@group)
     %br
-    .section-header
-      %h1= t('my_wishlist')
-      .action
-        = link_to t('edit_wishlist'), edit_wishlist_group_path
-    - if !@wishlist_description && @wishlist_items.empty?
-      .box
-        .light
-          = t('empty_wishlist')
-          = link_to t('create_wishlist'), edit_wishlist_group_path
-    - else
-      - if @wishlist_description
-        %p= @wishlist_description
-      - if @wishlist_items
-        - @wishlist_items.each do |item|
-          .large-4.columns.left
-            .box.wishlist-item-small
-              - if item.image
-                .image= image_tag item.image
-              .info
-                .title
-                  - if is_url?(item.name_or_url)
-                    = link_to "#{item.link_title || item.name_or_url}"[0..50], item.name_or_url
-                  - else
-                    = item.name_or_url
-        - if @wishlist_size > 3
-          .action.right= link_to t('view_all'), edit_wishlist_group_path
-      
+    .row.full-width
+      .section-header
+        %h1= t('my_wishlist')
+        .action
+          = link_to t('edit_wishlist'), edit_wishlist_group_path
+      - if !@wishlist_description && @wishlist_items.empty?
+        .box
+          .light
+            = t('empty_wishlist')
+            = link_to t('create_wishlist'), edit_wishlist_group_path
+      - else
+        - if @wishlist_description
+          %p= @wishlist_description
+        - if @wishlist_items
+          - @wishlist_items.each do |item|
+            .large-4.columns.left
+              .box.wishlist-item-small
+                - if item.image
+                  .image= image_tag item.image
+                .info
+                  .title
+                    - if is_url?(item.name_or_url)
+                      = link_to "#{item.link_title || item.name_or_url}"[0..50], item.name_or_url
+                    - else
+                      = item.name_or_url
+          - if @wishlist_size > 3
+            .action.right= link_to t('view_all'), edit_wishlist_group_path
 
+  %br
+  .section-header
+    %h1= t('latest_group_activity')
+    .action
+      = link_to t('view_all'), activity_group_path
+  - if @activity.empty?
+    .box
+      .light
+        = t('no_group_activity')
+  - else
+    - @activity.each do |activity|
+      .box
+        .activity
+          .person-pic= image_tag activity.person.photo_by_size('small')
+          .activity-box
+            .activity-description= activity.description
+            .light
+              .date= localize_datetime(activity.created_at)
