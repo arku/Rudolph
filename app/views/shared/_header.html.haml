@@ -11,7 +11,8 @@
       %ul.right
         - unless person_signed_in?
           %li.has-dropdown
-            = link_to 'Login', '#'
+            .login-link= link_to 'Login', '#'
+            .login-mobile= link_to 'Login', new_person_session_path
             %ul.dropdown
               %li.regular-login= render 'shared/log_in_form'
               %li.fb-login= render 'shared/facebook_login_button'

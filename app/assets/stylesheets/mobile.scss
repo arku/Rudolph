@@ -40,8 +40,18 @@
     }
   }
 
-  .has-dropdown {
+  .dropdown {
     display: none;
+  }
+
+  .login-link {
+    display: none;
+  }
+
+  .login-mobile {
+    display: inline-block !important;
+    float: right;
+    margin-top: 7px;
   }
 
   .top-bar .toggle-topbar.menu-icon {
