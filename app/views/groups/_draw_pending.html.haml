@@ -15,4 +15,9 @@
     = t('done')
     = link_to t('who_did_i_get'), who_group_path(@group)
 - else
-  .light= t('waiting_for_drawing')
+  .light
+    - if @group.can_draw_names?
+      = t('waiting_for_drawing')
+    - else
+      = t('cannot_draw_warning')
+    

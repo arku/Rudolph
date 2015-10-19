@@ -19,6 +19,19 @@
       .bold {
         color: rgb(199, 195, 195);
       }
+
+      .accept-invitation {
+        margin-top: 30px;
+
+        form {
+          display: inline;
+          margin-right: 15px;
+        }
+
+        a {
+          display: inline;
+        }
+      }
     }
 
     .calendar {

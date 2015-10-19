@@ -27,6 +27,9 @@ pt-br:
   no_invitation: Parece que o seu convite se perdeu no correio... Peça ao Admin do grupo para lhe enviar um novo convite.
   names_already_drawn: O sorteio já foi realizado.
   only_admin_draw: Só o Admin do grupo pode realizar o sorteio.
+  you_were_invited: Te convidaram para esse grupo.
+  join: Aceitar convite
+  no_thanks: "Não, obrigado"
 
   name: Nome
   description: Descrição

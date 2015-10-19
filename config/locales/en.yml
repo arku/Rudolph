@@ -27,6 +27,9 @@ en:
   no_invitation: It appears your invitation got lost in the mail... Contact the group admin for a new invitation.
   names_already_drawn: Names have already been drawn.
   only_admin_draw: Only the Admin can draw names.
+  you_were_invited: You've been invited to this group.
+  join: Join group
+  no_thanks: "No, thanks"
 
   name: Name
   description: Description

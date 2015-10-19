@@ -11,17 +11,24 @@
           .box.group-about.index-group-about
             .info.index-info
               %p= link_to group.name, group_path(group)
-              .item
-                .bold= t('where')
-                = cut_text(group.location, 30) 
-              .item
-                .bold= t('status')
-                - if group.status == 1
-                  = t('status_drawn')
-                  %br
-                  = link_to t('see_result'), who_group_path(group)
-                - else
-                  .red= t('status_pending')
+              - if current_person.confirmed?(group)
+                .item
+                  .bold= t('where')
+                  = cut_text(group.location, 30) 
+                .item
+                  .bold= t('status')
+                  - if group.status == 1
+                    = t('status_drawn')
+                    %br
+                    = link_to t('see_result'), who_group_path(group)
+                  - else
+                    .red= t('status_pending')
+              - else
+                .item
+                  = t('you_were_invited')
+                  .accept-invitation
+                    = button_to t('join'), accept_group_group_path(group), method: :get, class: 'btn btn-success'
+                    = link_to t('no_thanks'), leave_group_path(id: group.id), method: :delete, class: 'red', data: {confirm: {title: t('are_you_sure'), ok: t('sure'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}
             .side
               .calendar-small
                 .month= t("months")[group.date.month]
