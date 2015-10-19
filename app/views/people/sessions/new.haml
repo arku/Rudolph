@@ -1,6 +1,5 @@
-.row
-  %h1= t('login')
 .row.full-width.collapse
+  %h1= t('login')
   .large-5.columns.left
     .box
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
