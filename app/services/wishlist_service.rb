@@ -68,7 +68,15 @@ class WishlistService
     end
 
     errors.empty? ? { success: true } : { success: false, message: errors }
+  end
 
+  def remove_item(item_id)
+    begin
+      WishlistItem.find(item_id).destroy!
+      { success: true, message: I18n.t('removed_wishlist_item') }
+    rescue => error
+      { success: false, message: error.message }
+    end
   end
 
   private

@@ -9,6 +9,7 @@
             = link_to cut_text("#{item.link_title || item.name_or_url}", 50), item.name_or_url
           - else
             = item.name_or_url
+          .remove-from-wishlist= link_to 'x', remove_from_wishlist_group_path(item_id: item.id), method: :delete, class: 'red', data: {confirm: {title: t('are_you_sure'), ok: t('sure'), cancel: t('cancel'), modal_class: 'confirmation-modal'}}
         - if item.link_description
           .description.light= cut_text(item.link_description, 100)
         .comments= item.comments

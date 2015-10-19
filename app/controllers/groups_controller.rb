@@ -142,6 +142,19 @@ class GroupsController < ApplicationController
     redirect_to edit_wishlist_group_path
   end
 
+  def remove_from_wishlist
+    wishlist_service = WishlistService.new(@group, current_person)
+    response = wishlist_service.remove_item(params[:item_id])
+
+    if response[:success]
+      flash.notice = response[:message]
+    else
+      flash.alert = response[:message]
+    end
+
+    redirect_to edit_wishlist_group_path
+  end
+
   def wishlists
     @person = Person.find(params[:person_id])
     @wishlist_items = @person.wishlist_items(@group)

@@ -93,6 +93,7 @@ en:
   add: Add
   add_some: Add some!
   updated_wishlist: Successfully updated list
+  removed_wishlist_item: Successfully removed item
 
   result: Result
   top_secret: This is top secret information. Are you sure no one from the group can see your screen right now?

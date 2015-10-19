@@ -15,6 +15,7 @@ Rudolph::Application.routes.draw do
       delete 'leave_group',          as: 'leave'
       get    'edit_wishlist',        as: 'edit_wishlist'
       post   'update_wishlist',      as: 'update_wishlist'
+      delete 'remove_from_wishlist', as: 'remove_from_wishlist'
       get    'message_board',        as: 'message_board'
       post   'send_message',         as: 'send_message'
       get    'wishlists/:person_id', to: 'groups#wishlists', as: 'view_wishlist'
