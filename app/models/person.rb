@@ -3,6 +3,7 @@ class Person < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :group_activities, dependent: :destroy
   has_many :group_people, dependent: :destroy
   has_many :groups, through: :group_people
   has_many :messages

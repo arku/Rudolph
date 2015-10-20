@@ -3,7 +3,7 @@ class WishlistItem < ActiveRecord::Base
   has_one :group, through: :group_person
   has_one :person, through: :group_person
 
-  has_many :wishlist_item_activities
+  has_many :wishlist_item_activities, foreign_key: 'resource_id', dependent: :destroy
 
   def name
     is_url? && link_title ? link_title : name_or_url
