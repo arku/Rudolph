@@ -163,7 +163,7 @@ class GroupsController < ApplicationController
     @wishlist_description = @person.wishlist_description(@group)
 
     add_breadcrumb @group.name, group_path(@group)
-    add_breadcrumb t('result')
+    add_breadcrumb t('persons_wishlist', name: @person.first_name)
   end
 
   def activity
