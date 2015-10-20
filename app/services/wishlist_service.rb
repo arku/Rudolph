@@ -25,9 +25,11 @@ class WishlistService
 
   def update_description(description)
     begin
-      group_person.wishlist_description = description
-      group_person.save!
-      WishlistDescriptionActivity.create!(person: current_person, group: @group)
+      if group_person.wishlist_description != description
+        group_person.wishlist_description = description
+        group_person.save!
+        WishlistDescriptionActivity.create!(person: current_person, group: @group)
+      end
       { success: true }
     rescue => error
       { success: false, message: error.message }
