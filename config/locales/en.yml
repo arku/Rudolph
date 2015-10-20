@@ -94,6 +94,7 @@ en:
   add_some: Add some!
   updated_wishlist: Successfully updated list
   removed_wishlist_item: Successfully removed item
+  not_your_wishlist_item: You can only delete your own items
 
   result: Result
   top_secret: This is top secret information. Are you sure no one from the group can see your screen right now?

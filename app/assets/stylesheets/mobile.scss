@@ -196,6 +196,18 @@
     height: 180px;
   }
 
+  .wishlist-item {
+    .info {
+      .title {
+        .remove-from-wishlist {
+          a {
+            right: 23px !important;
+          }
+        }
+      }
+    }
+  }
+
   #confidential {
     .row {
       .sticker {

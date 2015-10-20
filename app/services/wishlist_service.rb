@@ -74,8 +74,14 @@ class WishlistService
 
   def remove_item(item_id)
     begin
-      WishlistItem.find(item_id).destroy!
-      { success: true, message: I18n.t('removed_wishlist_item') }
+      wishlist_item = WishlistItem.find(item_id)
+      
+      if wishlist_item.person == current_person
+        wishlist_item.destroy!
+        { success: true, message: I18n.t('removed_wishlist_item') }
+      else
+        { success: false, message: I18n.t('not_your_wishlist_item') }
+      end
     rescue => error
       { success: false, message: error.message }
     end
