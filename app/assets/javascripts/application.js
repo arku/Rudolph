@@ -28,4 +28,6 @@ $(document).ready(function() {
   }, 2000);
 
   $(document).confirmWithReveal();
+
+  disqus_rails.draw_thread("8", "");
 });
