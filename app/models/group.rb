@@ -1,4 +1,6 @@
 class Group < ActiveRecord::Base
+  acts_as_disqusable
+
   has_many :group_people
   has_many :people, through: :group_people
   has_many :exchanges

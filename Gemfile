@@ -46,6 +46,8 @@ gem 'geocoder'
 
 gem 'carrierwave'
 
+gem 'disqus_rails'
+
 gem 'faye'
 
 gem 'thin'
