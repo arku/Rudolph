@@ -116,4 +116,14 @@
             .light
               .date= localize_datetime(activity.created_at)
 
-  #disqus_thread
+  %br
+  .section-header
+    %h1= t('message_board')
+  #sso.hidden= @sso_js.html_safe
+  .box#disqus_thread
+    :javascript
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//itsrudolph.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();

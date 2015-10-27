@@ -44,6 +44,7 @@ pt-br:
   location_default: Isso ainda é um mistério.
   price_range_default: Vale tudo!
   description_default: "%{admin_name} ficou com preguiça de escrever uma descrição pro grupo..."
+  message_board: Mensagens
 
   are_you_sure: Tem certeza?
   sure: Sim

@@ -44,6 +44,7 @@ en:
   location_default: That's still a mystery.
   price_range_default: Anything goes!
   description_default: "%{admin_name} was too lazy to write a description for this group..."
+  message_board: Message board
 
   are_you_sure: Are you sure?
   sure: "Yes"
