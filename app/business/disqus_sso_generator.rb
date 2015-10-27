@@ -8,14 +8,15 @@ class DisqusSSOGenerator
  
   DISQUS_SECRET_KEY = ENV['disqus_secret_key']
   DISQUS_PUBLIC_KEY = ENV['disqus_public_key']
+  BASE_URL =  'http://itsrudolph.com'
    
   def self.get_disqus_sso(user)
     # create a JSON packet of our data attributes
     data =  {
       'id' => user.id,
-      'username' => user.email,
+      'username' => user.first_name,
       'email' => user.email,
-      'avatar' => user.photo_by_size
+      'avatar' => "#{BASE_URL}#{user.photo_by_size}"
     }.to_json
  
     # encode the data to base64
