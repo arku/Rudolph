@@ -30,7 +30,6 @@ class DisqusSSOGenerator
         var disqus_config = function() {
             this.page.remote_auth_s3 = \"#{message} #{sig} #{timestamp}\";
             this.page.api_key = \"#{DISQUS_PUBLIC_KEY}\";
-            5a0207795215dabfaa1c54154d7bbe6c84791e2b 0
         }
     </script>"
   end
