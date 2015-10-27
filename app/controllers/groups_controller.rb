@@ -174,13 +174,6 @@ class GroupsController < ApplicationController
     add_breadcrumb t('group_activity')
   end
 
-  def message_board
-    @messages = @group.public_messages
-
-    add_breadcrumb @group.name, group_path(@group)
-    add_breadcrumb t('message_board')
-  end
-
   def send_message
     @message = Message.create!(group: @group, sender: current_person, message: params[:message])
   end

@@ -13,9 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require private_pub
 //= require turbolinks
-//= require disqus_rails
 //= require_tree .
 
 $(document).on('ready page:load', function () {
