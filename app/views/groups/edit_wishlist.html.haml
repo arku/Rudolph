@@ -2,7 +2,6 @@
   .row.full-width
     %h1= t('edit_my_wishlist')
     .box
-
       = label_tag 'wishlist_description', t('general_comments')
       .light= t('about_comments')
       = text_area_tag :wishlist_description, @description, rows: 3
