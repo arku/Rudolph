@@ -11,12 +11,15 @@ class DisqusSSOGenerator
   BASE_URL =  'http://itsrudolph.com'
    
   def self.get_disqus_sso(user)
+    avatar = user.photo_by_size
+    avatar = "#{BASE_URL}#{user.photo_by_size}" unless avatar[0..3] == 'http'
+
     # create a JSON packet of our data attributes
     data =  {
       'id' => user.id,
       'username' => user.first_name,
       'email' => user.email,
-      'avatar' => "#{BASE_URL}#{user.photo_by_size}"
+      'avatar' => avatar
     }.to_json
  
     # encode the data to base64
