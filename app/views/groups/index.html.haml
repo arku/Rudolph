@@ -14,7 +14,7 @@
               - if current_person.confirmed?(group)
                 .item
                   .bold= t('where')
-                  = cut_text(group.location, 30) 
+                  = cut_text(group.show_location, 30) 
                 .item
                   .bold= t('status')
                   - if group.status == 1
