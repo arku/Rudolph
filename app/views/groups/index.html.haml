@@ -48,7 +48,9 @@
     - @activity.each do |activity|
       .box
         .activity
-          .person-pic= image_tag activity.person.photo_by_size('small')
+          .person-pic
+            = link_to view_wishlist_group_path(id: activity.group_id, person_id: activity.person.id) do
+              = image_tag activity.person.photo_by_size('small')
           .activity-box
             .activity-description= activity.full_description
             .light
