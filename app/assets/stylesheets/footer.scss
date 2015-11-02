@@ -11,9 +11,26 @@
   overflow:hidden;
   text-align: center;
 
-  .language {
-    a {
-      color: rgba(165, 130, 93, 0.87);
+  .row {
+    .language {
+      a {
+        color: rgba(165, 130, 93, 0.87);
+      }
+    }
+    
+    .large-4 {
+      width: 33.33%;
+    }
+
+    .social {
+      text-align: left;
+
+      a.github {
+        color: rgba(165, 130, 93, 0.87);
+        font-size: 14px;
+        line-height: 35px;
+        margin: 10px 0 0 3px;
+      }
     }
   }
 }
