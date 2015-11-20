@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019190055) do
+ActiveRecord::Schema.define(version: 20151120154721) do
 
   create_table "exchanges", force: :cascade do |t|
     t.integer  "group_id",    limit: 4
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20151019190055) do
     t.integer  "group_id",             limit: 4
     t.integer  "person_id",            limit: 4
     t.boolean  "confirmed",            limit: 1
-    t.text     "wishlist_description", limit: 65535
+    t.text     "wishlist_description", limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20151019190055) do
   create_table "groups", force: :cascade do |t|
     t.integer  "admin_id",    limit: 4
     t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
+    t.text     "description", limit: 16777215
     t.datetime "date"
     t.string   "location",    limit: 255
     t.string   "price_range", limit: 255
-    t.integer  "status",      limit: 4,     default: 0
+    t.integer  "status",      limit: 4,        default: 0
     t.float    "latitude",    limit: 24
     t.float    "longitude",   limit: 24
     t.datetime "created_at"
@@ -100,11 +100,11 @@ ActiveRecord::Schema.define(version: 20151019190055) do
 
   create_table "wishlist_items", force: :cascade do |t|
     t.integer "group_person_id",  limit: 4
-    t.text    "name_or_url",      limit: 65535
-    t.text    "comments",         limit: 65535
+    t.text    "name_or_url",      limit: 16777215
+    t.text    "comments",         limit: 16777215
     t.string  "image",            limit: 255
     t.string  "link_title",       limit: 255
-    t.text    "link_description", limit: 65535
+    t.text    "link_description", limit: 16777215
   end
 
 end
