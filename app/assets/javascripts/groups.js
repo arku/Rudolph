@@ -14,6 +14,7 @@ $(document).ready(function(){
     last_field = $('.clonable-field:last');
     clone = last_field.clone();
     clone.find('input[type=text]').val('');
+    clone.find('textarea').val('');
     clone.insertAfter(last_field);
     $('.close').removeClass('hidden').show();
   });
