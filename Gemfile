@@ -10,8 +10,6 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 
-gem 'turbolinks'
-
 gem 'therubyracer'
 
 gem 'devise'
