@@ -13,16 +13,16 @@
     float: left;
     margin-left: 19px;
     max-width: 250px;
+  }
 
-    .title {
-      .remove-from-wishlist {
-        a {
-          text-decoration: none;
-          position: absolute;
-          right: 20px;
-          top: 5px;
-        }
-      }
+  .remove-from-wishlist {
+    position: relative;
+
+    a {
+      text-decoration: none;
+      position: absolute;
+      right: -8px;
+      top: -15px;
     }
   }
 
