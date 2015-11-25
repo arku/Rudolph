@@ -89,7 +89,7 @@ class GroupService
     begin
       group_person = GroupPerson.where(group: group, person: current_person).first
       group_person.update_attribute(:confirmed, true)
-      JoinGroupActivity.create!(person: current_person, group: group)
+      JoinGroupActivity.where(person: current_person, group: group).first_or_create!
       { success: true, message: I18n.t('welcome_to_group', name: group.name) }
     rescue => error
       { success: false, message: I18n.t('no_invitation') }
