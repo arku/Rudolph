@@ -80,8 +80,8 @@
               = t('empty_wishlist')
               = link_to t('create_wishlist'), edit_wishlist_group_path
         - else
-          - if @wishlist_description
-            %p= @wishlist_description
+          - if @wishlist_description.present?
+            .box= @wishlist_description
           - if @wishlist_items
             - @wishlist_items.each do |item|
               .large-4.columns.left

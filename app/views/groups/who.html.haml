@@ -15,11 +15,11 @@
       %h1= "#{t('oscar')} #{@person.name || @person.email}!"
       = t('who', name: @person.name || @person.email)
 
-  .row.full-width
+  .row.full-width.collapse
     .section-header
       %h1= t('persons_wishlist', name: @person.first_name)
-    - if @wishlist_description
-      %p= @wishlist_description
+    - if @wishlist_description.present?
+      .box= @wishlist_description
 
     .row.full-width
       - if @wishlist_items.any?
