@@ -1,7 +1,8 @@
 - status = person.status(@group)
 
 .member{id: "person_#{person.id}"}
-  .avatar= image_tag person.photo_by_size('normal')
+  = link_to view_wishlist_group_path(person_id: person.id) do
+    .avatar= image_tag person.photo_by_size('normal')
   .name= link_to person.name || person.email.split('@').first[0..20], view_wishlist_group_path(person_id: person.id)
   - if person.is_admin?(@group)
     .status= t('group_admin')
