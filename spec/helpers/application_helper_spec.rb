@@ -33,6 +33,34 @@ describe ApplicationHelper do
     end
   end
 
+  describe '#localize_datetime' do
+    let(:group) { Group.find(1) }
+
+    context 'english' do
+      before(:all) do
+        I18n.locale = :en
+      end
+
+      it 'returns the time in AM/PM format' do
+        expect(localize_datetime(group.date)).to eq('12/20/2015 08 PM')
+      end
+    end
+
+    context 'portuguese' do
+      before(:all) do
+        I18n.locale = 'pt-br'
+      end
+
+      after(:all) do
+        I18n.locale = :en
+      end
+
+      it 'returns the time in 24h format' do
+        expect(localize_datetime(group.date)).to eq('20/12/2015 20:00')
+      end
+    end
+  end
+
   describe '#localize_time' do
     let(:group) { Group.find(1) }
 

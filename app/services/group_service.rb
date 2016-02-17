@@ -78,7 +78,6 @@ class GroupService
           end
         end
       rescue => error
-        puts error.message
       end
     end
 

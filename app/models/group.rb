@@ -40,10 +40,6 @@ class Group < ActiveRecord::Base
     save
   end
 
-  def public_messages
-    Message.public_by_group(id)
-  end
-
   def show_location
     location.present? ? location : I18n.t('location_default')
   end
