@@ -45,13 +45,13 @@
     .section-header
       %h1= t('latest_activity_home')
 
-    - @activity.each do |activity|
-      .box
+    .box.activity-box
+      - @activity.each do |activity|
         .activity
           .person-pic
             = link_to view_wishlist_group_path(id: activity.group_id, person_id: activity.person.id) do
               = image_tag activity.person.photo_by_size('small')
-          .activity-box
+          .activity-info
             .activity-description= activity.full_description
             .light
               .date= localize_datetime(activity.created_at)

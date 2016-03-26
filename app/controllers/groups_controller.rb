@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
     all_items             = current_person.wishlist_items(@group)
     @wishlist_size        = all_items.size
     @wishlist_items       = all_items.limit(3)
-    @activity             = @group.group_activities.limit(3)
+    @activity             = @group.group_activities.limit(6)
     @sso_js               = DisqusSSOGenerator.get_disqus_sso(current_person)
 
     add_breadcrumb @group.name

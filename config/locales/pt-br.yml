@@ -61,6 +61,7 @@ pt-br:
   good_luck: Momento 'guenta coração!
   done: Pronto!
   see_result: Quem eu tirei?
+  result_description: "É hora da verdade:"
   who_did_i_get: Quem eu tirei?
 
   members: Membros
@@ -78,10 +79,11 @@ pt-br:
 
   wishlist: Lista de Desejos
   my_wishlist: Minha Lista de Desejos
-  edit_wishlist: Editar Lista de Desejos
+  edit_wishlist: "Editar Lista de Desejos (%{item_count} itens)"
   empty_wishlist: Você ainda não tem uma Lista de Desejos!
+  empty_wishlist_description: Você ainda não escreveu comentários sobre sua Lista de Desejos!
   create_wishlist: Crie uma!
-  view_all: Ver tudo
+  view_all: Ver todas
 
   edit_my_wishlist: Editar minha Lista de Desejos
   comments: Comentários

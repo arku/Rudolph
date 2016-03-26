@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+  if($('.members').css('height')) {
+    $('.activity-box').css('height', $('.members').css('height'));
+  }
+
   $(document).on('click', '.add', function() {
     $('.sliding-box').slideDown();
     $(this).hide();

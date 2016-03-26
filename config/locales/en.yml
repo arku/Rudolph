@@ -61,6 +61,7 @@ en:
   good_luck: May the odds be ever in your favor.
   done: Done!
   see_result: Let's see the result!
+  result_description: "The truth is finally out:"
   who_did_i_get: Who did I get?
 
   members: Members
@@ -78,8 +79,9 @@ en:
 
   wishlist: Wishlist
   my_wishlist: My Wishlist
-  edit_wishlist: Edit wishlist
+  edit_wishlist: "Edit wishlist (%{item_count} items)"
   empty_wishlist: You don't have a wishlist yet!
+  empty_wishlist_description: You don't have a wishlist description yet!
   create_wishlist: Create one!
   view_all: View all
 

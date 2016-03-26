@@ -1,9 +1,8 @@
-.box
-  .activity
-    .person-pic
-      = link_to view_wishlist_group_path(person_id: activity.person.id) do
-        = image_tag activity.person.photo_by_size('small')
-    .activity-box
-      .activity-description= activity.description
-      .light
-        .date= localize_datetime(activity.created_at)
+.activity
+  .person-pic
+    = link_to view_wishlist_group_path(person_id: activity.person.id) do
+      = image_tag activity.person.photo_by_size('small')
+  .activity-info
+    .activity-description= activity.description
+    .light
+      .date= localize_datetime(activity.created_at)

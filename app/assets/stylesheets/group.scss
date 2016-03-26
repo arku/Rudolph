@@ -89,7 +89,7 @@
   float:right;
 
   #map {
-    border: 1px solid #8D8D8D;
+    border: 1px solid rgba(162, 156, 130, 0.79);
     height: 309px;
     margin-top: 3px;
     width: 312px;
@@ -113,7 +113,7 @@
   display:inline;
   float:right;
   font-size: 15px;
-  line-height: 35px;
+  line-height: 50px;
   text-decoration: underline;
 }
 
@@ -177,21 +177,24 @@
   margin-bottom: 25px;
   overflow: hidden;
   padding-left: 20px;
+  overflow: scroll !important;
+  max-height: 490px;
+  height: auto;
 
   .member {
     display: inline-block;
     float: left;
-    margin: 0px 45px 40px 0;    
+    margin: 0px 0px 40px 0;    
     text-align: center;
-    width: 150px;
+    width: 142px;
     
     .avatar {
       border: 4px solid white;
       border-radius: 4px;
-      height: 123px;
+      height: 103px;
       margin: auto;
       padding: 0;
-      width: 120px;
+      width: 100px;
       
       img {
         height: 100%;
@@ -249,8 +252,27 @@
 
 .group-draw {
   form {
-    display:inline;
-    margin-right: 10px;
+/*    display:inline;
+    margin-right: 10px;*/
+
+    input {
+      text-align: center;
+      display: block;
+      align-self: center;
+      width: 60%;
+      float: left;
+      margin: 20px 0 20px 20%;
+    }
+  }
+
+  .box {
+    padding: 11px;
+
+    p {
+      display: inline-block;
+      line-height: 42px;
+      margin: 0 0 0 5px;
+    }
   }
 
   .draw-notice {
@@ -372,7 +394,8 @@
 }
 
 .draw_done_button {
-  margin: 15px 0;
+  margin: 0;
+  float: right;
   padding: 10px 20px !important;
 }
 
@@ -403,7 +426,17 @@
   margin-top: 130px;
 }
 
+.activity-box {
+  padding: 15px !important;
+  margin-bottom: 7px !important;
+  height: 490px;
+  overflow: scroll !important;
+}
+
 .activity {
+  padding: 15px !important;
+  border-bottom: 1px solid #DEDEDE;
+
   .person-pic {
     width: 50px;
     display: inline-block;
@@ -427,10 +460,10 @@
     }
   }
 
-  .activity-box {
+  .activity-info {
     display: inline-block;
     vertical-align: top;
-    width: 90%;
+    width: 75%;
   }
 }
 
@@ -441,6 +474,10 @@
   overflow: hidden;
   position: absolute;
   margin: 2px 0 0 120px;
+}
+
+.message-board {
+  padding: 0 0.9375rem;
 }
 
 #disqus_thread {

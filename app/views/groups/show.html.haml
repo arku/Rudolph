@@ -1,5 +1,8 @@
 .row.full-width
-  %h1= @group.name
+  .section-header
+    %h1= @group.name
+    - if @is_admin
+      .action= link_to t('edit_info'), edit_group_path(@group)
   .row.full-width
     .large-8.columns.left
       .box.group-about
@@ -15,10 +18,7 @@
             %p= @group.show_price_range
             .bold= t('description')
             = @group.show_description
-          - if current_person.confirmed?(@group)
-            - if @is_admin
-              .item= link_to t('edit_info'), edit_group_path(@group)
-          - else
+          - unless current_person.confirmed?(@group)
             .item
               = t('you_were_invited')
               .accept-invitation
@@ -30,98 +30,85 @@
     .large-4.columns.right
       .side
         #map
-  %br
-  - unless @draw_pending
-    %h1= t('drawing')
-    .group-draw
-      = render 'groups/draw_done'
-  %br
-  .section-header
-    %h1= t('members')
-    - if @draw_pending && current_person.confirmed?(@group)
-      .action
-        .add= link_to t('add_members'), 'javascript:;'
-  - if @draw_pending
-    .box.sliding-box
-      .close-sliding-box= link_to t('close'), 'javascript:;'
-      .success.hidden
-        .success-title= t('invitations_sent')
-        .success-list
-      .error.hidden
-        .error-title= t('invitations_not_sent')
-        .error-list
-      = form_tag send_invitations_group_path, method: :post, remote: true do
-        .invite-fields
-          = render 'invitation_field'
-        .large3.columns
-          .add-more= link_to t('add_more'), 'javascript:;'
-          = submit_tag t('send_invitations'), class: 'btn gray', onclick: "$(this).unbind('click')"
-
-  .members
-    - @group.people.each do |person|
-      = render partial: 'groups/member', locals: {person: person, draw_pending: @draw_pending}
-
-  - if @draw_pending
-    %h1= t('drawing')
-    .box.group-draw
-      = render 'groups/draw_pending'
-
-  - if current_person.confirmed?(@group)
-    %br
-    .row.full-width
-      .columns.left
-        .section-header
-          %h1= t('my_wishlist')
+  .row
+    .large-6.columns.left
+      .section-header
+        %h1= t('members')
+        - if @draw_pending && current_person.confirmed?(@group)
           .action
-            = link_to t('edit_wishlist'), edit_wishlist_group_path
-        - if !@wishlist_description && @wishlist_items.empty?
-          .box
-            .light
-              = t('empty_wishlist')
-              = link_to t('create_wishlist'), edit_wishlist_group_path
-        - else
-          - if @wishlist_description.present?
-            .box= @wishlist_description
-          - if @wishlist_items
-            - @wishlist_items.each do |item|
-              .large-4.columns.left
-                .box.wishlist-item-small
-                  - if item.image
-                    .image= image_tag item.image
-                  .info
-                    .title
-                      - if is_url?(item.name_or_url)
-                        = link_to "#{item.link_title || item.name_or_url}"[0..50], item.name_or_url
-                      - else
-                        = item.name_or_url
-            - if @wishlist_size > 3
-              .action.right= link_to t('view_all'), edit_wishlist_group_path
+            .add= link_to t('add_members'), 'javascript:;'
+      - if @draw_pending
+        .box.sliding-box
+          .close-sliding-box= link_to t('close'), 'javascript:;'
+          .success.hidden
+            .success-title= t('invitations_sent')
+            .success-list
+          .error.hidden
+            .error-title= t('invitations_not_sent')
+            .error-list
+          = form_tag send_invitations_group_path, method: :post, remote: true do
+            .invite-fields
+              = render 'invitation_field'
+            .large3.columns
+              .add-more= link_to t('add_more'), 'javascript:;'
+              = submit_tag t('send_invitations'), class: 'btn gray', onclick: "$(this).unbind('click')"
 
-  %br
-  .section-header
-    %h1= t('latest_group_activity')
-    .action
-      = link_to t('view_all'), activity_group_path
-  - if @activity.empty?
-    .box
-      .light
-        = t('no_group_activity')
-  - else
-    - @activity.each do |activity|
-      = render 'activity', activity: activity
+      .box.members
+        - @group.people.each do |person|
+          = render partial: 'groups/member', locals: {person: person, draw_pending: @draw_pending}
+    .large-6.columns.left
+      .section-header
+        %h1= t('latest_group_activity')
+        .action
+          = link_to t('view_all'), activity_group_path
+      - if @activity.empty?
+        .box
+          .light
+            = t('no_group_activity')
+      - else
+        .box.activity-box
+          - @activity.each do |activity|
+            = render 'activity', activity: activity
 
-  %br
-  .section-header
-    %h1= t('message_board')
-  #sso.hidden= @sso_js.html_safe
-  .fix
-  .box#disqus_thread
-    :javascript
-      var disqus_shortname  = 'itsrudolph'
-      var disqus_identifier = 'group_'+#{@group.id};
+  .row.full-width
+    .large-6.columns.left
+      .section-header
+        %h1= t('drawing')
+      - if @draw_pending
+        .box.group-draw= render 'groups/draw_pending'
+      - else
+        .group-draw= render 'groups/draw_done'
+    .large-6.columns.left
+      - if current_person.confirmed?(@group)
+        .row
+          .columns.left
+            .section-header
+              %h1= t('my_wishlist')
+              .action
+                = link_to t('edit_wishlist', item_count: @wishlist_size), edit_wishlist_group_path
+            .box
+              - if !@wishlist_description && @wishlist_items.empty?
+                .light
+                  = t('empty_wishlist')
+                  = link_to t('create_wishlist'), edit_wishlist_group_path
+              - else
+                - if @wishlist_description.present?
+                  = @wishlist_description
+                - else
+                  .light
+                    = t('empty_wishlist_description')
+  .row.full-width.message-board
+    .section-header
+      %h1= t('message_board')
+    #sso.hidden= @sso_js.html_safe
+    .fix
+    .box#disqus_thread
+      :javascript
+        var disqus_shortname  = 'itsrudolph'
+        var disqus_identifier = 'group_'+#{@group.id};
 
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
