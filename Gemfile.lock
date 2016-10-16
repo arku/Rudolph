@@ -350,7 +350,7 @@ DEPENDENCIES
   koala (~> 1.11.0rc)
   letter_opener
   metainspector
-  mysql2
+  mysql2 (~> 0.3.18)
   omniauth
   omniauth-facebook
   pry

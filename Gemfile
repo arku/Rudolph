@@ -4,7 +4,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.2.0'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 
 gem 'uglifier', '>= 1.3.0'
 
