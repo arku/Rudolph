@@ -1,7 +1,22 @@
 $(document).ready(function(){
 
-  if($('.members').css('height')) {
-    $('.activity-box').css('height', $('.members').css('height'));
+  if($(document).width() > 1026) {
+    if($('.members').css('height')) {
+      $('.activity-box').css('height', $('.members').css('height'));
+    }
+
+    if($('.glow-button').css('height')) {
+      $('.glow-button').closest('.box').css('height', $('.wishlist').css('height'));
+    } else {
+      var height1 = $('.group-draw').height();
+      var height2 = $('.wishlist').height();
+
+      if(height1 > height2) {
+        $('.wishlist').css('height', $('.group-draw').css('height'));
+      } else {
+        $('.group-draw').css('height', $('.wishlist').css('height'));
+      }
+    }
   }
 
   $(document).on('click', '.add', function() {

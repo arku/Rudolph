@@ -62,7 +62,7 @@
         .action
           = link_to t('view_all'), activity_group_path
       - if @activity.empty?
-        .box
+        .box.activity-box
           .light
             = t('no_group_activity')
       - else
@@ -86,7 +86,7 @@
               %h1= t('my_wishlist')
               .action
                 = link_to t('edit_wishlist', item_count: @wishlist_size), edit_wishlist_group_path
-            .box
+            .box.wishlist
               - if !@wishlist_description && @wishlist_items.empty?
                 .light
                   = t('empty_wishlist')

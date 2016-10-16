@@ -252,16 +252,28 @@
 
 .group-draw {
   form {
-/*    display:inline;
-    margin-right: 10px;*/
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
 
     input {
       text-align: center;
       display: block;
       align-self: center;
-      width: 60%;
+      width: 100%;
       float: left;
-      margin: 20px 0 20px 20%;
+      margin-bottom: 20px;
+    }
+
+    .glow-button {
+      width: 85% !important;
+      margin: auto !important;
+      float: none;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
     }
   }
 
