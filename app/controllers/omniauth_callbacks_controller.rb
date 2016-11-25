@@ -19,7 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         end
       rescue => error
         flash.alert = error.message
-        redirect_to :back and return
+        redirect_to root_path and return
       end
     end
 
